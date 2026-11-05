@@ -1,0 +1,10 @@
+[
+  {
+    "case_id": "SMOKE-V12",
+    "head_hash": "71c795153a723c16f7c7b29f81bdc7eb994560de5b2382b268213c11de0376bf",
+    "entry_count": 12,
+    "anchored_at": 1793863145.8159714,
+    "anchored_iso": "2026-11-05T07:19:05Z",
+    "adapter": "git"
+  }
+]
