@@ -6,5 +6,13 @@
     "anchored_at": 1793863145.8159714,
     "anchored_iso": "2026-11-05T07:19:05Z",
     "adapter": "git"
+  },
+  {
+    "case_id": "SMOKE-V13",
+    "head_hash": "87014efa8c20d5ad0d6726c6654fc6a96594c8720448c582cfd6ced7aa24731e",
+    "entry_count": 16,
+    "anchored_at": 1793866778.451652,
+    "anchored_iso": "2026-11-05T08:19:38Z",
+    "adapter": "git"
   }
 ]
