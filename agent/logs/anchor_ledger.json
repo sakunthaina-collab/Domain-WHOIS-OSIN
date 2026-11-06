@@ -23,5 +23,14 @@
     "anchored_iso": "2026-11-05T08:20:39Z",
     "adapter": "git",
     "fingerprint": "3892E3F2CEDAE88EDEF85D64892DBC9697F6927A"
+  },
+  {
+    "case_id": "2026-11-06-CASE-B-FULL",
+    "head_hash": "df2f7169388cce3a8c75d2bf0185d5ae863ae921d8031f56d29167b83273948a",
+    "entry_count": 24,
+    "anchored_at": 1793943366.3061495,
+    "anchored_iso": "2026-11-06T05:36:06Z",
+    "adapter": "git",
+    "fingerprint": "3892E3F2CEDAE88EDEF85D64892DBC9697F6927A"
   }
 ]
