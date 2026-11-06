@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DomainWhoisOSINTOutput",
+  "description": "Standardized Enterprise Output Schema for Domain & WHOIS OSINT UI Dashboard",
+  "type": "object",
+  "required": [
+    "ok",
+    "domain",
+    "scam_risk_score",
+    "confidence",
+    "risk_level",
+    "response_time_sec",
+    "signals",
+    "whois",
+    "ip_enrichment",
+    "evidence_timeline",
+    "audit_trail",
+    "evidence"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "domain": { "type": "string", "example": "example-suspicious.com" },
+    "scam_risk_score": { "type": "integer", "minimum": 0, "maximum": 100, "example": 72 },
+    "confidence": { "type": "string", "enum": ["Low", "Medium", "High"], "example": "Medium" },
+    "risk_level": { "type": "string", "enum": ["Low Risk", "Moderate Risk", "High Risk"], "example": "High Risk" },
+    "response_time_sec": { "type": "number", "example": 2.4 },
+    "top_reason_th": { "type": "string", "example": "ความเสี่ยงสูง (คะแนน 72/100): โดเมนอายุ < 14 วัน และใช้ Privacy Guard" },
+    "top_reason_en": { "type": "string", "example": "High Risk (Score 72/100): Domain age < 14 days and Privacy Guard enabled" },
+    "signals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["factor", "weight", "detail"],
+        "properties": {
+          "factor": { "type": "string", "example": "Domain age < 14 วัน" },
+          "factor_id": { "type": "string", "example": "domain_age" },
+          "signal_type": { "type": "string", "enum": ["fact", "signal", "inference", "unknown"], "example": "signal" },
+          "weight": { "type": "integer", "example": 25 },
+          "detail": { "type": "string", "example": "Created 2024-10-02 (12 วัน)" }
+        }
+      }
+    },
+    "signal_taxonomy": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "confidence_drilldown": {
+      "type": "object"
+    },
+    "evidence_integrity": {
+      "type": "object"
+    },
+    "disclaimer_th": { "type": "string" },
+    "disclaimer_en": { "type": "string" },
+    "whois": {
+      "type": "object",
+      "required": ["registrar", "created", "expires", "name_servers", "status", "privacy_guard"],
+      "properties": {
+        "registrar": { "type": "string", "example": "NameCheap, Inc." },
+        "created": { "type": "string", "example": "2024-10-02 (12 วัน)" },
+        "expires": { "type": "string", "example": "2025-10-02" },
+        "name_servers": { "type": "array", "items": { "type": "string" }, "example": ["ns1.namecheap.com", "ns2.namecheap.com"] },
+        "status": { "type": "string", "example": "clientTransferProhibited" },
+        "privacy_guard": { "type": "string", "enum": ["Enabled", "Disabled"], "example": "Enabled" }
+      }
+    },
+    "ip_enrichment": {
+      "type": "object",
+      "required": ["ip", "country", "city", "asn", "org", "reputation", "open_ports", "last_seen"],
+      "properties": {
+        "ip": { "type": "string", "example": "185.199.110.153" },
+        "country": { "type": "string", "example": "Germany" },
+        "city": { "type": "string", "example": "Frankfurt am Main" },
+        "asn": { "type": "string", "example": "AS54113" },
+        "org": { "type": "string", "example": "Fastly, Inc." },
+        "reputation": { "type": "string", "enum": ["Clean", "Suspicious", "Malicious"], "example": "Suspicious" },
+        "open_ports": { "type": "array", "items": { "type": "string" }, "example": ["443 (HTTPS)"] },
+        "last_seen": { "type": "string", "example": "2024-10-10" }
+      }
+    },
+    "evidence_timeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ts", "event", "source"],
+        "properties": {
+          "ts": { "type": "string", "example": "2024-10-02 10:12" },
+          "event": { "type": "string", "example": "Domain registered (newly observed)" },
+          "source": { "type": "string", "example": "RDAP" }
+        }
+      }
+    },
+    "audit_trail": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ts", "action", "actor"],
+        "properties": {
+          "ts": { "type": "string", "example": "2024-10-14 10:00" },
+          "action": { "type": "string", "example": "Search domain: example-suspicious.com" },
+          "actor": { "type": "string", "example": "SOC Analyst" }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim", "source", "retrieved_at", "raw_response_sha256"],
+        "properties": {
+          "claim": { "type": "string" },
+          "source": { "type": "string" },
+          "retrieved_at": { "type": "string" },
+          "raw_response_sha256": { "type": "string" }
+        }
+      }
+    }
+  }
+}

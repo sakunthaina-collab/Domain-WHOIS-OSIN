@@ -1,0 +1,38 @@
+name: domain-whois-osint
+version: 1.0.0
+category: investigation
+status: runnable
+description: >
+  สืบสวนและตรวจสอบข้อมูลโดเมน (Domain & WHOIS OSINT) แบบ Passive
+  ดึงข้อมูล DNS, RDAP/WHOIS, Certificate Transparency และประเมินความเสี่ยง Scam Risk Score (0-100)
+  (Domain, WHOIS, DNS and Scam Risk Evaluation)
+triggers:
+  - "ตรวจสอบโดเมน"
+  - "เช็คโดเมน"
+  - "domain lookup"
+  - "whois"
+  - "scam domain"
+  - "dns osint"
+
+input_schema:
+  type: object
+  properties:
+    domain:
+      type: string
+      description: "ชื่อโดเมนที่ต้องการตรวจสอบ เช่น example.com หรือ https://example.com"
+    passive_only:
+      type: boolean
+      default: true
+    timeout:
+      type: number
+      default: 10.0
+  required: ["domain"]
+
+runtime:
+  type: python
+  entry: run.py
+  timeout: 30
+
+permissions: [network]
+risk: low
+outputs: [json, markdown]

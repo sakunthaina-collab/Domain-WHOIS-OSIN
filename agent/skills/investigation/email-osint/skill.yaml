@@ -1,0 +1,51 @@
+name: email-osint
+version: 1.0.0
+category: investigation
+status: runnable
+description: >
+  100% free passive Email OSINT investigation: RFC 5322 syntax validation,
+  domain MX record resolution, disposable/temporary mail provider detection,
+  consumer webmail and corporate routing identification, and public Gravatar
+  profile footprints with cryptographic evidence tracking.
+triggers:
+  - "email-osint"
+  - "email lookup"
+  - "check email"
+  - "mail osint"
+  - "verify email"
+  - "ตรวจสอบอีเมล"
+  - "เช็คอีเมล"
+  - "ค้นหาอีเมล"
+  - "ตรวจสอบที่อยู่อีเมล"
+  - "电子邮件查询"
+  - "邮箱侦查"
+  - "邮箱分析"
+
+input_schema:
+  type: object
+  properties:
+    email:
+      type: string
+      description: "Target email address to investigate (e.g. user@example.com)"
+    passive_only:
+      type: boolean
+      default: true
+      description: "OPSEC invariant: Must remain True for passive reconnaissance"
+    timeout:
+      type: number
+      default: 5.0
+      description: "Timeout in seconds for DNS and Gravatar queries"
+  required:
+    - email
+
+runtime:
+  type: python
+  entry: run.py
+  timeout: 60
+
+permissions:
+  - network
+risk: low
+outputs:
+  - json
+  - markdown

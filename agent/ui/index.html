@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Trustworthy Agent — Security Overview Dashboard prototype" />
+  <title>Security Overview — Trustworthy Agent</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          ink: '#061521', panel: '#0b2131', panel2: '#102d40', line: '#23485e', cyan: '#22d3c5', amber: '#f4b84a', danger: '#ff6b60', success: '#52d39a'
+        },
+        boxShadow: { glow: '0 0 0 1px rgba(34,211,197,.16), 0 18px 50px rgba(0,0,0,.18)' }
+      }}
+    };
+  </script>
+  <style>
+    :root { color-scheme: dark; }
+    body { background: radial-gradient(circle at 70% -10%, #123b50 0, #061521 38%, #030c13 100%); }
+    .glass { background: linear-gradient(135deg, rgba(16,45,64,.94), rgba(7,25,37,.94)); }
+    .grid-bg { background-image: linear-gradient(rgba(41,88,111,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(41,88,111,.09) 1px, transparent 1px); background-size: 24px 24px; }
+    .focus-ring:focus-visible { outline: 2px solid #22d3c5; outline-offset: 3px; }
+    .modal-open { overflow: hidden; }
+  </style>
+</head>
+<body class="min-h-screen text-slate-100 antialiased">
+  <div class="min-h-screen lg:grid lg:grid-cols-[250px_1fr]">
+    <aside class="hidden border-r border-line/80 bg-[#05131e]/80 lg:block">
+      <div class="sticky top-0 flex min-h-screen flex-col p-5">
+        <div class="mb-10 flex items-center gap-3 border-b border-line/70 pb-5">
+          <div class="grid h-9 w-9 place-items-center rounded-xl border-2 border-cyan text-cyan">✓</div>
+          <div><div class="font-black tracking-tight">Trustworthy Agent</div><div class="text-[10px] uppercase tracking-[.18em] text-cyan/80">AI Cyber Defense Platform</div></div>
+        </div>
+        <div class="mb-3 px-3 text-[10px] font-bold uppercase tracking-[.2em] text-slate-500">SecOps Command Center</div>
+        <nav id="sideNav" class="space-y-1" aria-label="Main navigation">
+          <button data-nav="overview" class="focus-ring flex w-full items-center justify-between rounded-lg bg-panel2 px-3 py-3 text-left text-sm font-semibold text-white shadow-[inset_3px_0_#22d3c5]">1. Security Overview <span class="rounded bg-cyan/15 px-2 py-0.5 text-[10px] text-cyan">LIVE</span></button>
+          <button data-nav="threats" class="focus-ring flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm text-slate-400 hover:bg-panel2/70 hover:text-white">2. Active Threats <span class="rounded bg-danger/15 px-2 py-0.5 text-[10px] text-danger">3</span></button>
+          <button data-nav="alerts" class="focus-ring flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm text-slate-400 hover:bg-panel2/70 hover:text-white">3. Detection & Alerts <span class="rounded bg-amber/15 px-2 py-0.5 text-[10px] text-amber">6 Rule</span></button>
+          <button data-nav="prevention" class="focus-ring flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm text-slate-400 hover:bg-panel2/70 hover:text-white">4. Prevention Controls <span class="rounded bg-success/15 px-2 py-0.5 text-[10px] text-success">Active</span></button>
+          <button data-nav="response" class="focus-ring flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm text-slate-400 hover:bg-panel2/70 hover:text-white">5. Response & Containment <span class="rounded bg-amber/15 px-2 py-0.5 text-[10px] text-amber">2 Pending</span></button>
+          <div class="mt-6 mb-3 px-3 text-[10px] font-bold uppercase tracking-[.2em] text-slate-500">Intelligence & Forensics</div>
+          <button data-nav="intel" class="focus-ring flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm text-slate-400 hover:bg-panel2/70 hover:text-white">6. Threat Intelligence <span class="rounded bg-cyan/15 px-2 py-0.5 text-[10px] text-cyan">OSINT</span></button>
+          <button data-nav="evidence" class="focus-ring flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm text-slate-400 hover:bg-panel2/70 hover:text-white">7. Evidence & Audit <span class="rounded bg-success/15 px-2 py-0.5 text-[10px] text-success">100%</span></button>
+          <div class="mt-6 mb-3 px-3 text-[10px] font-bold uppercase tracking-[.2em] text-slate-500">Governance & Config</div>
+          <button data-nav="policies" class="focus-ring flex w-full items-center justify-between rounded-lg px-3 py-3 text-left text-sm text-slate-400 hover:bg-panel2/70 hover:text-white">8. Agent Policies <span class="rounded bg-cyan/15 px-2 py-0.5 text-[10px] text-cyan">NIST/OWASP</span></button>
+          <button data-nav="settings" class="focus-ring flex w-full items-center rounded-lg px-3 py-3 text-left text-sm text-slate-400 hover:bg-panel2/70 hover:text-white">9. System Settings</button>
+        </nav>
+        <div class="mt-auto rounded-xl border border-line bg-[#071a28]/80 p-3 text-xs leading-relaxed text-slate-400"><strong class="text-success">DEFENSIVE AI POSTURE</strong><br /><span class="text-slate-500">• Prevention & Guard-first<br />• Read-only Passive OSINT<br />• Human-in-the-loop Consent<br />• No Exploit / No Attack-back</span></div>
+      </div>
+    </aside>
+
+    <main class="min-w-0 p-4 sm:p-6 lg:p-8">
+      <header class="mx-auto max-w-[1500px]">
+        <div class="flex flex-col justify-between gap-4 border-b border-line/70 pb-5 xl:flex-row xl:items-start">
+          <div><div class="mb-2 flex flex-wrap items-center gap-2"><span class="rounded border border-cyan/30 bg-cyan/10 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-cyan">DEMO DATA</span><span class="rounded border border-slate-600 bg-slate-900/40 px-2 py-1 text-[10px] text-slate-400">NIST CSF 2.0</span><span class="rounded border border-slate-600 bg-slate-900/40 px-2 py-1 text-[10px] text-slate-400">OWASP GenAI Security</span></div><h1 class="text-2xl font-black tracking-tight sm:text-4xl">Security Overview <span class="text-slate-500">— Cyber Defense Command</span></h1><p class="mt-2 max-w-3xl text-sm text-slate-400">ระบบป้องกัน ตรวจจับ วิเคราะห์ และตอบสนองต่อภัยไซเบอร์ด้วย AI Agent ภายใต้การควบคุมของมนุษย์</p></div>
+          <div class="flex flex-col items-start gap-2 xl:items-end"><span class="rounded-full border border-success/30 bg-success/10 px-3 py-2 text-xs font-semibold text-success">● Automated verification passed: 220/220</span><span class="text-[11px] text-slate-500">Audit Chain: 29/29 verified · Merkle Root: matched</span></div>
+        </div>
+      </header>
+
+      <div class="mx-auto max-w-[1500px]">
+        <section class="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-6" aria-label="Security metrics">
+          <div class="glass rounded-xl border border-line p-4 shadow-glow"><div class="text-xs text-slate-400">Active Threats</div><div class="mt-2 text-3xl font-black text-danger">3</div><div class="mt-1 text-[11px] text-slate-500">1 High Agentic · 2 Medium</div></div>
+          <div class="glass rounded-xl border border-line p-4 shadow-glow"><div class="text-xs text-slate-400">Blocked Attempts</div><div class="mt-2 text-3xl font-black text-cyan">1,248</div><div class="mt-1 text-[11px] text-slate-500">Rate limit · SSRF · CLI blocks</div></div>
+          <div class="glass rounded-xl border border-line p-4 shadow-glow"><div class="text-xs text-slate-400">Pending Approval</div><div class="mt-2 text-3xl font-black text-amber">2</div><div class="mt-1 text-[11px] text-slate-500">Awaiting SOC confirmation</div></div>
+          <div class="glass rounded-xl border border-line p-4 shadow-glow"><div class="text-xs text-slate-400">Compromised Credentials</div><div class="mt-2 text-3xl font-black text-success">0</div><div class="mt-1 text-[11px] text-slate-500">Secret rotation active</div></div>
+          <div class="glass rounded-xl border border-line p-4 shadow-glow"><div class="text-xs text-slate-400">Policy Violations</div><div class="mt-2 text-3xl font-black text-amber">4</div><div class="mt-1 text-[11px] text-slate-500">Blocked by guardrails</div></div>
+          <div class="glass rounded-xl border border-line p-4 shadow-glow"><div class="text-xs text-slate-400">Evidence Integrity</div><div class="mt-2 text-2xl font-black text-success">Verified</div><div class="mt-1 text-[11px] text-slate-500">29/29 SHA-256 chain intact</div></div>
+        </section>
+
+        <section class="mt-4 rounded-2xl border border-danger/60 bg-gradient-to-br from-danger/10 to-[#0b1d2a] p-4 shadow-glow" aria-labelledby="incident-title">
+          <div class="flex flex-col justify-between gap-3 border-b border-danger/20 pb-3 xl:flex-row xl:items-center"><div class="flex flex-wrap items-center gap-3"><span class="rounded border border-danger/60 bg-danger/15 px-2 py-1 text-[11px] font-black text-danger">⚠ HIGH: SUSPECTED AGENTIC BEHAVIOR</span><h2 id="incident-title" class="font-bold">Incident #INC-2026-1106-01 — Suspected Multi-Service Behavior</h2></div><span class="text-xs text-slate-500">Detected: 10:37:12 UTC · Source: 185.199.110.153 (sample)</span></div>
+          <p class="mt-3 text-xs leading-relaxed text-slate-400">Detection Engine พบสัญญาณหลายขั้นตอนที่สอดคล้องกับ Agentic Attack Pattern ระบบจะไม่สรุป attribution จากสัญญาณเดียว และทุก action ที่กระทบระบบต้องผ่าน Policy Engine และ Human Approval</p>
+          <div class="mt-3 grid gap-2 md:grid-cols-2"><div class="rounded-lg border border-danger/40 bg-[#071722]/80 p-3"><strong class="text-xs text-danger">1. Multi-Service API Chaining</strong><p class="mt-1 text-[11px] text-slate-400">เรียกใช้บริการ 4 แห่งใน 52 วินาที · Evidence: 6 events · Confidence: High</p></div><div class="rounded-lg border border-danger/40 bg-[#071722]/80 p-3"><strong class="text-xs text-danger">2. Credential Access Attempt</strong><p class="mt-1 text-[11px] text-slate-400">พบ pattern การค้นหา token / key ใน output · Evidence: 3 events · Confidence: Medium</p></div><div class="rounded-lg border border-danger/40 bg-[#071722]/80 p-3"><strong class="text-xs text-danger">3. Suspected Lateral Pivot</strong><p class="mt-1 text-[11px] text-slate-400">มีการเข้าถึง resource นอก baseline · Evidence: 2 events · Confidence: Medium</p></div><div class="rounded-lg border border-danger/40 bg-[#071722]/80 p-3"><strong class="text-xs text-danger">4. Out-of-Pattern Access</strong><p class="mt-1 text-[11px] text-slate-400">IP risk signal 72/100 · ตรวจพบจาก passive enrichment เท่านั้น</p></div></div>
+          <div class="mt-4 flex flex-wrap items-center justify-between gap-3"><div class="text-xs text-amber">Containment status: <strong>Pending Human Approval</strong> — Token <code class="rounded bg-black/20 px-1">tok_agent_3941a</code></div><div class="flex flex-wrap gap-2"><button data-action="Revoke Token" class="focus-ring rounded-lg border border-danger/60 bg-danger/15 px-3 py-2 text-xs font-bold text-danger hover:bg-danger/25">↯ Revoke Token</button><button data-action="Quarantine Case" class="focus-ring rounded-lg border border-amber/60 bg-amber/15 px-3 py-2 text-xs font-bold text-amber hover:bg-amber/25">▣ Quarantine Case</button><button data-action="View Evidence" class="focus-ring rounded-lg bg-cyan px-3 py-2 text-xs font-bold text-ink hover:brightness-110">⌕ View Evidence</button></div></div>
+        </section>
+
+        <section class="mt-4 rounded-2xl border border-cyan/30 bg-panel/80 p-4"><div class="mb-3 flex items-center justify-between"><h2 class="font-bold">End-to-End Defense Workflow</h2><span class="text-[10px] uppercase tracking-wider text-cyan">Click any step to inspect</span></div><div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
+          <button data-step="1" class="step focus-ring rounded-lg border border-cyan/30 bg-[#0a2535] p-3 text-left hover:border-cyan"><span class="text-[10px] font-bold text-cyan">STEP 1</span><strong class="mt-1 block text-xs">Login anomaly</strong><span class="mt-1 block text-[10px] text-slate-500">185.199.110.153</span></button>
+          <button data-step="2" class="step focus-ring rounded-lg border border-cyan/30 bg-[#0a2535] p-3 text-left hover:border-cyan"><span class="text-[10px] font-bold text-cyan">STEP 2</span><strong class="mt-1 block text-xs">Create Alert</strong><span class="mt-1 block text-[10px] text-slate-500">Detection Engine</span></button>
+          <button data-step="3" class="step focus-ring rounded-lg border border-cyan/30 bg-[#0a2535] p-3 text-left hover:border-cyan"><span class="text-[10px] font-bold text-cyan">STEP 3</span><strong class="mt-1 block text-xs">IP Enrichment</strong><span class="mt-1 block text-[10px] text-slate-500">Passive only</span></button>
+          <button data-step="4" class="step focus-ring rounded-lg border border-cyan/30 bg-[#0a2535] p-3 text-left hover:border-cyan"><span class="text-[10px] font-bold text-cyan">STEP 4</span><strong class="mt-1 block text-xs">Credential signal</strong><span class="mt-1 block text-[10px] text-slate-500">No secret accessed</span></button>
+          <button data-step="5" class="step focus-ring rounded-lg border border-cyan/30 bg-[#0a2535] p-3 text-left hover:border-cyan"><span class="text-[10px] font-bold text-cyan">STEP 5</span><strong class="mt-1 block text-xs">Domain / WHOIS</strong><span class="mt-1 block text-[10px] text-slate-500">Threat intel</span></button>
+          <button data-step="6" class="step focus-ring rounded-lg border border-cyan/30 bg-[#0a2535] p-3 text-left hover:border-cyan"><span class="text-[10px] font-bold text-cyan">STEP 6</span><strong class="mt-1 block text-xs">Fact / Signal</strong><span class="mt-1 block text-[10px] text-slate-500">Risk breakdown</span></button>
+          <button data-step="7" class="step focus-ring rounded-lg border border-cyan/30 bg-[#0a2535] p-3 text-left hover:border-cyan"><span class="text-[10px] font-bold text-cyan">STEP 7</span><strong class="mt-1 block text-xs">Policy decision</strong><span class="mt-1 block text-[10px] text-slate-500">Guardrails first</span></button>
+          <button data-step="8" class="step focus-ring rounded-lg border border-cyan/30 bg-[#0a2535] p-3 text-left hover:border-cyan"><span class="text-[10px] font-bold text-cyan">STEP 8</span><strong class="mt-1 block text-xs">Human approval</strong><span class="mt-1 block text-[10px] text-slate-500">SOC confirmation</span></button>
+        </div><div id="stepDetail" class="mt-3 hidden rounded-lg border border-cyan/30 bg-[#071722] p-3 text-xs text-slate-300"></div></section>
+
+        <section class="mt-4 grid gap-4 xl:grid-cols-3">
+          <article class="glass rounded-2xl border border-line p-5"><div class="mb-4 flex items-center justify-between"><h2 class="font-bold">1. Prevention <span class="text-sm text-slate-500">(Guard-first)</span></h2><span class="text-xs font-bold text-success">● Enforced</span></div><div class="space-y-3 text-xs"><div class="flex justify-between gap-3"><span class="text-slate-400">Policy Engine (core/guardrails.py)</span><strong class="text-success">Active</strong></div><div class="flex justify-between gap-3"><span class="text-slate-400">Least Privilege & CLI Allowlist</span><strong class="text-cyan">Python / Node only</strong></div><div class="flex justify-between gap-3"><span class="text-slate-400">API Key & Secret Protection</span><strong class="text-success">Redacted & isolated</strong></div><div class="flex justify-between gap-3"><span class="text-slate-400">SSRF / Cloud Metadata Block</span><strong class="text-danger">169.254.169.254 blocked</strong></div><div class="flex justify-between gap-3"><span class="text-slate-400">Rate Limit (demo)</span><strong class="text-cyan">60 calls / 60s</strong></div></div></article>
+          <article class="glass rounded-2xl border border-line p-5"><div class="mb-4 flex items-center justify-between"><h2 class="font-bold">2. Detection <span class="text-sm text-slate-500">& Threat Intel</span></h2><span class="rounded bg-cyan/10 px-2 py-1 text-[10px] text-cyan">Passive OSINT</span></div><div class="space-y-3 text-xs"><div class="flex justify-between gap-3"><span class="text-slate-400">Agentic Behavior / Prompt Injection</span><strong class="text-danger">1 High Alert</strong></div><div class="flex justify-between gap-3"><span class="text-slate-400">Login Anomaly & Token Abuse</span><strong class="text-amber">Monitored</strong></div><div class="flex justify-between gap-3"><span class="text-slate-400">Domain & WHOIS OSINT</span><strong class="text-success">19/19 Tests Passed</strong></div><div class="flex justify-between gap-3"><span class="text-slate-400">IP Geolocation & Reputation</span><strong class="text-success">15/15 Tests Passed</strong></div><div class="flex justify-between gap-3"><span class="text-slate-400">Email OSINT & Breach Check</span><strong class="text-success">15/15 Tests Passed</strong></div></div></article>
+          <article class="glass rounded-2xl border border-line p-5"><div class="mb-4 flex items-center justify-between"><h2 class="font-bold">3. Response, 4. Evidence <span class="text-sm text-slate-500">& Governance</span></h2><span class="rounded bg-amber/10 px-2 py-1 text-[10px] text-amber">2 pending</span></div><div class="space-y-3 text-xs"><div class="flex justify-between gap-3"><span class="text-slate-400">Human-in-the-loop Gate</span><strong class="text-amber">Required for containment</strong></div><div class="flex justify-between gap-3"><span class="text-slate-400">Tamper-evident Audit JSONL</span><strong class="text-success">29/29 Entries Verified</strong></div><div class="flex justify-between gap-3"><span class="text-slate-400">Merkle Root & SHA-256 Chain</span><strong class="text-success">0 Tampering</strong></div><div class="flex justify-between gap-3"><span class="text-slate-400">Offensive / Attack-back Actions</span><strong class="text-danger">Strictly Prohibited</strong></div><div class="flex justify-between gap-3"><span class="text-slate-400">Full Suite Verification</span><strong class="text-success">220/220 Passed</strong></div></div></article>
+        </section>
+
+        <footer class="mt-6 flex flex-col justify-between gap-2 border-t border-line/70 pt-4 text-[11px] text-slate-500 sm:flex-row"><span>Trustworthy AI Cyber Defense Platform · Prevention · Detection · Threat Intel · Human-approved Response · SHA-256 Evidence</span><span>Developer: NAKARIN SAKULTHAI · MIT License · Sample UI</span></footer>
+      </div>
+    </main>
+  </div>
+
+  <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="w-full max-w-xl rounded-2xl border border-cyan/40 bg-panel p-5 shadow-2xl"><div class="flex items-center justify-between gap-3"><h2 id="modalTitle" class="text-lg font-bold">Human Approval Required</h2><button id="closeModal" class="focus-ring rounded px-2 text-2xl text-slate-400 hover:text-white" aria-label="ปิด">×</button></div><div id="modalBody" class="mt-4 text-sm leading-relaxed text-slate-300"></div><div class="mt-5 flex justify-end gap-2"><button id="cancelModal" class="focus-ring rounded-lg border border-line px-4 py-2 text-sm text-slate-300">ยกเลิก</button><button id="approveModal" class="focus-ring rounded-lg bg-cyan px-4 py-2 text-sm font-bold text-ink">อนุมัติแบบ Demo</button></div></div></div>
+
+  <script>
+    const modal = document.querySelector('#modal');
+    const modalBody = document.querySelector('#modalBody');
+    const openModal = (title, body, approveText = 'อนุมัติแบบ Demo') => { document.querySelector('#modalTitle').textContent = title; modalBody.innerHTML = body; document.querySelector('#approveModal').textContent = approveText; modal.classList.remove('hidden'); modal.classList.add('flex'); document.body.classList.add('modal-open'); };
+    const closeModal = () => { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.classList.remove('modal-open'); };
+    document.querySelector('#closeModal').onclick = closeModal; document.querySelector('#cancelModal').onclick = closeModal; modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.querySelectorAll('[data-action]').forEach(btn => btn.addEventListener('click', () => { const action = btn.dataset.action; openModal('Human Approval Required', `<p>คุณกำลังจะดำเนินการ <strong class="text-cyan">${action}</strong> กับ Incident <code class="rounded bg-black/20 px-1">INC-2026-1106-01</code></p><div class="mt-4 rounded-lg border border-amber/30 bg-amber/10 p-3 text-xs text-amber">ผลกระทบที่คาดการณ์: อาจยกเลิก token หรือแยก case ออกจากระบบปกติ การทำงานจริงต้องตรวจสิทธิ์, เหตุผล, ผู้อนุมัติ และ rollback plan ก่อนเสมอ</div>`, `ยืนยัน ${action} (Demo)`); }));
+    document.querySelector('#approveModal').onclick = () => { closeModal(); openModal('Demo action recorded', '<p class="text-success">บันทึกการอนุมัติแบบ Demo ลง Audit Trail แล้ว</p><p class="mt-2 text-xs text-slate-400">ต้นแบบนี้ยังไม่เรียก API จริง และไม่มีการเปลี่ยนแปลงระบบภายนอก</p>', 'ปิด'); document.querySelector('#approveModal').onclick = closeModal; };
+    document.querySelectorAll('[data-step]').forEach(btn => btn.addEventListener('click', () => { const descriptions = { 1:'ระบบรับสัญญาณ login ที่นอก baseline และเปิด case แบบ sample', 2:'Detection Engine จัดกลุ่ม events และสร้าง alert โดยไม่สรุป attribution ทันที', 3:'ดึง IP reputation และ geolocation จาก passive enrichment เท่านั้น', 4:'ตรวจพบ credential access pattern แต่ยังไม่พบ compromised credential', 5:'ใช้ Domain/WHOIS เป็น threat intelligence ประกอบ ไม่ใช่ action โจมตี', 6:'แยก Fact, Signal และ Inference พร้อม confidence และ evidence links', 7:'Policy Engine จัดระดับ action และตรวจ least privilege / allowlist', 8:'การ revoke token หรือ quarantine ต้องรอผู้มีอำนาจอนุมัติ' }; const box=document.querySelector('#stepDetail'); box.textContent=`Step ${btn.dataset.step}: ${descriptions[btn.dataset.step]}`; box.classList.remove('hidden'); }));
+    document.querySelectorAll('[data-nav]').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('[data-nav]').forEach(x => x.classList.remove('bg-panel2','text-white','shadow-[inset_3px_0_#22d3c5]')); btn.classList.add('bg-panel2','text-white','shadow-[inset_3px_0_#22d3c5]'); }));
+  </script>
+  <!-- Developer: NAKARIN SAKULTHAI | License: MIT License -->
+</body>
+</html>

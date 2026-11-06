@@ -1,0 +1,53 @@
+name: ip-geolocation-osint
+version: 1.0.0
+category: investigation
+status: runnable
+description: >
+  สืบสวนและตรวจสอบข้อมูลไอพีแอดเดรส (IP Geolocation & Threat Intelligence OSINT) แบบ Passive 100%
+  ระบุตำแหน่งทางภูมิศาสตร์ (ประเทศ, เมือง, พิกัด), ผู้ให้บริการอินเทอร์เน็ต (ISP/Org), หมายเลขระบบอิสระ (ASN),
+  การตรวจสอบ Bogon/Private IP, ตรวจสอบ Reverse DNS (PTR), และคัดกรอง Tor Exit Node / Datacenter Hosting
+  (Pure Python, Free Public Lookups, Zero API Keys required)
+triggers:
+  - "ip-geolocation-osint"
+  - "ip-osint"
+  - "ip lookup"
+  - "geolocation"
+  - "asn lookup"
+  - "asn"
+  - "bogon check"
+  - "reverse dns"
+  - "เช็ค ip"
+  - "ตรวจสอบไอพี"
+  - "ค้นหาพิกัด IP"
+  - "IP地址查询"
+  - "IP定位"
+  - "IP归属地"
+
+input_schema:
+  type: object
+  properties:
+    ip:
+      type: string
+      description: "Target IPv4 or IPv6 address to investigate (e.g. '8.8.8.8' or '2606:4700:4700::1111')"
+    passive_only:
+      type: boolean
+      default: true
+      description: "OPSEC invariant: Must remain True for passive reconnaissance"
+    timeout:
+      type: number
+      default: 8.0
+      description: "Total timeout budget in seconds"
+  required:
+    - ip
+
+runtime:
+  type: python
+  entry: run.py
+  timeout: 30
+
+permissions:
+  - network
+risk: low
+outputs:
+  - json
+  - markdown
