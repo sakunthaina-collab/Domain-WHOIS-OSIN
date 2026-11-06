@@ -39,7 +39,7 @@ def git_archive(tag: str, out_dir: pathlib.Path) -> None:
 
     archive = out_dir / "source.tar.gz"
 
-    subprocess.run(["git", "archive", "--format=tar.gz",
+    subprocess.run(["git", "-c", "core.autocrlf=false", "archive", "--format=tar.gz",
 
                     f"--output={archive}", tag],
 
