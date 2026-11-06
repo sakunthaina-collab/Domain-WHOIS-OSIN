@@ -1,0 +1,33 @@
+name: ml-best-practices
+version: 1.0.0
+category: engineering
+status: stub
+description: "CRITICAL RULE: You MUST use this skill whenever the task involves any\
+  \ machine learning tasks or data analysis.\nUse this skill if the user's prompt\
+  \ or requirements mention any of the following:\n  * Clustering\n  * Classification\n\
+  \  * Regression\n  * Time series forecasting\n  * Statistical testing\n  * Model\
+  \ comparison\n  * ML\n  * Data analysis\n\nSQL/BigQuery ML HANDOFF: If the user\
+  \ requires a SQL solution, use this skill to dictate the ANALYSIS STEPS (e.g., markdown\
+  \ analysis cells, visualization logic), but defer to `bigquery` for all SQL syntax."
+triggers:
+- ml-best-practices
+- best
+- practices
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for ml-best-practices
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\ml-best-practices\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

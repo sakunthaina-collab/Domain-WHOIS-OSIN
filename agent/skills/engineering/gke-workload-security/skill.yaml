@@ -1,0 +1,38 @@
+name: gke-workload-security
+version: 1.0.0
+category: engineering
+status: runnable
+description: Audits, configures, and hardens workload-level security controls for
+  Google Kubernetes Engine (GKE) applications and namespaces. Covers running security
+  audits (`audit_cluster.sh`), enforcing Network Policies (default-deny and Dataplane
+  V2 logging), isolating high-risk pods inside GKE Sandbox (`gVisor`), enforcing Pod
+  Security Standards (`restricted` labeling) and pod securityContext, and mounting
+  Secret Manager secrets via CSI (`SecretProviderClass`). Use when auditing workload
+  security posture, isolating namespaces, applying pod security standards, or configuring
+  network policies and secret volume mounts. Don't use for Workload Identity (use
+  gke-workload-identity), cluster-wide control plane security, RBAC hardening, Binary
+  Authorization, Shielded Nodes, or enabling platform-level GKE add-ons (use gke-platform-security
+  instead).
+triggers:
+- gke-workload-security
+- gke
+- workload
+- security
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-workload-security
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-workload-security\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

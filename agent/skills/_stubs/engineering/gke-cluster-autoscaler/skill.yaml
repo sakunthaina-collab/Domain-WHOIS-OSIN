@@ -1,0 +1,32 @@
+name: gke-cluster-autoscaler
+version: 1.0.0
+category: engineering
+status: stub
+description: Trigger on mention of GKE cluster autoscaler, node autoscaling, node
+  pool auto-creation / node auto-provisioning. Provides guidance on enabling and optimizing
+  cluster autoscaler, best practices, and troubleshooting issues such as nodes not
+  scaling up or down, zonal stockouts, or capacity buffers. Do not use for ComputeClass-specific
+  YAML generation or priority configuration (defer to gke-compute-classes skill).
+triggers:
+- gke-cluster-autoscaler
+- gke
+- cluster
+- autoscaler
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-cluster-autoscaler
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-cluster-autoscaler\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

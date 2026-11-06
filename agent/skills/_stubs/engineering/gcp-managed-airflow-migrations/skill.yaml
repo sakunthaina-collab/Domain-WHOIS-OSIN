@@ -1,0 +1,32 @@
+name: gcp-managed-airflow-migrations
+version: 1.0.0
+category: engineering
+status: stub
+description: Provides guidance for migrating Apache Airflow DAGs in Managed Service
+  for Apache Airflow (MSAA; formerly Cloud Composer). Covers migration to Airflow
+  2.11.1 (MSAA Gen 2 and 3) and Airflow 3 (MSAA Gen 3), including environment inspection,
+  GCS download/upload and scanning patterns for breaking changes.
+triggers:
+- gcp-managed-airflow-migrations
+- gcp
+- managed
+- airflow
+- migrations
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gcp-managed-airflow-migrations
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\gcp-managed-airflow-migrations\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

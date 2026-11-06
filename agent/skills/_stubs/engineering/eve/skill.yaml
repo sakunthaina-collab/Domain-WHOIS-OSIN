@@ -1,0 +1,32 @@
+name: eve
+version: 1.0.0
+category: engineering
+status: stub
+description: eve framework guidance for durable AI agents and agent-powered applications.
+  Use when creating, editing, or debugging an eve project, when the user explicitly
+  asks for eve, or when the build-agents skill has selected eve as the default framework.
+  Covers eve's filesystem-first runtime, durable sessions, tools, skills, connections,
+  channels, sandboxes, subagents, schedules, evals, frontend clients, and Agent Runs
+  observability. Do not use for incidental agent mentions, generic agent-building
+  prompts, or established non-eve stacks unless the user asks for comparison or migration.
+triggers:
+- eve
+- eve
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for eve
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\eve\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

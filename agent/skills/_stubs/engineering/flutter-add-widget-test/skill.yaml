@@ -1,0 +1,31 @@
+name: flutter-add-widget-test
+version: 1.0.0
+category: engineering
+status: stub
+description: Implement a component-level test using `WidgetTester` to verify UI rendering
+  and user interactions (tapping, scrolling, entering text). Use when validating that
+  a specific widget displays correct data and responds to events as expected.
+triggers:
+- flutter-add-widget-test
+- flutter
+- add
+- widget
+- test
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for flutter-add-widget-test
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\flutter-add-widget-test\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

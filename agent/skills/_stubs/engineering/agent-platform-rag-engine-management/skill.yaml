@@ -1,0 +1,34 @@
+name: agent-platform-rag-engine-management
+version: 1.0.0
+category: engineering
+status: stub
+description: Manage and query Agent Platform RAG Engine Corpora and retrieve grounded
+  contexts using the Google GenAI SDK. Use when listing RAG corpora or files, inspecting
+  a corpus, retrieving contexts, or generating content grounded in a RAG corpus. Do
+  not use for standard database queries (use SQL/Spanner skills), Google Workspace
+  RAG, or other RAG products like gRAG.
+triggers:
+- agent-platform-rag-engine-management
+- agent
+- platform
+- rag
+- engine
+- management
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for agent-platform-rag-engine-management
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\agent-platform-rag-engine-management\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

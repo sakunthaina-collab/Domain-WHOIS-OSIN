@@ -1,0 +1,29 @@
+name: search
+version: 1.0.0
+category: scraping
+status: stub
+description: Gets better results from every Mobbin search, so the references match
+  what you're working on. Use before every call to search_screens, search_flows or
+  search_sections. Covers the tool, writing an effective query, the mode, pulling
+  more results, and what to do when a search falls short.
+triggers:
+- search
+- search
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for search
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\mobbin\skills\search\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

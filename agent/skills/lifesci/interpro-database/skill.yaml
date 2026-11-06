@@ -1,0 +1,31 @@
+name: interpro-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Identify domains, families, and sites in proteins; find all proteins
+  in a family or sharing a domain; explore species distribution for a domain; annotate
+  genomes with protein families and GO terms. InterPro combines 14 databases (e.g.,
+  Pfam, CDD) into one searchable resource. InterPro-N significantly expands annotation
+  and sequence coverage with deep learning. Includes domain architecture (IDA) search.
+triggers:
+- interpro-database
+- interpro
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for interpro-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\interpro_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

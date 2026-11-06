@@ -1,0 +1,30 @@
+name: developing-genkit-dart
+version: 1.0.0
+category: engineering
+status: stub
+description: Generates code and provides documentation for the Genkit Dart SDK. Use
+  when the user asks to build AI agents in Dart, use Genkit flows, or integrate LLMs
+  into Dart/Flutter applications.
+triggers:
+- developing-genkit-dart
+- developing
+- genkit
+- dart
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for developing-genkit-dart
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\developing-genkit-dart\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

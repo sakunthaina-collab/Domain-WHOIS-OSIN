@@ -1,0 +1,34 @@
+name: assuredworkloads-frameworks-navigator
+version: 1.0.0
+category: scraping
+status: runnable
+description: Acts as a Data Boundary Compliance Analyst that maps user compliance
+  queries against Data Boundary Frameworks and cloud controls, validates matched resources,
+  and recommends appropriate Frameworks or cloud controls. Use when mapping direct
+  natural language workload requirements to Assured Workloads / Data Boundary Frameworks
+  and cloud controls, browsing built-in Data Boundary frameworks, or identifying major
+  requirement gaps. Don't use for non-Data-Boundary Compliance Manager posture assessments
+  or direct Terraform deployment execution without framework selection.
+triggers:
+- assuredworkloads-frameworks-navigator
+- assuredworkloads
+- frameworks
+- navigator
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for assuredworkloads-frameworks-navigator
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\assuredworkloads-frameworks-navigator\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

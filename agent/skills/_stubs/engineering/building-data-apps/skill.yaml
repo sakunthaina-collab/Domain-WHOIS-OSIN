@@ -1,0 +1,40 @@
+name: building-data-apps
+version: 1.0.0
+category: engineering
+status: stub
+description: "Build modern data apps, dashboards, and interactive reports using either\n\
+  React + Vite or Streamlit. Includes optional Gemini Data Analytics chat\nintegration\
+  \ for an AI powered \"chat with your data\" experience.\n\nRelevant when any of\
+  \ the following conditions are true:\n  1. User explicitly requests to build a data\
+  \ dashboard, data application, or visualization UI, and the UI pulls data from a\
+  \ GCP database (defaulting to BigQuery unless otherwise specified).\n  2. You need\
+  \ to generate a frontend web application to interact with, query, and visualize\
+  \ data from GCP data sources.\n  3. User wants to build a \"chat with your data\"\
+  \ experience or integrate the Gemini Data Analytics chat API into a web interface.\n\
+  \nDo NOT use when any of the following conditions are true:\n  1. The request is\
+  \ for building backend-only services.\n  2. The request is for simple CLI scripts\
+  \ or command-line applications.\n  3. The web application is not data-centric or\
+  \ does not involve visualizing/querying data from GCP sources."
+triggers:
+- building-data-apps
+- building
+- data
+- apps
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for building-data-apps
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\building-data-apps\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

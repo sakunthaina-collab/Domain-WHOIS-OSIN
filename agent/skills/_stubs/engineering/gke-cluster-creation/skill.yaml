@@ -1,0 +1,32 @@
+name: gke-cluster-creation
+version: 1.0.0
+category: engineering
+status: stub
+description: Plans and executes GKE cluster creation, provisioning, and production
+  readiness audits using pre-defined templates (Autopilot, Standard Regional, GPU/AI
+  Inference, AI Hypercompute). Use when creating GKE clusters, provisioning GKE environments,
+  selecting cluster modes, or auditing GKE clusters. Don't use for application onboarding
+  or deployment configuration (use gke-app-onboarding instead).
+triggers:
+- gke-cluster-creation
+- gke
+- cluster
+- creation
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-cluster-creation
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-cluster-creation\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

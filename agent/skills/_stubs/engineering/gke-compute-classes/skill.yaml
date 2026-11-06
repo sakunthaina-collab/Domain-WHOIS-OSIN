@@ -1,0 +1,32 @@
+name: gke-compute-classes
+version: 1.0.0
+category: engineering
+status: stub
+description: Configures, optimizes, and troubleshoots GKE ComputeClasses. Use when
+  configuring Spot VMs with on-demand fallback, targeting specific accelerators (GPUs/TPUs)
+  or machine families, restricting ComputeClass access, or debugging pending pods
+  related to node pool auto-creation. Do not use for cluster-level Node Auto Provisioning
+  configuration or general GKE cluster creation.
+triggers:
+- gke-compute-classes
+- gke
+- compute
+- classes
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-compute-classes
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-compute-classes\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

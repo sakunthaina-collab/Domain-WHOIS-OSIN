@@ -1,0 +1,34 @@
+name: gemini-live-api-dev
+version: 1.0.0
+category: engineering
+status: stub
+description: Use this skill when building real-time, bidirectional streaming applications
+  with the Gemini Live API, or migrating legacy Live models (2.0/2.5/3.1) to Gemini
+  3.8 Live. Covers WebSocket-based audio/video/text streaming, voice activity detection
+  (VAD), background reasoning (extended thinking), asynchronous function calling,
+  session management, ephemeral tokens, live transcription, and live translation.
+  SDKs covered - google-genai (Python), @google/genai (JavaScript/TypeScript).
+triggers:
+- gemini-live-api-dev
+- gemini
+- live
+- api
+- dev
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gemini-live-api-dev
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\gemini-api\skills\gemini-live-api-dev\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

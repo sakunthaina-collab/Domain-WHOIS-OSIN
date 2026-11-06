@@ -1,0 +1,31 @@
+name: ai-gateway
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel AI Gateway guidance for setup, model discovery, authentication,
+  routing, fallbacks, virtual models, evaluation models, BYOK, budgets, spend reporting,
+  observability, compatible APIs, and coding-agent configuration. Use when adding
+  AI Gateway to an app, migrating provider calls, choosing models or providers, centralizing
+  model configuration, evaluating application state, debugging gateway requests, or
+  running `vercel ai-gateway` commands.
+triggers:
+- ai-gateway
+- gateway
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for ai-gateway
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\ai-gateway\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

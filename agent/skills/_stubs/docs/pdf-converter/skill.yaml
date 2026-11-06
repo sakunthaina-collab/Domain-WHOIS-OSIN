@@ -1,0 +1,29 @@
+name: pdf-converter
+version: 1.0.0
+category: docs
+status: stub
+description: Convert PDFs to Word, Excel, PPT, HTML, RTF, images, CSV, TXT, JSON,
+  Markdown, OFD, or editable PDF, and convert supported documents and images to PDF
+  with ComPDF. Use for general bidirectional PDF conversion workflows.
+triggers:
+- pdf-converter
+- pdf
+- converter
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for pdf-converter
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\pdf-converter\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

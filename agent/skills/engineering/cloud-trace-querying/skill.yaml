@@ -1,0 +1,32 @@
+name: cloud-trace-querying
+version: 1.0.0
+category: engineering
+status: runnable
+description: Query Cloud Trace spans, filter by latency thresholds or error status,
+  correlate distributed traces with Cloud Logging, and diagnose latency bottlenecks
+  across Google Cloud services. Use when investigating slow requests, analyzing trace
+  hierarchies, or resolving latency regressions. Do NOT use for querying non-GCP telemetry
+  or database query optimization outside Cloud Trace.
+triggers:
+- cloud-trace-querying
+- cloud
+- trace
+- querying
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cloud-trace-querying
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\cloud-trace-querying\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

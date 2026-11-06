@@ -1,0 +1,29 @@
+name: compdf-toolkit
+version: 1.0.0
+category: docs
+status: stub
+description: All-in-one ComPDF workflow for document conversion, OCR, data extraction,
+  PDF editing, protection, compression, and watermarking. Use for any ComPDF Server
+  API request that processes PDF, Office, HTML, CSV, RTF, TXT, or image files.
+triggers:
+- compdf-toolkit
+- compdf
+- toolkit
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for compdf-toolkit
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\compdf-toolkit\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

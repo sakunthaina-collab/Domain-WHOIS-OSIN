@@ -1,0 +1,31 @@
+name: literature-search-biorxiv
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Browse, filter, and download life sciences, biology, and medical preprints
+  from bioRxiv and medRxiv. Supports fetching paper metadata by DOI, and browsing
+  by date range with category and keyword filters. Keyword filtering is local, so
+  date ranges MUST be narrow (1-4 weeks) with a category to prevent timeouts.
+triggers:
+- literature-search-biorxiv
+- literature
+- search
+- biorxiv
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for literature-search-biorxiv
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\literature_search_biorxiv\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

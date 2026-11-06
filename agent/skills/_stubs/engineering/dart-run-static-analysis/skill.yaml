@@ -1,0 +1,31 @@
+name: dart-run-static-analysis
+version: 1.0.0
+category: engineering
+status: stub
+description: Execute `dart analyze` to identify warnings and errors, and use `dart
+  fix --apply` to automatically resolve mechanical lint issues. Use during development
+  to ensure code quality and before committing changes.
+triggers:
+- dart-run-static-analysis
+- dart
+- run
+- static
+- analysis
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for dart-run-static-analysis
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\dart-run-static-analysis\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,33 @@
+name: netlify-frameworks
+version: 1.0.0
+category: engineering
+status: stub
+description: Deploy and configure web frameworks on Netlify — build settings and SSR/edge
+  adapters plus local platform emulation and env vars. Use when setting up or fixing
+  a framework deploy (Next.js / Astro / Nuxt / SvelteKit / Remix / React Router /
+  TanStack Start / SolidStart / Gatsby / Angular / Vite / Express / Hydrogen / Hugo
+  / Eleventy / Vue / React), adding SSR or edge functions or middleware wired to Netlify
+  context, fixing SPA redirect and catch-all rules, setting a build command or publish
+  directory, or debugging "why isn't my env var updating" and framework build failures.
+triggers:
+- netlify-frameworks
+- netlify
+- frameworks
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for netlify-frameworks
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\netlify\agent-plugin\skills\netlify-frameworks\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

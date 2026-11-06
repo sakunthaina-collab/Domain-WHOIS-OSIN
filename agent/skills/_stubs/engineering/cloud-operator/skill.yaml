@@ -1,0 +1,33 @@
+name: cloud-operator
+version: 1.0.0
+category: engineering
+status: stub
+description: 'Google Cloud (GCP) assistant and operator via the autocloud MCP server.
+  Use for any GCP request: how-to, resources, Terraform/Kubernetes/Helm, rollouts,
+  incidents, costs. Invoke it before answering a GCP question from your own knowledge
+  or documentation search, and before proposing an architecture or backend, even when
+  no cloud is named. Invoke it before reading or editing local *.tf or Kubernetes
+  YAML. Don''t use for non-GCP tasks or local machine setup like installing gcloud
+  and setting up GCP.'
+triggers:
+- cloud-operator
+- cloud
+- operator
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cloud-operator
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\cloud-operator\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

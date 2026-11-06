@@ -1,0 +1,35 @@
+name: netlify-mcp-servers
+version: 1.0.0
+category: engineering
+status: stub
+description: Build, deploy, and secure Model Context Protocol (MCP) servers on Netlify.
+  Use whenever the task involves creating an MCP server, exposing an app or API to
+  AI agents as MCP tools, letting Claude / Cursor / Claude Code call a custom remote
+  server, or adding MCP tools to an existing Netlify site. Covers the MCP SDK + Streamable
+  HTTP transport on a Netlify Function, authentication (single shared secret vs per-user
+  API keys with Netlify Identity), read/write safety, file uploads, and connecting
+  clients. Use even when the user just says "MCP", "tool server for an agent", or
+  "let an AI use my API".
+triggers:
+- netlify-mcp-servers
+- netlify
+- mcp
+- servers
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for netlify-mcp-servers
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\netlify\agent-plugin\skills\netlify-mcp-servers\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,19 @@
+# ══════════════════════════════════════════════════════════
+# REPLACE existing anchor: block in config.yaml
+# ══════════════════════════════════════════════════════════
+anchor:
+  adapter: s3                 # git | s3 | http | file
+  ledger_path: logs/anchor_ledger.json
+
+  # S3 WORM settings (used when adapter=s3)
+  bucket: my-forensic-anchors
+  region: ap-southeast-1
+  mode: COMPLIANCE            # COMPLIANCE (court) | GOVERNANCE (dev)
+  retention_days: 2555        # 7 years (2555 days)
+  prefix: anchors/
+
+  gpg:
+    enabled: true
+    strict: true
+    key_id: null
+    gpg_home: null

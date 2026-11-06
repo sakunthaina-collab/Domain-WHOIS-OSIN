@@ -1,0 +1,30 @@
+name: notion-research-documentation
+version: 1.0.0
+category: docs
+status: stub
+description: Research across Notion and synthesize into structured documentation;
+  use when gathering info from multiple Notion sources to produce briefs, comparisons,
+  or reports with citations.
+triggers:
+- notion-research-documentation
+- notion
+- research
+- documentation
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for notion-research-documentation
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\notion-research-documentation\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

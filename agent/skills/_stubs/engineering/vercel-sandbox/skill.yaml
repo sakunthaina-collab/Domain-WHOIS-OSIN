@@ -1,0 +1,29 @@
+name: vercel-sandbox
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel Sandbox guidance — ephemeral Firecracker microVMs for running
+  untrusted code safely. Supports AI agents, code generation, and experimentation.
+  Use when executing user-generated or AI-generated code in isolation.
+triggers:
+- vercel-sandbox
+- vercel
+- sandbox
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for vercel-sandbox
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\vercel-sandbox\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

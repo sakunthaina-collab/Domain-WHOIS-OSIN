@@ -1,0 +1,35 @@
+name: iam-helper-for-privileged-access-management
+version: 1.0.0
+category: engineering
+status: runnable
+description: Manages the end-to-end lifecycle of on-demand, temporary access using
+  Privileged Access Manager (PAM). Use when a user asks to create, read, update, or
+  delete PAM entitlements, request temporary access, or approve/deny pending PAM grants.
+  Do NOT use for permanent IAM policy bindings, troubleshooting IAM permission errors,
+  or general Google Cloud resource provisioning.
+triggers:
+- iam-helper-for-privileged-access-management
+- iam
+- helper
+- for
+- privileged
+- access
+- management
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for iam-helper-for-privileged-access-management
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\iam-helper-for-privileged-access-management\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

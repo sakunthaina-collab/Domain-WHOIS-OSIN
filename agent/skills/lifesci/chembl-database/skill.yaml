@@ -1,0 +1,29 @@
+name: chembl-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Query the ChEMBL database for bioactive molecules, drug targets, bioactivity
+  data, approved drugs, and chemical structures. Use when the user asks about compounds,
+  targets, IC50/Ki values, drug mechanisms, or structure searches.
+triggers:
+- chembl-database
+- chembl
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for chembl-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\chembl_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

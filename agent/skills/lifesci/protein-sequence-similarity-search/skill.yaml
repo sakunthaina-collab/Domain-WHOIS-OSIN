@@ -1,0 +1,33 @@
+name: protein-sequence-similarity-search
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Searches for homologous protein sequences using MMseqs2 (fast, default)
+  or BLAST (comprehensive, fallback). Trigger this whenever the user provides a protein
+  sequence or FASTA file and asks to find homologues, sequence matches, or wants to
+  infer protein function based on sequence similarity, but not when the user wants
+  to infer protein function based on structural similarity.
+triggers:
+- protein-sequence-similarity-search
+- protein
+- sequence
+- similarity
+- search
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for protein-sequence-similarity-search
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\protein_sequence_similarity_search\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

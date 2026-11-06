@@ -1,0 +1,30 @@
+name: create-a-backend
+version: 1.0.0
+category: engineering
+status: stub
+description: Backend architecture guidance. Use when planning, building, or migrating
+  an API or backend; choosing between Functions, Services, containers, Daemons, Workflow,
+  Queues, and Marketplace databases; or selecting a supported backend framework or
+  runtime.
+triggers:
+- create-a-backend
+- create
+- backend
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for create-a-backend
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\create-a-backend\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,33 @@
+name: secops-investigate
+version: 1.0.0
+category: engineering
+status: stub
+description: Expert guidance for deep security incident and entity investigations
+  in Google SecOps. Use when investigating cases, analyzing entities (hosts, IPs,
+  domains, hashes, users), extracting and searching UDM events, performing asset and
+  user timeline analysis, and detecting lateral movement across enterprise networks.
+  Don't use for detection rule authoring or YARA-L tuning (use secops-detection-engineering),
+  proactive hypothesis-driven hunting (use secops-hunt), initial alert triage (use
+  secops-triage), or basic case status updates (use secops-cases).
+triggers:
+- secops-investigate
+- secops
+- investigate
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for secops-investigate
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\secops-investigate\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

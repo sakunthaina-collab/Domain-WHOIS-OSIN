@@ -1,0 +1,37 @@
+name: bigquery-graph-query
+version: 1.0.0
+category: lifesci
+status: stub
+description: 'Provides guidelines and best practices for querying BigQuery property
+  graphs and semantic graphs: native GQL (Graph Query Language) pattern matching,
+  multi-hop and variable-length paths, aggregation, top-N, path extraction, output
+  formatting (graph visualization with TO_JSON vs tabular), GRAPH_TABLE relational
+  SQL integration, and semantic graph querying via the GRAPH_EXPAND TVF with starting-node
+  view selection and AGG() measures. Also covers hybrid semantic search, combining
+  `VECTOR_SEARCH` candidate generation with graph traversal when a node carries an
+  embedding-backed property. Use when querying graph topology, node/edge connections,
+  paths, or semantic measures over an existing BigQuery graph. Don''t use for Cypher
+  or non-BigQuery graph databases, or for creating/modifying a graph schema.'
+triggers:
+- bigquery-graph-query
+- bigquery
+- graph
+- query
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for bigquery-graph-query
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\bigquery-graph-query\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

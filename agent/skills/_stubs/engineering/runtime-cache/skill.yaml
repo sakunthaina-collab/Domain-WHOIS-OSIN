@@ -1,0 +1,29 @@
+name: runtime-cache
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel Runtime Cache API guidance — ephemeral per-region key-value cache
+  with tag-based invalidation. Shared across Functions, Routing Middleware, and Builds.
+  Use when implementing caching strategies beyond framework-level caching.
+triggers:
+- runtime-cache
+- runtime
+- cache
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for runtime-cache
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\runtime-cache\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

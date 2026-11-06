@@ -1,0 +1,35 @@
+name: vercel-flags
+version: 1.0.0
+category: engineering
+status: stub
+description: Feature flags, A/B tests, and gradual rollouts with Vercel Flags, in
+  any app or framework. Use whenever the user is planning, adding, or changing a feature
+  flag, toggle, kill switch, experiment, percentage rollout, or targeting rule, or
+  wants to gate or hide a feature for some users, even before a library or provider
+  is chosen. Covers choosing an integration (Flags SDK, `@vercel/flags-core`, OpenFeature),
+  the Vercel dashboard, the `vercel flags` CLI (create, inspect, set, split, rollout,
+  rules, segments, evaluations, archive), OIDC vs SDK keys, `FLAGS_SECRET`, and Flags
+  Explorer overrides. For `flag()` declarations, adapters, precompute, and the Flags
+  Explorer endpoint in Next.js or SvelteKit code, load the `flags-sdk` skill.
+triggers:
+- vercel-flags
+- vercel
+- flags
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for vercel-flags
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\vercel-flags\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

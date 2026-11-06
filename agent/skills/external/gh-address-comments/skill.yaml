@@ -1,0 +1,29 @@
+name: gh-address-comments
+version: 1.0.0
+category: external
+status: runnable
+description: Help address review/issue comments on the open GitHub PR for the current
+  branch using gh CLI; verify gh auth first and prompt the user to authenticate if
+  not logged in.
+triggers:
+- gh-address-comments
+- address
+- comments
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gh-address-comments
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\gh-address-comments\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

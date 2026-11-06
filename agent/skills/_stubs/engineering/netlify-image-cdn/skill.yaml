@@ -1,0 +1,34 @@
+name: netlify-image-cdn
+version: 1.0.0
+category: engineering
+status: stub
+description: Transforms images on demand via Netlify Image CDN's /.netlify/images
+  endpoint with query parameters for resizing/cropping/format/quality. Use when adding
+  image optimization or responsive images, converting formats (WebP/AVIF/PNG), generating
+  thumbnails or blur placeholders, serving remote/third-party images through the CDN,
+  allowlisting remote domains in netlify.toml, setting up image redirects or cache
+  headers, building user-uploaded image pipelines, or debugging a 404 on /.netlify/images.
+  Also covers framework image handling for Angular/Astro/Gatsby/Next.js/Nuxt.
+triggers:
+- netlify-image-cdn
+- netlify
+- image
+- cdn
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for netlify-image-cdn
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\netlify\agent-plugin\skills\netlify-image-cdn\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

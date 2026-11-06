@@ -1,0 +1,34 @@
+name: google-cloud-networking-observability
+version: 1.0.0
+category: engineering
+status: stub
+description: Investigates Google Cloud networking issues by analyzing GCP logs, metrics,
+  and diagnostics. Use when investigating dropped network traffic, packet drops, drop
+  reasons, VPC Flow Logs (including Private Service Connect / PSC, serverless / App
+  Engine Direct VPC, and cost estimation), NAT, firewall, or threat logs, querying
+  latency and throughput metrics, or running Connectivity Tests for path diagnostics.
+  Don't use for generic VM management or non-observability tasks.
+triggers:
+- google-cloud-networking-observability
+- google
+- cloud
+- networking
+- observability
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-cloud-networking-observability
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\google-cloud-networking-observability\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

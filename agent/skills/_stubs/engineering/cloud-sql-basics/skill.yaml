@@ -1,0 +1,37 @@
+name: cloud-sql-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: 'This file generates or explains Cloud SQL resources. Use this file when
+  the user asks to create a Cloud SQL instance or database for MySQL, PostgreSQL,
+  or SQL Server.
+
+  Cloud SQL manages third-party MySQL, PostgreSQL, and SQL Server instances as resources
+  in Cloud SQL. For example, when Cloud SQL creates an open-source MySQL instance,
+  the resulting resource is a Cloud SQL for MySQL instance that Google Cloud manages.
+
+  Cloud SQL handles backups, high availability, and secure connectivity for relational
+  database workloads.'
+triggers:
+- cloud-sql-basics
+- cloud
+- sql
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cloud-sql-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\cloud-sql-basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,30 @@
+name: cheminformatics-reactions
+version: 1.0.0
+category: lifesci
+status: runnable
+description: 'Proposes and models organic reactions, retrosynthesis, multi-step synthesis
+  routes, intramolecular cyclizations, and reaction SMARTS: checks experimental precedents
+  first, validates atom conservation, prochirality (pro-R/pro-S, Re/Si), topicity,
+  1H/13C NMR equivalence, and stereogenesis, and renders 2D curved-arrow mechanisms.'
+triggers:
+- cheminformatics-reactions
+- cheminformatics
+- reactions
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cheminformatics-reactions
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\cheminformatics_reactions\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

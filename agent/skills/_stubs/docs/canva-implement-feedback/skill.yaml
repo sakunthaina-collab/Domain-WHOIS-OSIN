@@ -1,0 +1,32 @@
+name: canva-implement-feedback
+version: 1.0.0
+category: docs
+status: stub
+description: Implement reviewer feedback on a Canva design. Reads all comment threads,
+  synthesises what reviewers want, makes the clear-cut changes directly, and flags
+  anything that needs a human decision. Use when the user asks to "implement feedback
+  on my deck", "address comments on a design", "apply review feedback", "fix the comments
+  on my presentation", or "implement the feedback".
+triggers:
+- canva-implement-feedback
+- canva
+- implement
+- feedback
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for canva-implement-feedback
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\canva\skills\implement-feedback\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

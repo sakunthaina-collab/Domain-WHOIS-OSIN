@@ -1,0 +1,35 @@
+name: digital-forensics-investigator
+version: 1.0.0
+category: investigation
+description: 'สร้างไทม์ไลน์นิติวิทยาศาสตร์ดิจิทัล (MACB Timeline) สกัดเอนทิตี (IP,
+  GPS, เบอร์โทร, พาสปอร์ต) และวิเคราะห์โครงสร้าง Home-Routed Roaming Tunnel โดยไม่คาดเดาเกินหลักฐานจริง
+
+  '
+triggers:
+- forensics
+- timeline
+- MACB
+- พิกัด
+- roaming
+- หลักฐาน
+input_schema:
+  type: object
+  properties:
+    target:
+      type: string
+    correlate_roaming:
+      type: boolean
+      default: true
+  required:
+  - target
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json
+- csv
+status: runnable

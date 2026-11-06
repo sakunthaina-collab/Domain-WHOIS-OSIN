@@ -1,0 +1,32 @@
+name: google-cloud-recipe-auth
+version: 1.0.0
+category: engineering
+status: stub
+description: Provides expert guidance on Identity and Access Management (IAM) and
+  authenticating and authorizing to Google Cloud services and APIs, covering human
+  users, service identities, Application Default Credentials (ADC), and best practices
+  for secure access.
+triggers:
+- google-cloud-recipe-auth
+- google
+- cloud
+- recipe
+- auth
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-cloud-recipe-auth
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\google-cloud-developer\skills\google-cloud-recipe-auth\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

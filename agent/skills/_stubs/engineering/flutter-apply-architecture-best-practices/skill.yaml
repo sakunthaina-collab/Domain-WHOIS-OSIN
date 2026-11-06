@@ -1,0 +1,31 @@
+name: flutter-apply-architecture-best-practices
+version: 1.0.0
+category: engineering
+status: stub
+description: Architects a Flutter application using the recommended layered approach
+  (UI, Logic, Data). Use when structuring a new project or refactoring for scalability.
+triggers:
+- flutter-apply-architecture-best-practices
+- flutter
+- apply
+- architecture
+- best
+- practices
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for flutter-apply-architecture-best-practices
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\flutter-apply-architecture-best-practices\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

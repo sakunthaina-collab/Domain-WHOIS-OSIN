@@ -1,0 +1,34 @@
+name: gcp-managed-airflow-dag-authoring
+version: 1.0.0
+category: engineering
+status: stub
+description: Guides the authoring and validation of Apache Airflow DAGs for Managed
+  Service for Apache Airflow (MSAA; formerly Cloud Composer). Covers environment context
+  discovery, Airflow 2 vs 3 compatibility, authoring best practices, and local/remote
+  validation processes. Use when creating or extending an Airflow DAG. Don't use when
+  authoring Python code unrelated to Airflow DAGs.
+triggers:
+- gcp-managed-airflow-dag-authoring
+- gcp
+- managed
+- airflow
+- dag
+- authoring
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gcp-managed-airflow-dag-authoring
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\gcp-managed-airflow-dag-authoring\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

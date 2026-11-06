@@ -1,0 +1,30 @@
+name: compdf-pdf-to-json
+version: 1.0.0
+category: docs
+status: stub
+description: Convert PDF content into structured JSON with ComPDF. Use when PDF text,
+  tables, images, and structured content must feed an AI pipeline, application, or
+  system integration.
+triggers:
+- compdf-pdf-to-json
+- compdf
+- pdf
+- json
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for compdf-pdf-to-json
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\compdf-pdf-to-json\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

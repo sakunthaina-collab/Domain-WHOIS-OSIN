@@ -1,0 +1,29 @@
+name: cloudflare-deploy
+version: 1.0.0
+category: external
+status: stub
+description: Deploy applications and infrastructure to Cloudflare using Workers, Pages,
+  and related platform services. Use when the user asks to deploy, host, publish,
+  or set up a project on Cloudflare.
+triggers:
+- cloudflare-deploy
+- cloudflare
+- deploy
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cloudflare-deploy
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\cloudflare-deploy\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

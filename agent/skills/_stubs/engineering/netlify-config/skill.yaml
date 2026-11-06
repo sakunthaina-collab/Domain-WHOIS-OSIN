@@ -1,0 +1,33 @@
+name: netlify-config
+version: 1.0.0
+category: engineering
+status: stub
+description: Configure Netlify builds and routing via netlify.toml, _redirects, and
+  _headers. Use when setting a build command or publish directory, adding redirects
+  or rewrites or proxies, adding an SPA fallback rewrite, setting custom response
+  headers or basic auth, managing environment variables and secrets, scoping vars
+  per deploy context, marking a var as secret, disabling secret scanning, configuring
+  functions bundling, ignoring builds, or wiring up a monorepo or JavaScript SPA on
+  Netlify.
+triggers:
+- netlify-config
+- netlify
+- config
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for netlify-config
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\netlify\agent-plugin\skills\netlify-config\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

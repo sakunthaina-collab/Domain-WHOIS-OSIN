@@ -1,0 +1,30 @@
+name: daemons
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel Daemons guidance — long-running background workers built from
+  a Dockerfile and declared under the `daemons` key in vercel.json. Use when running
+  queue consumers, Celery/Sidekiq/BullMQ workers, workflow workers, or job runners
+  next to an app on Vercel; configuring daemon instances per region, memory, or command;
+  handling SIGTERM; or choosing between Daemons, Functions, Queues, and Workflows.
+triggers:
+- daemons
+- daemons
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for daemons
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\daemons\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

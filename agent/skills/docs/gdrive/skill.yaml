@@ -1,0 +1,31 @@
+name: gdrive
+version: 1.0.0
+category: docs
+status: runnable
+description: Browse, search, and manage Google Drive files and folders. Use when the
+  user shares a drive.google.com URL, asks what is in a folder, wants a file found,
+  downloaded, uploaded, updated in place, moved, copied, or renamed, wants a Google
+  file exported to PDF, Markdown, or CSV, wants comments read or added, wants sharing
+  and permissions checked or changed, or wants Drive activity watched. Don't use for
+  editing the contents of a Doc, Sheet, or Slides deck.
+triggers:
+- gdrive
+- gdrive
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gdrive
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\gdrive\skills\gdrive\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

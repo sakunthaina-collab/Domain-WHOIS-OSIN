@@ -1,0 +1,12 @@
+# ══════════════════════════════════════════════════════════
+# ADD TO config.yaml (top level)
+# ══════════════════════════════════════════════════════════
+anchor:
+  adapter: git                    # git | s3 | http | file
+  ledger_path: logs/anchor_ledger.json
+  # s3:
+  #   bucket: my-worm-audit-bucket
+  # http:
+  #   url: https://audit.example.org/anchor
+  # file:
+  #   path: //fileserver/audit-anchors

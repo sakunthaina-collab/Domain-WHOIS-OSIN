@@ -1,0 +1,31 @@
+name: offload-to-sandbox
+version: 1.0.0
+category: engineering
+status: stub
+description: Offload heavy builds, full test suites and parallel experiments from
+  the local machine to Vercel Sandboxes with the `vercel sandbox` CLI. Use when a
+  local machine is overloaded or shared by several agents, when a test suite should
+  be sharded, or when many tasks should run side by side without consuming local CPU,
+  memory or disk.
+triggers:
+- offload-to-sandbox
+- offload
+- sandbox
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for offload-to-sandbox
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\offload-to-sandbox\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

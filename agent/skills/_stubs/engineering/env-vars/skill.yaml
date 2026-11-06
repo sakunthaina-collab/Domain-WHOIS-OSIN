@@ -1,0 +1,29 @@
+name: env-vars
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel environment variable expert guidance. Use when working with .env
+  files, vercel env commands, Secret or Config variable types, OIDC tokens, or managing
+  environment-specific configuration.
+triggers:
+- env-vars
+- env
+- vars
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for env-vars
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\env-vars\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

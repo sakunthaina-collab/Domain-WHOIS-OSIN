@@ -1,0 +1,33 @@
+name: gcp-spark-troubleshooting
+version: 1.0.0
+category: engineering
+status: runnable
+description: Provides expert guidance for troubleshooting Google Cloud Spark and Dataproc
+  workloads (Dataproc Serverless batches and standard Dataproc clusters), and inspecting,
+  streaming, searching, tailing, or summarizing Spark driver outputs and event logs
+  in Cloud Storage. Use when the user asks to debug, troubleshoot, diagnose, or perform
+  Root Cause Analysis (RCA) on failed Spark jobs, PySpark batches, or Spark event
+  logs.
+triggers:
+- gcp-spark-troubleshooting
+- gcp
+- spark
+- troubleshooting
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gcp-spark-troubleshooting
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\gcp-spark-troubleshooting\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

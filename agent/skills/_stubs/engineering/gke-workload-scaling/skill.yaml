@@ -1,0 +1,32 @@
+name: gke-workload-scaling
+version: 1.0.0
+category: engineering
+status: stub
+description: Manages scaling for GKE workloads using HPA and VPA. Use when configuring
+  Horizontal Pod Autoscaler (HPA), configuring Vertical Pod Autoscaler (VPA), or applying
+  best practices for GKE workload autoscaling. Do not use for cluster-level autoscaling
+  (Cluster Autoscaler), static cluster sizing, or configuring node-level machine styles
+  directly.
+triggers:
+- gke-workload-scaling
+- gke
+- workload
+- scaling
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-workload-scaling
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-workload-scaling\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

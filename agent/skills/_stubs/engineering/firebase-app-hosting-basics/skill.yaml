@@ -1,0 +1,33 @@
+name: firebase-app-hosting-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: Deploys and manages full-stack web applications (Next.js, Angular) with
+  Server-Side Rendering (SSR) using Firebase App Hosting. Use when deploying Next.js/Angular
+  apps, configuring apphosting.yaml or firebase.json apphosting blocks, managing secrets,
+  setting up GitHub CI/CD, or configuring Blaze billing requirements. Don't use for
+  classic static web hosting, Auth, Firestore, Crashlytics, or Xcode.
+triggers:
+- firebase-app-hosting-basics
+- firebase
+- app
+- hosting
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for firebase-app-hosting-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\firebase\skills\firebase_app_hosting_basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

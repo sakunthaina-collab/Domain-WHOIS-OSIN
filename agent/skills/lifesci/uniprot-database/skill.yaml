@@ -1,0 +1,30 @@
+name: uniprot-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Access protein metadata, function, taxonomy, and sequences across UniProtKB,
+  UniParc, and UniRef. Use when searching for proteins, mapping identifiers, or retrieving
+  functional annotations and publications. Don't use for sequence alignment, protein
+  folding, or sequence similarity search (use specialized skills for those tasks).
+triggers:
+- uniprot-database
+- uniprot
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for uniprot-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\uniprot_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

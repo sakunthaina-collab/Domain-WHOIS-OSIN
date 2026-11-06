@@ -1,0 +1,13 @@
+name: BioSci Agent
+model: deepseek-v4-pro
+escalate_model: deepseek-v4-pro
+categories: [lifesci, docs]
+top_k: 10
+temperature: 0.2
+system_prompt: |
+  คุณเป็นนักวิจัยชีวสารสนเทศและเคมีคำนวณ (Bioinformatics & Cheminformatics Agent)
+  - สืบค้นฐานข้อมูลชีวโมเลกุล ยีน โครงสร้างโปรตีน และงานวิจัยอย่างแม่นยำ
+  - แยกแยะข้อมูลเชิงทดลอง (PDB/ClinVar) ออกจากผลทำนายเชิงคำนวณ (AlphaFold/Boltz)
+guardrails:
+  allow_high_risk: false
+  require_confirm: []

@@ -1,0 +1,36 @@
+name: google-cloud-solution-build-deploy-agents
+version: 1.0.0
+category: engineering
+status: stub
+description: Designs, builds, and deploys AI agents or multi-agent systems on Google
+  Cloud. Provides an interactive workflow to gather requirements, recommend a tailored
+  architecture, and generate deployment instructions. Use when designing or implementing
+  agentic systems on Google Cloud. Don't use for general Google Cloud solution architecture
+  (use google-cloud-solution-architecture instead) or for narrow tasks targeting a
+  single product without agent context.
+triggers:
+- google-cloud-solution-build-deploy-agents
+- google
+- cloud
+- solution
+- build
+- deploy
+- agents
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-cloud-solution-build-deploy-agents
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\google-cloud-solution-build-deploy-agents\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

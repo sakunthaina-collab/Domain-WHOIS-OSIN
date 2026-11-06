@@ -1,0 +1,31 @@
+name: openfda-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Query, search, and download data from the openFDA API for drugs, devices,
+  foods, tobacco, cosmetics, animal and veterinary products, substances, and transparency
+  data. Use for FDA adverse events, recalls, labeling, approvals, shortages, 510(k)
+  clearances, NDC lookups, and any FDA safety or regulatory data query across all
+  28 API endpoints.
+triggers:
+- openfda-database
+- openfda
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for openfda-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\openfda_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

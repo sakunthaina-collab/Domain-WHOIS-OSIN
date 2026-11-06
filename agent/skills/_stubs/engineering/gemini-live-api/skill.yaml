@@ -1,0 +1,34 @@
+name: gemini-live-api
+version: 1.0.0
+category: engineering
+status: stub
+description: Generates a Gemini LiveAPI client service class in the user's chosen
+  programming language. Use when the user wants to build, scaffold, or integrate a
+  client that connects to the Gemini Enterprise LiveAPI websocket endpoint, handles
+  session setup/resumption, bearer token refresh, and sending/receiving `ClientMessage`/`ServerMessage`
+  protos. Don't use for general (non-live, non-bidirectional) Gemini API usage such
+  as one-shot `generateContent`, embeddings, image/video generation, or fine-tuning
+  — use the `gemini-api` skill for those.
+triggers:
+- gemini-live-api
+- gemini
+- live
+- api
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gemini-live-api
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gemini-live-api\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

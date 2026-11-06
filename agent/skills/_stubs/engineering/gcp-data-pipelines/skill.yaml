@@ -1,0 +1,32 @@
+name: gcp-data-pipelines
+version: 1.0.0
+category: engineering
+status: stub
+description: Primary entry point for building, managing, and orchestrating data pipelines
+  on Google Cloud. Guides users to the appropriate skill for dbt, Dataflow (Apache
+  Beam), Dataform, Spark (Dataproc Serverless), BigQuery Data Transfer Service (DTS)
+  or orchestration pipeline using Cloud Composer. Clarify requirements and resolve
+  ambiguity for creating, updating and running data pipelines.
+triggers:
+- gcp-data-pipelines
+- gcp
+- data
+- pipelines
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gcp-data-pipelines
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\gcp-data-pipelines\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

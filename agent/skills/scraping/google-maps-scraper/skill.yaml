@@ -1,0 +1,34 @@
+name: google-maps-scraper
+version: 1.12.1
+category: scraping
+status: runnable
+description: สแครปข้อมูลธุรกิจและร้านอาหารจาก Google Maps (ชื่อร้าน, เบอร์โทร, พิกัด, อีเมล, รีวิว ในกรุงเทพ เชียงใหม่ ฯลฯ)
+triggers:
+  - "google maps"
+  - "สแครป"
+  - "ร้านค้า"
+  - "ร้านอาหาร"
+  - "เชียงใหม่"
+  - "ธุรกิจ"
+  - "หาเบอร์โทรของร้าน"
+  - "lead"
+input_schema:
+  type: object
+  properties:
+    query:
+      type: string
+    area:
+      type: string
+      description: "เช่น กรุงเทพ, เชียงใหม่"
+    limit:
+      type: integer
+      default: 50
+  required: ["query"]
+runtime:
+  type: cli
+  bin: ../google-maps-scraper/google-maps-scraper.exe
+  args: ["-version"]
+  timeout: 600
+permissions: [network, filesystem:write]
+risk: medium
+outputs: [csv, json]

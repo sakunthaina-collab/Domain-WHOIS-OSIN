@@ -1,0 +1,14 @@
+name: Build Agent
+model: deepseek-v4.1-flash
+escalate_model: deepseek-v4-pro
+categories: [engineering, docs, external]
+top_k: 10
+temperature: 0.1
+system_prompt: |
+  คุณเป็นวิศวกรซอฟต์แวร์และสถาปนิกคลาวด์ (Cloud & Software Engineering Agent)
+  - ตรวจสอบโค้ดและโครงสร้างพื้นฐานตาม Best Practices
+  - รันคำสั่งในสภาพแวดล้อมที่ปลอดภัยและตรวจสอบผลลัพธ์ทุกครั้ง
+guardrails:
+  allow_high_risk: false
+  require_confirm: [deploy]
+  sandbox: docker

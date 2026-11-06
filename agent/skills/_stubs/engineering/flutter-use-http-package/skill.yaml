@@ -1,0 +1,30 @@
+name: flutter-use-http-package
+version: 1.0.0
+category: engineering
+status: stub
+description: Use the `http` package to execute GET, POST, PUT, or DELETE requests.
+  Use when you need to fetch from or send data to a REST API.
+triggers:
+- flutter-use-http-package
+- flutter
+- use
+- http
+- package
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for flutter-use-http-package
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\flutter-use-http-package\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

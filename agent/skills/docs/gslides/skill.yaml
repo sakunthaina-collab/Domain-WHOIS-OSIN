@@ -1,0 +1,29 @@
+name: gslides
+version: 1.0.0
+category: docs
+status: runnable
+description: Read, create, and edit Google Slides presentations. Use when creating
+  presentations, when the user shares a slides.google.com URL, asks to summarize or
+  extract content from a deck, wants slides drafted or updated, or wants a presentation
+  exported. Don't use for Google Docs, Sheets, or Drive file management.
+triggers:
+- gslides
+- gslides
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gslides
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\gslides\skills\gslides\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

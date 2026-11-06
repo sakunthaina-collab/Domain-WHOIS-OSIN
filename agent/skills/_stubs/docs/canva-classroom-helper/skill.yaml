@@ -1,0 +1,32 @@
+name: canva-classroom-helper
+version: 1.0.0
+category: docs
+status: stub
+description: Turn a lesson plan into a teaching slide deck in Canva. Use when the
+  user asks to build classroom slides from a lesson plan, convert a lesson plan into
+  a presentation, make a teaching deck, create school slides from an outline, or generate
+  a lesson deck for students. Input can be a lesson plan pasted in the message, a
+  Canva design ID, a Canva doc or design by name, or a Canva design link (e.g., https://www.canva.com/design/...).
+triggers:
+- canva-classroom-helper
+- canva
+- classroom
+- helper
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for canva-classroom-helper
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\canva\inactive-skills\classroom-helper\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

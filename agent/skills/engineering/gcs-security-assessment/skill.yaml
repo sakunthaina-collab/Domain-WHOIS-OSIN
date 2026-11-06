@@ -1,0 +1,38 @@
+name: gcs-security-assessment
+version: 1.0.0
+category: engineering
+status: runnable
+description: Assesses the security posture of Google Cloud Storage (GCS) buckets and
+  projects. Grounds every finding in gathered telemetry, evaluates buckets against
+  Google security best practices (public access, IAM over-granting, CMEK, VPC Service
+  Controls, audit logging), and correlates signals to flag toxic combinations of individually
+  low-risk settings, with actionable remediation. Use whenever a user asks for a security
+  scan, audit, review, vulnerability check, or compliance assessment (including SAIF)
+  — or simply asks whether their buckets, project, or data are secure, exposed, public,
+  or misconfigured, who can access their data, or wants storage hardened or locked
+  down, e.g. before a launch. Don't use for diagnosing a specific access failure or
+  403, managing or configuring storage, investigating a live outage, or non-GCS resources
+  (Compute Engine, GKE, etc.).
+triggers:
+- gcs-security-assessment
+- gcs
+- security
+- assessment
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gcs-security-assessment
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\gcs-security-assessment\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

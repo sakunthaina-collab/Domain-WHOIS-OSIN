@@ -1,0 +1,30 @@
+name: netlify-agent-runner
+version: 1.0.0
+category: engineering
+status: stub
+description: Run AI agent tasks remotely on Netlify using Claude, Codex, or Gemini.
+  Use when the user wants to run an AI agent on their site, get a second opinion from
+  another model, or delegate development tasks to run remotely against their repo.
+triggers:
+- netlify-agent-runner
+- netlify
+- agent
+- runner
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for netlify-agent-runner
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\netlify\agent-plugin\skills\netlify-agent-runner\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

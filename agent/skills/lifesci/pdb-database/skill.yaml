@@ -1,0 +1,30 @@
+name: pdb-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Use when you want to search for or download experimentally-determined
+  3D structures for biomolecules (proteins, nucleic acids, bound ligands). Supports
+  searching by sequence similarity, structure similarity, chemical and other attributes.
+  Also use to get metadata about biomolecular structure experiments.
+triggers:
+- pdb-database
+- pdb
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for pdb-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\pdb_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

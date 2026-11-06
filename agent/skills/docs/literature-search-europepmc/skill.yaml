@@ -1,0 +1,30 @@
+name: literature-search-europepmc
+version: 1.0.0
+category: docs
+status: runnable
+description: Search Europe PMC for scientific literature and download open-access
+  full texts and PDFs. Retrieve full-text XML/plain text by PMCID, get citation lists
+  and bibliography.
+triggers:
+- literature-search-europepmc
+- literature
+- search
+- europepmc
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for literature-search-europepmc
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\literature_search_europepmc\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

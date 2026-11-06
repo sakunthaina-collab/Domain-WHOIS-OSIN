@@ -1,0 +1,30 @@
+name: dart-use-doc-examples
+version: 1.0.0
+category: engineering
+status: stub
+description: 'How to inject external code examples into Dartdoc using the {@example}
+  directive, and how to filter those files using #hide, #region, and #endregion tags.'
+triggers:
+- dart-use-doc-examples
+- dart
+- use
+- doc
+- examples
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for dart-use-doc-examples
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\dart-use-doc-examples\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

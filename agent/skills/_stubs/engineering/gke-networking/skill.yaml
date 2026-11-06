@@ -1,0 +1,32 @@
+name: gke-networking
+version: 1.0.0
+category: engineering
+status: stub
+description: Plans, configures, and manages core GKE cluster networking. Covers private
+  clusters, VPC-native configurations, DNS, node egress, Dataplane V2, and IP planning.
+  Use when designing GKE networking layouts, configuring private clusters, setting
+  up Dataplane V2, planning GKE IP ranges, or managing VPC- native cluster modes.
+  Don't use for application ingress, load balancing, or service networking (use gke-service-networking
+  instead).
+triggers:
+- gke-networking
+- gke
+- networking
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-networking
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-networking\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,31 @@
+name: dart-add-unit-test
+version: 1.0.0
+category: engineering
+status: stub
+description: Write and organize unit tests for functions, methods, and classes using
+  `package:test`. Use when creating new logic or fixing bugs to ensure code remains
+  correct and regression-free.
+triggers:
+- dart-add-unit-test
+- dart
+- add
+- unit
+- test
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for dart-add-unit-test
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\dart-add-unit-test\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

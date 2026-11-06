@@ -1,0 +1,32 @@
+name: ucsc-conservation-and-tfbs
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Fetch Evolutionary Conservation scores (phyloP, phastCons) and Transcription
+  Factor Binding Sites (TFBS) from the UCSC Genome Browser. Use when analyzing whether
+  genomic variants or regions are evolutionarily conserved, functionally important,
+  or bounded by TF regulators across major projects (ENCODE, JASPAR, ReMap).
+triggers:
+- ucsc-conservation-and-tfbs
+- ucsc
+- conservation
+- and
+- tfbs
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for ucsc-conservation-and-tfbs
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\ucsc_conservation_and_tfbs\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,30 @@
+name: notion-spec-to-implementation
+version: 1.0.0
+category: docs
+status: stub
+description: Turn Notion specs into implementation plans, tasks, and progress tracking;
+  use when implementing PRDs/feature specs and creating Notion plans + tasks from
+  them.
+triggers:
+- notion-spec-to-implementation
+- notion
+- spec
+- implementation
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for notion-spec-to-implementation
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\notion-spec-to-implementation\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

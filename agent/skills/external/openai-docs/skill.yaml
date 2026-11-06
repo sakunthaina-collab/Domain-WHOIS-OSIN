@@ -1,0 +1,32 @@
+name: openai-docs
+version: 1.0.0
+category: external
+status: runnable
+description: Use when the user asks how to build with OpenAI products or APIs, asks
+  about Codex itself or choosing Codex surfaces, needs up-to-date official documentation
+  with citations, help choosing the latest model for a use case, or model upgrade
+  and prompt-upgrade guidance; use OpenAI docs MCP tools for non-Codex docs questions,
+  use the Codex manual helper first for broad Codex self-knowledge, and restrict fallback
+  browsing to official OpenAI domains.
+triggers:
+- openai-docs
+- openai
+- docs
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for openai-docs
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\openai-docs\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

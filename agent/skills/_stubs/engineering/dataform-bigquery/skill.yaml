@@ -1,0 +1,31 @@
+name: dataform-bigquery
+version: 1.0.0
+category: engineering
+status: stub
+description: Expertise in generating clean, correct, and efficient Dataform pipeline
+  code for BigQuery ELT. Use this when creating or modifying Dataform pipelines, actions,
+  or source declarations, when Dataform, SQLX, or BigQuery are mentioned in a transformation,
+  when data needs to be ingested from GCS into BigQuery via Dataform, or when setting
+  up a new Dataform project or configuring workflow_settings.yaml.
+triggers:
+- dataform-bigquery
+- dataform
+- bigquery
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for dataform-bigquery
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\dataform-bigquery\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

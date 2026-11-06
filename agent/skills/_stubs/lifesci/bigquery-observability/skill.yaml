@@ -1,0 +1,36 @@
+name: bigquery-observability
+version: 1.0.0
+category: lifesci
+status: stub
+description: Provides data-retrieval best practices, tool selection guidance, and
+  performant SQL query syntax for BigQuery telemetry across INFORMATION_SCHEMA, Cloud
+  Monitoring, and the REST API. Use when the telemetry to fetch is already known,
+  selecting telemetry tools, writing performant INFORMATION_SCHEMA queries, retrieving
+  telemetry for diagnosing single-job performance bottlenecks, investigating slot
+  contention, job concurrency and queue latency, analyzing reservation capacity, utilization
+  and autoscaling saturation, or auditing capacity-based and on-demand compute and
+  storage resource billable usage. Don't use for root-cause diagnosis or symptom troubleshooting
+  when the cause is unknown (use bigquery-troubleshooting first), or for writing or
+  optimizing business logic SQL (use bigquery-optimization).
+triggers:
+- bigquery-observability
+- bigquery
+- observability
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for bigquery-observability
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\bigquery-observability\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,37 @@
+name: gke-platform-security
+version: 1.0.0
+category: engineering
+status: stub
+description: Plans, configures, and hardens platform-level Google Kubernetes Engine
+  (GKE) cluster security. Covers cluster add-ons (Secret Manager enablement), RBAC
+  hardening (disabling insecure bindings, audit tools), Binary Authorization, Secrets
+  Encryption (--database-encryption-key), Security Posture (--security-posture), enabling
+  Shielded Nodes, GKE Sandbox cluster enablement, GKE IAM roles, and cross-service
+  authentication IAM patterns. Use when securing cluster control planes, hardening
+  GKE RBAC, enabling Shielded Nodes, enabling GKE Sandbox runtime, enabling cluster-wide
+  security add-ons, or managing GKE IAM roles. Don't use for Workload Identity (use
+  gke-workload-identity) or workload-level security (SecretProviderClass, PSS, NetPol,
+  gVisor pod runtimeClassName; use gke-workload-security).
+triggers:
+- gke-platform-security
+- gke
+- platform
+- security
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-platform-security
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-platform-security\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

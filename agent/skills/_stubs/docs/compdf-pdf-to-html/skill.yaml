@@ -1,0 +1,29 @@
+name: compdf-pdf-to-html
+version: 1.0.0
+category: docs
+status: stub
+description: Convert PDF files into reusable HTML with ComPDF. Use for web publishing,
+  browser workflows, portal embedding, content migration, and PDF-to-HTML requests.
+triggers:
+- compdf-pdf-to-html
+- compdf
+- pdf
+- html
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for compdf-pdf-to-html
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\compdf-pdf-to-html\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

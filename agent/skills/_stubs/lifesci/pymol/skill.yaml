@@ -1,0 +1,30 @@
+name: pymol
+version: 1.0.0
+category: lifesci
+status: stub
+description: Visualize, analyze, and render protein and molecular structures using
+  PyMOL. Use when the user wants to create images of protein structures, perform structural
+  alignments or superposition, measure distances or contacts, highlight binding sites
+  or active site residues, color by B-factor/pLDDT, or analyze protein-ligand interactions.
+  Do not use for docking, molecular dynamics, or sequence-only analysis.
+triggers:
+- pymol
+- pymol
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for pymol
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\pymol\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

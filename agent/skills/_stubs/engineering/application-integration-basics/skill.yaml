@@ -1,0 +1,35 @@
+name: application-integration-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: Explains Google Cloud Application Integration concepts, region provisioning,
+  IAM roles, run-as service accounts, interface choices (REST, Python discovery client,
+  Terraform, ADK), and platform limits. Use when setting up Application Integration
+  in a Google Cloud project, enabling required APIs, provisioning a region, configuring
+  IAM or run-as service accounts, choosing between Application Integration and custom
+  code, or checking quotas and timeouts. Do not use for building, publishing, or invoking
+  integrations (use application-integration-authoring) or diagnosing failed or stuck
+  runs and logs (use application-integration-troubleshooting).
+triggers:
+- application-integration-basics
+- application
+- integration
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for application-integration-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\application-integration-basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

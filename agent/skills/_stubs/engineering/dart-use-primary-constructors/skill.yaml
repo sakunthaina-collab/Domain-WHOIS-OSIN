@@ -1,0 +1,31 @@
+name: dart-use-primary-constructors
+version: 1.0.0
+category: engineering
+status: stub
+description: Help users write syntactically and semantically correct primary constructors
+  in Dart, and migrate/use the new constructor syntax, empty-body semicolon syntax,
+  in-body initializer list syntax, and abbreviated concise constructor syntax.
+triggers:
+- dart-use-primary-constructors
+- dart
+- use
+- primary
+- constructors
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for dart-use-primary-constructors
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\dart-use-primary-constructors\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

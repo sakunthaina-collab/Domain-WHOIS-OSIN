@@ -1,0 +1,35 @@
+name: iam-helper-for-troubleshooting
+version: 1.0.0
+category: engineering
+status: runnable
+description: 'Diagnoses, remediates, and manages Identity and Access Management (IAM)
+  access issues on Google Cloud. Supports two distinct operational modes: (1) Requester
+  Flow for developers encountering access denials (capturing error context, self-service
+  PAM JIT activations, elevated developer self-remediation, or logging structured
+  tickets), and (2) Resolver Flow for privileged administrators (authoritative Policy
+  Troubleshooter analysis, deny policy exemptions, least-privilege role discovery,
+  and PAM/IAM provisioning).'
+triggers:
+- iam-helper-for-troubleshooting
+- iam
+- helper
+- for
+- troubleshooting
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for iam-helper-for-troubleshooting
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\iam-helper-for-troubleshooting\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

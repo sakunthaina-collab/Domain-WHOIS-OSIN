@@ -1,0 +1,30 @@
+name: predictingthepast
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Ancient text restoration, attribution, dating, contextualization, and
+  embedding via Aeneas (Latin) / Ithaca (Ancient Greek). Use when asked to "restore",
+  "attribute", "date", "contextualize", "find parallels", "where was it written",
+  "when was it written", "embed", or "analyze" an ancient text, inscription, or epigraphic
+  document, or when the user mentions "Aeneas", or "Ithaca".
+triggers:
+- predictingthepast
+- predictingthepast
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for predictingthepast
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\predictingthepast\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

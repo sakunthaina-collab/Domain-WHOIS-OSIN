@@ -1,0 +1,38 @@
+name: api-gateway-backend-security-and-rate-limiting
+version: 1.0.0
+category: engineering
+status: runnable
+description: Secures and rate limits backend services behind Google Cloud API Gateway
+  across OpenAPI 2.0 and OpenAPI 3.0.x API configurations, including MCP-enabled gateways.
+  Use when configuring API key or JWT authentication, locking down Cloud Run or Cloud
+  Run functions backends with a gateway service account, reading authenticated claims
+  from X-Apigateway-Api-Userinfo, setting per-project request quotas, or diagnosing
+  HTTP 429 and HTTP 500 Service Control Quota errors. Do not use for Apigee, GKE Gateway
+  API, Cloud Load Balancing custom domain setup, or LLM model routing.
+triggers:
+- api-gateway-backend-security-and-rate-limiting
+- api
+- gateway
+- backend
+- security
+- and
+- rate
+- limiting
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for api-gateway-backend-security-and-rate-limiting
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\api-gateway-backend-security-and-rate-limiting\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

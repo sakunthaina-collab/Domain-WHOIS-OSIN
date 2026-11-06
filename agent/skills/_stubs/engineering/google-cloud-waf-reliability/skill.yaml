@@ -1,0 +1,37 @@
+name: google-cloud-waf-reliability
+version: 1.0.0
+category: engineering
+status: stub
+description: Evaluates, designs, and improves the reliability, resilience, availability,
+  fault tolerance, and disaster recovery (DR) of Google Cloud workloads based on the
+  design principles and recommendations in the Reliability pillar of the Google Cloud
+  Well-Architected Framework. Use when the user asks about reliability-related topics
+  like workload uptime, designing for high availability (HA) or DR, setting and meeting
+  RTO/RPO targets, SRE best practices, backup strategies, multi-region failover, or
+  fault-tolerant architecture on Google Cloud. Don't use for other Well-Architected
+  Framework pillars such as Cost Optimization, Operational Excellence, or Security,
+  or for hands-on resource deployment and live incident troubleshooting.
+triggers:
+- google-cloud-waf-reliability
+- google
+- cloud
+- waf
+- reliability
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-cloud-waf-reliability
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\google-cloud-waf-reliability\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

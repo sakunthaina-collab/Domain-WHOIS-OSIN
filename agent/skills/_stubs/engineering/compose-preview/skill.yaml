@@ -1,0 +1,31 @@
+name: compose-preview
+version: 1.0.0
+category: engineering
+status: stub
+description: Instructions for the Android Compose Preview sidecar, which renders Jetpack
+  Compose @Preview functions with `android preview render` and shows them in the Android
+  Compose Preview pane. Use it when the user wants to see a Compose preview, or to
+  review the result of UI changes — re-render after changing the code so that the
+  pane shows the result.
+triggers:
+- compose-preview
+- compose
+- preview
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for compose-preview
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\android-cli-plugin\skills\compose-preview\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

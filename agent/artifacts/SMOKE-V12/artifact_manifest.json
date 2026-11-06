@@ -1,0 +1,23 @@
+{
+  "case_dir": "C:\\Users\\Administrator\\.gemini\\antigravity\\worktrees\\adventurous-pasteur\\install_new_skill\\agent\\artifacts\\SMOKE-V12",
+  "created_at": 1793863145.816,
+  "file_count": 3,
+  "merkle_root": "6ef32b643599ad70dbc2e95cc1fe8654c838947bac937165b61fe8fc31736742",
+  "files": [
+    {
+      "path": "00_run_manifest.json",
+      "size_bytes": 948,
+      "sha256": "473275265b0045afbf9555bf25b60404ef2de84ef4c396f91b5b3008baffc04a"
+    },
+    {
+      "path": "audit.jsonl",
+      "size_bytes": 2724,
+      "sha256": "10503c2573941a349f30323e73f448b820eee6a1498b1ab2c46cd128b0d6f79d"
+    },
+    {
+      "path": "checkpoint.json",
+      "size_bytes": 5251,
+      "sha256": "39cbf5cdb76271c8c438c0292c455c5eb592e112e88c4bc6299eec6b135f6ac5"
+    }
+  ]
+}

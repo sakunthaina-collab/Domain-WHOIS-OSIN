@@ -1,0 +1,48 @@
+{
+  "case_dir": "C:\\Users\\Administrator\\.gemini\\antigravity\\worktrees\\adventurous-pasteur\\install_new_skill\\agent\\artifacts\\2026-11-06-CASE-B-FULL",
+  "created_at": 1793946767.086,
+  "file_count": 8,
+  "merkle_root": "4836a6a771d7d9c68f9e209d6ed531b4efdddb74f6cc8e628fb75a3ac3ab0cdc",
+  "files": [
+    {
+      "path": "004_case-dossier-exporter.md",
+      "size_bytes": 644,
+      "sha256": "432bc05febd9d036c333256f1735da5753b67ad4b67da5916b2c23b62c25ba8a"
+    },
+    {
+      "path": "00_run_manifest.json",
+      "size_bytes": 1035,
+      "sha256": "85ea8c91dcd3614c513cc79ec48d14fa32148da09a3044a588caaf1f890283c1"
+    },
+    {
+      "path": "audit.jsonl",
+      "size_bytes": 3700,
+      "sha256": "0ae3710cee86d977ed719af3bce7e2bde47de50bfba538c530e06ebcd3946b0d"
+    },
+    {
+      "path": "checkpoint.json",
+      "size_bytes": 6742,
+      "sha256": "cc410781158b2f99044dcb41ec4a8555feec1aef37a581fe652d631bfce5c2dc"
+    },
+    {
+      "path": "raw/001_phone-email-osint.json",
+      "size_bytes": 601,
+      "sha256": "80968d6968130e69f8247a5a4fce56a43d27ff3cf37d803922f9e23c57efcbde"
+    },
+    {
+      "path": "raw/002_syndicate-roster-tracker.json",
+      "size_bytes": 574,
+      "sha256": "548071112867ca62c87bfb0e7a0e99eb638c69b08ab795c67477c1998e96fc48"
+    },
+    {
+      "path": "raw/003_digital-forensics-investigator.json",
+      "size_bytes": 626,
+      "sha256": "a0a03dd2a2db1af3e8ff472cefcf0171155350014f3e82ae9dbead63c67a5da5"
+    },
+    {
+      "path": "raw/004_case-dossier-exporter.json",
+      "size_bytes": 288,
+      "sha256": "2badeed89168d5de6bfb4e5bdb03e7459a5038facfbf6cd6ff8fa27090d74e58"
+    }
+  ]
+}

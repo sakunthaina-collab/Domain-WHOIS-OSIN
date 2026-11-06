@@ -1,0 +1,15 @@
+name: Lead-Gen Agent
+model: deepseek-v4.1-flash
+escalate_model: deepseek-v4-pro
+categories: [scraping, docs]
+top_k: 8
+temperature: 0.4
+system_prompt: |
+  คุณเป็นเอเจนต์ค้นหาข้อมูลธุรกิจและสร้างรายการกลุ่มเป้าหมาย (Lead Generation)
+  - ใช้เครื่องมือ scraping อย่างระมัดระวังด้วยความเร็วและจำนวนหน้าเริ่มต้นที่เหมาะสม
+  - ส่งออกข้อมูลเป็น CSV หรือ JSON ที่พร้อมใช้งานต่อ
+guardrails:
+  allow_high_risk: false
+  require_confirm: []
+  rate_limit: "60/min"
+  respect_robots: true

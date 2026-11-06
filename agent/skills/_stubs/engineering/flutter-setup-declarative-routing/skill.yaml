@@ -1,0 +1,31 @@
+name: flutter-setup-declarative-routing
+version: 1.0.0
+category: engineering
+status: stub
+description: Configure `MaterialApp.router` using a package like `go_router` for advanced
+  URL-based navigation. Use when developing web applications or mobile apps that require
+  specific deep linking and browser history support.
+triggers:
+- flutter-setup-declarative-routing
+- flutter
+- setup
+- declarative
+- routing
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for flutter-setup-declarative-routing
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\flutter-setup-declarative-routing\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

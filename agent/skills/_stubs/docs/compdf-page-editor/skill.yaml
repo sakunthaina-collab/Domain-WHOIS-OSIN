@@ -1,0 +1,30 @@
+name: compdf-page-editor
+version: 1.0.0
+category: docs
+status: stub
+description: Merge, split, rotate, insert, delete, and extract PDF pages with ComPDF.
+  Use for PDF page management, document assembly, cleanup, restructuring, and selected-page
+  output.
+triggers:
+- compdf-page-editor
+- compdf
+- page
+- editor
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for compdf-page-editor
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\compdf-page-editor\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

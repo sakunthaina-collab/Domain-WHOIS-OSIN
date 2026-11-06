@@ -1,0 +1,29 @@
+name: clinvar-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Use when needing clinical significance, pathogenicity classifications
+  (e.g., Pathogenic, Benign, VUS), clinical evidence rationales, or finding "hard
+  positive" benchmark controls for human genomic variants.
+triggers:
+- clinvar-database
+- clinvar
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for clinvar-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\clinvar_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

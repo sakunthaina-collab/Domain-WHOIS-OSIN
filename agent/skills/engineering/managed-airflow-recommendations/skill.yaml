@@ -1,0 +1,33 @@
+name: managed-airflow-recommendations
+version: 1.0.0
+category: engineering
+status: runnable
+description: Provides recommendations and best practices for creating, configuring,
+  tuning and optimizing Managed Service for Apache Airflow (MSAA; formerly Cloud Composer)
+  environments. Use when the user asks for guidance, recommendations, or best practices
+  on configuring Managed Airflow environments, scaling Airflow environments, preventing
+  workload restarts, or analyzing system health. Don't use for troubleshooting individual
+  DAG or task run failures, authoring DAGs, or migrating DAGs to newer Airflow versions.
+triggers:
+- managed-airflow-recommendations
+- managed
+- airflow
+- recommendations
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for managed-airflow-recommendations
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\managed-airflow-recommendations\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

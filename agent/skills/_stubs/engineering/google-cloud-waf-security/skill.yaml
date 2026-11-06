@@ -1,0 +1,33 @@
+name: google-cloud-waf-security
+version: 1.0.0
+category: engineering
+status: stub
+description: Generates security-focused guidance for Google Cloud workloads based
+  on the design principles and recommendations in the Google Cloud Well-Architected
+  Framework (WAF). Use this skill to evaluate workloads, identify security requirements,
+  and provide actionable recommendations for IAM, network security, data protection,
+  and operational security.
+triggers:
+- google-cloud-waf-security
+- google
+- cloud
+- waf
+- security
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-cloud-waf-security
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\google-cloud-waf-security\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

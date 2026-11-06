@@ -1,0 +1,28 @@
+name: screenshot
+version: 1.0.0
+category: external
+status: runnable
+description: Use when the user explicitly asks for a desktop or system screenshot
+  (full screen, specific app or window, or a pixel region), or when tool-specific
+  capture capabilities are unavailable and an OS-level capture is needed.
+triggers:
+- screenshot
+- screenshot
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for screenshot
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\screenshot\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

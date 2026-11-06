@@ -1,0 +1,30 @@
+name: flutter-setup-localization
+version: 1.0.0
+category: engineering
+status: stub
+description: Add `flutter_localizations` and `intl` dependencies, enable "generate
+  true" in `pubspec.yaml`, and create an `l10n.yaml` configuration file. Use when
+  initializing localization support for a new Flutter project.
+triggers:
+- flutter-setup-localization
+- flutter
+- setup
+- localization
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for flutter-setup-localization
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\flutter-setup-localization\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

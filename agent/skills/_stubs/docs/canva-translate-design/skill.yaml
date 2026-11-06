@@ -1,0 +1,31 @@
+name: canva-translate-design
+version: 1.0.0
+category: docs
+status: stub
+description: Translate all text in a Canva design to another language, creating a
+  translated copy. Faster than manually copying and editing each text box in Canva's
+  editor. Use when users say "translate my design to [language]", "make a Spanish/French/etc
+  version", or "localize my Canva design".
+triggers:
+- canva-translate-design
+- canva
+- translate
+- design
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for canva-translate-design
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\canva\inactive-skills\design-translation\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

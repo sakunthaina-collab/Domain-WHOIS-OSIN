@@ -1,0 +1,28 @@
+name: workflow
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel Workflow SDK expert guidance. Use when building durable workflows,
+  long-running tasks, API routes or agents that need pause/resume, retries, step-based
+  execution, or crash-safe orchestration with Vercel Workflow.
+triggers:
+- workflow
+- workflow
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for workflow
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\workflow\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

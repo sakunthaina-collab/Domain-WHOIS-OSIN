@@ -1,0 +1,28 @@
+name: sentry
+version: 1.0.0
+category: external
+status: stub
+description: Use when the user asks to inspect Sentry issues or events, summarize
+  recent production errors, or pull basic Sentry health data via the Sentry CLI; perform
+  read-only queries using the `sentry` command.
+triggers:
+- sentry
+- sentry
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for sentry
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\sentry\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,32 @@
+name: compdf-encrypt-pdf-decrypt-pdf
+version: 1.0.0
+category: docs
+status: stub
+description: Encrypt PDFs with AES-128, AES-256, or RC4 options and decrypt authorized
+  PDFs with ComPDF. Use for PDF passwords, permission controls, encryption, decryption,
+  and document-access protection.
+triggers:
+- compdf-encrypt-pdf-decrypt-pdf
+- compdf
+- encrypt
+- pdf
+- decrypt
+- pdf
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for compdf-encrypt-pdf-decrypt-pdf
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\compdf-encrypt-pdf-decrypt-pdf\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

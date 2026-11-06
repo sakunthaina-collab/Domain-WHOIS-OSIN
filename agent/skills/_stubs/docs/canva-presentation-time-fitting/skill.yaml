@@ -1,0 +1,33 @@
+name: canva-presentation-time-fitting
+version: 1.0.0
+category: docs
+status: stub
+description: Fit a Canva presentation to a target speaking duration by generating
+  or rewriting presenter notes only (visible slide text is not edited). Use when users
+  say "make this a 10-minute presentation", "split time evenly across slides", "generate
+  speaker notes for a 15-minute talk", "fit my deck to [duration]", or "how long per
+  slide for a 20-minute slot".
+triggers:
+- canva-presentation-time-fitting
+- canva
+- presentation
+- time
+- fitting
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for canva-presentation-time-fitting
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\canva\inactive-skills\presentation-time-fitting\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

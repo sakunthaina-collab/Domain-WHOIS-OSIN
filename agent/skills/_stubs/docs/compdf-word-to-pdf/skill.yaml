@@ -1,0 +1,29 @@
+name: compdf-word-to-pdf
+version: 1.0.0
+category: docs
+status: stub
+description: Convert Word documents into polished PDFs with ComPDF. Use for contracts,
+  reports, proposals, manuals, approvals, formal delivery, and Word-to-PDF requests.
+triggers:
+- compdf-word-to-pdf
+- compdf
+- word
+- pdf
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for compdf-word-to-pdf
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\compdf-word-to-pdf\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

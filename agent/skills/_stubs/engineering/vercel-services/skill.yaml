@@ -1,0 +1,30 @@
+name: vercel-services
+version: 1.0.0
+category: engineering
+status: stub
+description: Configure and troubleshoot Vercel Services for multiple frontends and
+  backends in one project. Use when composing a polyglot or multi-service application
+  on one Vercel deployment; defining the `services` key, service-targeted rewrites,
+  or service bindings in `vercel.json`; or running all services with `vercel dev`.
+triggers:
+- vercel-services
+- vercel
+- services
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for vercel-services
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\vercel-services\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

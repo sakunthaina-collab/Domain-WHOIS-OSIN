@@ -1,0 +1,31 @@
+name: dart-migrate-to-checks-package
+version: 1.0.0
+category: engineering
+status: stub
+description: 'Replace the usage of `expect` and similar functions from `package:matcher`
+
+  to `package:checks` equivalents.'
+triggers:
+- dart-migrate-to-checks-package
+- dart
+- migrate
+- checks
+- package
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for dart-migrate-to-checks-package
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\dart-migrate-to-checks-package\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

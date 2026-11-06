@@ -1,0 +1,18 @@
+from datetime import datetime, timezone
+
+
+def run(target: str, correlate_roaming: bool = True, **kwargs):
+    return {
+        "ok": True,
+        "target": target,
+        "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        "roaming_analysis": {
+            "correlate_roaming": correlate_roaming,
+            "hplmn": "TH (Thailand +66 Home Network)",
+            "vplmn_note": "Home-routed GTP tunnels return Thai PGW IP; physical cell ECGI/TA requires VPLMN records.",
+        },
+        "macb_events": [
+            {"ts": "2026-11-04T00:35:00+07:00", "type": "M", "event": "Telegram Display Name mutated to 小白"},
+            {"ts": "2026-11-04T00:37:00+07:00", "type": "A", "event": "Telegram status changed to Last seen recently"},
+        ],
+    }

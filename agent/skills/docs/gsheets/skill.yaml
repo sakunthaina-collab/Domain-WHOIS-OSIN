@@ -1,0 +1,31 @@
+name: gsheets
+version: 1.0.0
+category: docs
+status: runnable
+description: Read, write, format, and manage Google Sheets. Use when the user shares
+  a sheets.google.com or docs.google.com/spreadsheets URL, asks to read or summarize
+  spreadsheet data, wants cells written, formatted, sorted, merged, or validated,
+  wants rows/columns inserted or deleted, wants charts, pivot tables, or tables added,
+  wants CSV imported, or wants a spreadsheet created, copied, shared, or exported.
+  Don't use for Google Docs, Slides, or Drive file management.
+triggers:
+- gsheets
+- gsheets
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gsheets
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\gsheets\skills\gsheets\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

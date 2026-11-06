@@ -1,0 +1,39 @@
+name: google-cloud-solution-rag-enterprise-search-gke-sqldb
+version: 1.0.0
+category: engineering
+status: stub
+description: Discovers requirements, and generates architectural, design, and deployment
+  guidance for a retrieval-augmented generation (RAG)-capable enterprise search system
+  in Google Cloud. Use when users need a vector-enabled SQL database as the store
+  and index for the embedding vectors, an open model and open-source inferencing framework,
+  and Kubernetes containers to host all the application components. DON'T use this
+  skill for fully-managed RAG, or SaaS search services, or when a non-SQL vector database
+  is required.
+triggers:
+- google-cloud-solution-rag-enterprise-search-gke-sqldb
+- google
+- cloud
+- solution
+- rag
+- enterprise
+- search
+- gke
+- sqldb
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-cloud-solution-rag-enterprise-search-gke-sqldb
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\google-cloud-solution-rag-enterprise-search-gke-sqldb\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

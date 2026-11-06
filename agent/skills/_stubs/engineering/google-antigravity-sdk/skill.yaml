@@ -1,0 +1,30 @@
+name: google-antigravity-sdk
+version: 1.0.0
+category: engineering
+status: stub
+description: Design, implement, and debug autonomous AI agents and multi-agent systems
+  using the Google Antigravity (AGY) SDK. ACTIVATE this skill when the user wants
+  to create, configure, or orchestrate Google Antigravity agents.
+triggers:
+- google-antigravity-sdk
+- google
+- antigravity
+- sdk
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-antigravity-sdk
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\google-antigravity-sdk\skills\google-antigravity-sdk\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

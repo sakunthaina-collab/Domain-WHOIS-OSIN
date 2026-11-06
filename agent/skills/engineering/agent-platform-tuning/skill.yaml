@@ -1,0 +1,31 @@
+name: agent-platform-tuning
+version: 1.0.0
+category: engineering
+status: runnable
+description: Agent Platform Model Tuning. Use when you need to fine-tune open models
+  or Gemini models using Agent Platform infrastructure. Don't use for model training
+  outside Agent Platform, model deployment to endpoints (use `agent-platform-deploy`),
+  or managing serving endpoints (use `agent-platform-endpoint-management`).
+triggers:
+- agent-platform-tuning
+- agent
+- platform
+- tuning
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for agent-platform-tuning
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\agent-platform-tuning\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

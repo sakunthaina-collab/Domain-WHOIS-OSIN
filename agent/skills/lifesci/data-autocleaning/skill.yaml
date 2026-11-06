@@ -1,0 +1,30 @@
+name: data-autocleaning
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Automated data quality and transformation capabilities for Dataform/dbt/BigQuery
+  pipelines. Processes data sourced from BigQuery or Cloud Storage (GCS), applying
+  best practices for data ingestion, movement, schema mapping, and comprehensive data
+  cleaning.
+triggers:
+- data-autocleaning
+- data
+- autocleaning
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for data-autocleaning
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\data-autocleaning\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

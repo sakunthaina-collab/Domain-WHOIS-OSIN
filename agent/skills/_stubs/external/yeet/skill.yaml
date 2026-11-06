@@ -1,0 +1,27 @@
+name: yeet
+version: 1.0.0
+category: external
+status: stub
+description: Use only when the user explicitly asks to stage, commit, push, and open
+  a GitHub pull request in one flow using the GitHub CLI (`gh`).
+triggers:
+- yeet
+- yeet
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for yeet
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\yeet\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

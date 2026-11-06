@@ -1,0 +1,30 @@
+name: dart-fix-runtime-errors
+version: 1.0.0
+category: engineering
+status: stub
+description: Uses get_runtime_errors and lsp to fetch an active stack trace, locate
+  the failing line, apply a fix, and verify resolution via hot_reload.
+triggers:
+- dart-fix-runtime-errors
+- dart
+- fix
+- runtime
+- errors
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for dart-fix-runtime-errors
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\dart-fix-runtime-errors\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

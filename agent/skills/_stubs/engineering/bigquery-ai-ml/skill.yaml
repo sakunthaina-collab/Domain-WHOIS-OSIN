@@ -1,0 +1,29 @@
+name: bigquery-ai-ml
+version: 1.0.0
+category: engineering
+status: stub
+description: Leverages BigQuery's built-in machine learning and GenAI capabilities
+  for advanced data analytics. Use when you need to write SQL queries that perform
+  time-series forecasting, detect outliers, find key drivers, or leverage generative
+  AI capabilities in BigQuery.
+triggers:
+- bigquery-ai-ml
+- bigquery
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for bigquery-ai-ml
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\bigquery-ai-ml\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

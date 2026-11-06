@@ -1,0 +1,31 @@
+name: quickgo-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Query the QuickGO and Evidence & Conclusion Ontology (ECO) REST API.
+  Use this when you need to map genes to biological processes, molecular functions,
+  or cellular components, find genes associated with a specific pathway/GO term, or
+  explore the Gene Ontology hierarchy. Do not use for querying drug targets (use OpenTargets)
+  or mechanistic signaling pathway diagrams (use KEGG).
+triggers:
+- quickgo-database
+- quickgo
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for quickgo-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\quickgo_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

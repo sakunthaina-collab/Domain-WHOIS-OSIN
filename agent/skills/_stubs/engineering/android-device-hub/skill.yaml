@@ -1,0 +1,33 @@
+name: android-device-hub
+version: 1.0.0
+category: engineering
+status: stub
+description: Instructions for working with the Android Device Hub sidecar, which lists,
+  starts, stops, creates and removes Android Virtual Devices (AVDs), lists physical
+  devices connected to adb, and lets the user mirror and control any of them (video,
+  touch, keyboard, mouse wheel) in the Device Hub pane. Also explains how to inspect
+  and interact with the screen the user is mirroring, with `android layout`, `android
+  screen` and `adb`.
+triggers:
+- android-device-hub
+- android
+- device
+- hub
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for android-device-hub
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\android-cli-plugin\skills\device-hub\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

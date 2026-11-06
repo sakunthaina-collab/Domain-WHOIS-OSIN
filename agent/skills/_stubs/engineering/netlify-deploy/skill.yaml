@@ -1,0 +1,33 @@
+name: netlify-deploy
+version: 1.0.0
+category: engineering
+status: stub
+description: Create, configure, and manage Netlify deploys from code — reach for this
+  when setting up Git continuous deployment, running netlify deploy or netlify deploy
+  --prod from the CLI, writing netlify.toml deploy contexts, adding a Deploy to Netlify
+  button, wiring build hooks, configuring Deploy Previews or branch deploys, locking
+  or skipping deploys, fixing a failed or secrets-scanning deploy, or when someone
+  asks to "deploy my site", "set up preview deploys", "add per-branch build config",
+  "keep staging out of Google", or "add a deploy button to my README".
+triggers:
+- netlify-deploy
+- netlify
+- deploy
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for netlify-deploy
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\netlify\agent-plugin\skills\netlify-deploy\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

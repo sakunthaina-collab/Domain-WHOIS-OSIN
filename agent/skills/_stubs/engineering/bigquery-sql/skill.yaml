@@ -1,0 +1,29 @@
+name: bigquery-sql
+version: 1.0.0
+category: engineering
+status: stub
+description: Provides BigQuery SQL query optimization techniques, execution best practices,
+  and performance tuning rules for high-efficiency querying. Use when optimizing BigQuery
+  SQL queries, reducing query costs, or designing performant SQL transformations.
+triggers:
+- bigquery-sql
+- bigquery
+- sql
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for bigquery-sql
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\bigquery-sql\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

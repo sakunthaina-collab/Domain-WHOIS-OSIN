@@ -1,0 +1,29 @@
+name: firebase-ai-logic-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: Official skill for integrating Firebase AI Logic (Gemini API) into web
+  applications. Covers setup, multimodal inference, structured output, and security.
+triggers:
+- firebase-ai-logic-basics
+- firebase
+- logic
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for firebase-ai-logic-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\firebase\skills\firebase_ai_logic_basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

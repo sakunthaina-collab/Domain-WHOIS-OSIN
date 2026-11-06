@@ -1,0 +1,37 @@
+name: google-cloud-waf-sustainability
+version: 1.0.0
+category: engineering
+status: stub
+description: Provides recommendations for environmental sustainability, carbon footprint
+  reduction, and energy efficiency based on the Sustainability pillar of the Google
+  Cloud Well-Architected Framework (WAF). Use when the user asks to assess, design,
+  or optimize Google Cloud workloads for sustainability—including the shared responsibility
+  model, selecting low-carbon regions (CFE%), reducing resource and AI/ML energy waste,
+  designing efficient software and storage lifecycles, or measuring and tracking emissions
+  using Google Cloud Carbon Footprint. Don't use for financial cost reduction (use
+  google-cloud-waf-cost-optimization), latency and throughput tuning (use google-cloud-waf-performance-optimization),
+  or high availability and disaster recovery (use google-cloud-waf-reliability).
+triggers:
+- google-cloud-waf-sustainability
+- google
+- cloud
+- waf
+- sustainability
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-cloud-waf-sustainability
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\google-cloud-waf-sustainability\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

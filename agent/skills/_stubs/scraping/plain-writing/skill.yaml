@@ -1,0 +1,31 @@
+name: plain-writing
+version: 1.0.0
+category: scraping
+status: stub
+description: Makes every report a Mobbin skill writes read like a person wrote it,
+  in plain interface terms. Use only when a Mobbin skill writes prose for the user
+  or asks for this skill by name; not for writing outside Mobbin skills. Removes the
+  tells of AI-generated writing (em dashes, puffery, design buzzwords, rule-of-three,
+  sign-offs) without changing a fact or adding one.
+triggers:
+- plain-writing
+- plain
+- writing
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for plain-writing
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\mobbin\skills\plain-writing\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

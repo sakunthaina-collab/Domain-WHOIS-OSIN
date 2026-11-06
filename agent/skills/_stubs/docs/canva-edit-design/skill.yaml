@@ -1,0 +1,33 @@
+name: canva-edit-design
+version: 1.0.0
+category: docs
+status: stub
+description: Make edits to an existing Canva design — change or fix text, replace/insert/delete
+  images and videos, reformat text (size, weight, style, color, alignment, lists,
+  line height), reposition or resize elements, and update the title. Use when the
+  user wants to change, edit, update, fix, translate, replace, or reformat content
+  in a specific Canva design. This is the safe edit engine that other Canva skills
+  (e.g. implement-feedback) build on.
+triggers:
+- canva-edit-design
+- canva
+- edit
+- design
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for canva-edit-design
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\canva\skills\edit-design\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

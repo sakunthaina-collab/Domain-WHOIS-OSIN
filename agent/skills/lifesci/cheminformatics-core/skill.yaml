@@ -1,0 +1,30 @@
+name: cheminformatics-core
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Computes RDKit physicochemical descriptors (MW, cLogP, TPSA, CNS MPO,
+  SA score), PAINS/Brenk structural alerts, pH 7.4 ionization, congeneric series curation,
+  activity cliffs, combinatorial library enumeration, vendor pricing, and organometallic
+  %V_bur sterics.
+triggers:
+- cheminformatics-core
+- cheminformatics
+- core
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cheminformatics-core
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\cheminformatics_core\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

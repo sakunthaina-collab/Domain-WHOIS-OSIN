@@ -1,0 +1,30 @@
+name: chat-sdk
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel Chat SDK expert guidance. Use when building multi-platform chat
+  bots — Slack, Telegram, Microsoft Teams, Discord, Google Chat, GitHub, Linear —
+  with a single codebase. Covers the Chat class, adapters, threads, messages, cards,
+  modals, streaming, state management, and webhook setup.
+triggers:
+- chat-sdk
+- chat
+- sdk
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for chat-sdk
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\chat-sdk\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

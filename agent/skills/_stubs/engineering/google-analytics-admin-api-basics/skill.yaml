@@ -1,0 +1,34 @@
+name: google-analytics-admin-api-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: Manages Google Analytics account and property settings, enables the Analytics
+  Admin API via the Cloud CLI, lists accounts and properties, and manages data streams,
+  custom dimensions, conversion events, and integrations. Use when you need to programmatically
+  configure Google Analytics accounts, provision properties, manage data retention,
+  configure Measurement Protocol secrets, or manage Firebase and Google Ads links.
+triggers:
+- google-analytics-admin-api-basics
+- google
+- analytics
+- admin
+- api
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-analytics-admin-api-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\analytics\google-analytics-admin-api-basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

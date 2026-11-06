@@ -1,0 +1,30 @@
+name: flutter-implement-json-serialization
+version: 1.0.0
+category: engineering
+status: stub
+description: Create model classes with `fromJson` and `toJson` methods using `dart:convert`.
+  Use when manually mapping JSON keys to class properties for simple data structures.
+triggers:
+- flutter-implement-json-serialization
+- flutter
+- implement
+- json
+- serialization
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for flutter-implement-json-serialization
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\flutter-implement-json-serialization\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

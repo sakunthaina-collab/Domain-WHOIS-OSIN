@@ -1,0 +1,33 @@
+name: gemini-api-dev
+version: 1.0.0
+category: engineering
+status: stub
+description: Use this skill when writing code that calls the Gemini API for text generation,
+  multi-turn chat, multimodal understanding, image generation, video generation, speech
+  generation (TTS), voice design, voice replication, streaming responses, background
+  research tasks, function calling, structured output, or migrating from the old generateContent
+  API. Covers SDK usage and best practices for Gemini models and agents in Python
+  and TypeScript.
+triggers:
+- gemini-api-dev
+- gemini
+- api
+- dev
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gemini-api-dev
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\gemini-api\skills\gemini-api-dev\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

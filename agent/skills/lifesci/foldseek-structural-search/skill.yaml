@@ -1,0 +1,32 @@
+name: foldseek-structural-search
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Performs 3D structural searches of proteins against various databases
+  (PDB, AlphaFold, CATH, MGnify, etc.) using the Foldseek API. Use ONLY when the user
+  provides a physical 3D coordinate file (.cif, .mmcif, or .pdb) and wants to find
+  structurally similar proteins. Do NOT use if the user only provides a protein sequence,
+  gene name, or UniProt ID.
+triggers:
+- foldseek-structural-search
+- foldseek
+- structural
+- search
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for foldseek-structural-search
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\foldseek_structural_search\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

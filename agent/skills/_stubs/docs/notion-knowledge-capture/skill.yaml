@@ -1,0 +1,30 @@
+name: notion-knowledge-capture
+version: 1.0.0
+category: docs
+status: stub
+description: Capture conversations and decisions into structured Notion pages; use
+  when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper
+  linking.
+triggers:
+- notion-knowledge-capture
+- notion
+- knowledge
+- capture
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for notion-knowledge-capture
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\notion-knowledge-capture\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

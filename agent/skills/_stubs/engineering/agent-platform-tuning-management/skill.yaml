@@ -1,0 +1,32 @@
+name: agent-platform-tuning-management
+version: 1.0.0
+category: engineering
+status: stub
+description: Manages GenAI tuning jobs in Agent Platform. Use this to list, get, or
+  cancel ongoing model tuning jobs. Don't use for fine-tuning models (use `agent-platform-tuning`),
+  deploying models to endpoints (use `agent-platform-deploy`), or managing serving
+  endpoints (use `agent-platform-endpoint-management`).
+triggers:
+- agent-platform-tuning-management
+- agent
+- platform
+- tuning
+- management
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for agent-platform-tuning-management
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\agent-platform-tuning-management\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

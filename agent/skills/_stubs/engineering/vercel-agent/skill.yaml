@@ -1,0 +1,29 @@
+name: vercel-agent
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel Agent guidance — dashboard and Slack chat, code review, production
+  investigation, approved actions, and product installation. Use when configuring
+  or working with Vercel's AI assistant.
+triggers:
+- vercel-agent
+- vercel
+- agent
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for vercel-agent
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\vercel-agent\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

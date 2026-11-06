@@ -1,0 +1,34 @@
+name: netlify-caching
+version: 1.0.0
+category: engineering
+status: stub
+description: Cache dynamic and static responses on Netlify's CDN from Functions, Edge
+  Functions, and proxies. Use when you add caching or cache-control headers to a function
+  response, tune cache TTL or stale-while-revalidate, set up the durable cache, vary
+  a cache key by query/header/cookie/country/language, purge or invalidate the cache
+  by site or cache tag, use the programmatic Cache API (caches.open/match/put) or
+  @netlify/cache helpers (fetchWithCache/cacheHeaders/getCacheStatus), speed up an
+  expensive API call, add ISR or on-demand revalidation, or debug why a response is
+  or isn't cached via the Cache-Status header.
+triggers:
+- netlify-caching
+- netlify
+- caching
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for netlify-caching
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\netlify\agent-plugin\skills\netlify-caching\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,39 @@
+name: case-dossier-exporter
+version: 1.0.0
+category: investigation
+description: 'จัดทำสำนวนคดีและรายงานสรุปพยานหลักฐานสองภาษา (ไทย / จีนตัวเต็ม ไต้หวัน)
+  ตามมาตรฐาน พ.ร.บ. ป้องกันและปราบปรามการค้ามนุษย์ พ.ศ. 2551 และ 人口販運防制法
+
+  '
+triggers:
+- จัดทำสำนวน
+- สำนวน
+- ส่งตำรวจ
+- dossier
+- report
+- รายงาน
+input_schema:
+  type: object
+  properties:
+    case_id:
+      type: string
+    languages:
+      type: array
+      items:
+        type: string
+      default:
+      - th
+      - zh-TW
+  required:
+  - case_id
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+permissions:
+- filesystem:write
+risk: low
+outputs:
+- markdown
+- json
+status: runnable

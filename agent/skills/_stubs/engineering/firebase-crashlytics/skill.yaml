@@ -1,0 +1,29 @@
+name: firebase-crashlytics
+version: 1.0.0
+category: engineering
+status: stub
+description: Comprehensive guide for Firebase Crashlytics, including provisioning
+  and SDK usage. Use this skill when the user needs help setting up Crashlytics, adding
+  crash reporting, or using the Crashlytics SDK in their application.
+triggers:
+- firebase-crashlytics
+- firebase
+- crashlytics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for firebase-crashlytics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\firebase\skills\firebase_crashlytics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

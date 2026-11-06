@@ -1,0 +1,32 @@
+name: gke-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: Manages core GKE cluster provisioning, credentials, Autopilot vs Standard
+  selection, and workload deployment. Use when creating GKE clusters, fetching kubectl
+  credentials, or deciding between Autopilot and Standard modes. Don't use for Workload
+  Identity (use gke-workload-identity), GKE networking (use gke-networking), security
+  hardening (use gke-platform-security or gke-workload-security), or cluster upgrades
+  (use gke-upgrades).
+triggers:
+- gke-basics
+- gke
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

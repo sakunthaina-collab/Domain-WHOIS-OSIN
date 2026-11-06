@@ -1,0 +1,31 @@
+name: gke-workload-troubleshooting
+version: 1.0.0
+category: engineering
+status: stub
+description: Diagnoses GKE workload failures (CrashLoopBackOff, OOMKilled, ImagePullBackOff,
+  Pending, etc.) via logs and events. Use when pods fail to start or crash repeatedly.
+  Don't use for GKE cluster infrastructure provisioning, node pool creation, or non-Kubernetes
+  Google Cloud services.
+triggers:
+- gke-workload-troubleshooting
+- gke
+- workload
+- troubleshooting
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-workload-troubleshooting
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-workload-troubleshooting\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

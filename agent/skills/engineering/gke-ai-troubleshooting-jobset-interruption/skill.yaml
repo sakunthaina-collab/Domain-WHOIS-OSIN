@@ -1,0 +1,33 @@
+name: gke-ai-troubleshooting-jobset-interruption
+version: 1.0.0
+category: engineering
+status: runnable
+description: Diagnoses GKE JobSet interruptions, restarts, and preemptions for AI/ML
+  training workloads autonomously. Use when troubleshooting JobSet restart loops,
+  spot VM preemptions, node readiness failures, host VM issues, or coordinator worker
+  crashes. Don't use for general GKE cluster creation, basic workload deployment,
+  or non-JobSet application issues.
+triggers:
+- gke-ai-troubleshooting-jobset-interruption
+- gke
+- troubleshooting
+- jobset
+- interruption
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-ai-troubleshooting-jobset-interruption
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-ai-troubleshooting-jobset-interruption\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,29 @@
+name: figma
+version: 1.0.0
+category: external
+status: stub
+description: Use the Figma MCP server to fetch design context, screenshots, variables,
+  and assets from Figma, and to translate Figma nodes into production code. Trigger
+  when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma
+  MCP setup and troubleshooting.
+triggers:
+- figma
+- figma
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for figma
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\figma\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

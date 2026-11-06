@@ -1,0 +1,27 @@
+name: linear
+version: 1.0.0
+category: external
+status: stub
+description: Manage issues, projects & team workflows in Linear. Use when the user
+  wants to read, create or updates tickets in Linear.
+triggers:
+- linear
+- linear
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for linear
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\linear\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

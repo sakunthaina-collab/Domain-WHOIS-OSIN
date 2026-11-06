@@ -1,0 +1,29 @@
+name: routing-middleware
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel Routing Middleware guidance — request interception before cache,
+  rewrites, redirects, personalization. Works with any framework. Supports Edge, Node.js,
+  and Bun runtimes. Use when intercepting requests at the platform level.
+triggers:
+- routing-middleware
+- routing
+- middleware
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for routing-middleware
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\routing-middleware\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

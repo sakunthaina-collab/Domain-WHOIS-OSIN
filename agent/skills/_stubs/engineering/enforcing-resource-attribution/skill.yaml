@@ -1,0 +1,31 @@
+name: enforcing-resource-attribution
+version: 1.0.0
+category: engineering
+status: stub
+description: Enforces resource attribution for CLI commands. Use this skill whenever
+  you are running `bq` or `gcloud` commands via `run_command`. It ensures mandatory
+  labeling for supported `bq` operations while avoiding invalid flags on read-only
+  commands.
+triggers:
+- enforcing-resource-attribution
+- enforcing
+- resource
+- attribution
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for enforcing-resource-attribution
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\enforcing-resource-attribution\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

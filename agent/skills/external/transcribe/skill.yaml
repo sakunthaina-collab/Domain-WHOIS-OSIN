@@ -1,0 +1,28 @@
+name: transcribe
+version: 1.0.0
+category: external
+status: runnable
+description: Transcribe audio files to text with optional diarization and known-speaker
+  hints. Use when a user asks to transcribe speech from audio/video, extract text
+  from recordings, or label speakers in interviews or meetings.
+triggers:
+- transcribe
+- transcribe
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for transcribe
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\transcribe\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

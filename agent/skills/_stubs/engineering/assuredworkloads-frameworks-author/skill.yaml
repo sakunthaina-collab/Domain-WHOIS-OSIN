@@ -1,0 +1,31 @@
+name: assuredworkloads-frameworks-author
+version: 1.0.0
+category: engineering
+status: stub
+description: Authors custom cloud controls and customized frameworks for Assured Workloads
+  when built-in resources cannot satisfy core requirements. Use when creating or synthesizing
+  custom data boundary resources. Don't use for browsing or mapping existing built-in
+  frameworks (use assuredworkloads-frameworks-navigator instead).
+triggers:
+- assuredworkloads-frameworks-author
+- assuredworkloads
+- frameworks
+- author
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for assuredworkloads-frameworks-author
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\assuredworkloads-frameworks-author\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

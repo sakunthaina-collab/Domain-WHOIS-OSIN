@@ -1,0 +1,29 @@
+name: custom-metrics
+version: 1.0.0
+category: engineering
+status: stub
+description: Emit and query Vercel Custom Metrics. Use when instrumenting application
+  or business measurements in Vercel Functions, using metric() from @vercel/functions,
+  choosing metric names and attributes, or querying emitted values with vc metrics.
+triggers:
+- custom-metrics
+- custom
+- metrics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for custom-metrics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\custom-metrics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

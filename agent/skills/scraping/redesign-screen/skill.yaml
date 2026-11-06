@@ -1,0 +1,34 @@
+name: redesign-screen
+version: 1.0.0
+category: scraping
+status: runnable
+description: Redesign any screen from patterns real apps ship. Share a screenshot,
+  your code or a design file, and the skill finds how apps on Mobbin handle the same
+  screen. Explore a few directions or fix specific problems, and see the evidence
+  behind each change. You get a before and after image and a short report. The redesign
+  stays in your own design system, and anything that already works is kept. Use whenever
+  the user points at a screen, section, or component they have, or at a reference,
+  a Mobbin result, one or more Mobbin collections or the screens they saved, and asks
+  to redesign, improve, restyle, or rebuild it, or to see a few directions for it.
+triggers:
+- redesign-screen
+- redesign
+- screen
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for redesign-screen
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\mobbin\skills\redesign-screen\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

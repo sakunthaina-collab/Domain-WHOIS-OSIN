@@ -1,0 +1,32 @@
+name: firebase-hosting-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: Deploys and configures classic Firebase Hosting for static websites,
+  single-page apps (SPAs), and microservices. Use when deploying static sites/SPAs,
+  setting up custom domains, configuring firebase.json hosting settings (redirects,
+  rewrites, headers, multi-site), or managing preview channels. Don't use for Firebase
+  App Hosting (Next.js/SSR), Auth, Firestore queries/rules, Data Connect, or Crashlytics.
+triggers:
+- firebase-hosting-basics
+- firebase
+- hosting
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for firebase-hosting-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\firebase\skills\firebase_hosting_basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

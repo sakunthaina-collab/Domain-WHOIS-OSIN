@@ -1,0 +1,36 @@
+name: dart-setup-ffi-assets
+version: 1.0.0
+category: engineering
+status: stub
+description: 'Guides agents in compiling and packaging C/C++ source code into dynamic
+  or static libraries (Code Assets) using Dart''s Native Assets hook system (via hook/build.dart
+  and hook/link.dart utilizing package:hooks and package:native_toolchain_c). Use
+  when a user asks to: ''setup native assets'', ''compile C/C++ source code'', ''bundle
+  dynamic libraries'', ''build native C code'', ''link native assets'', ''implement
+  build.dart or link.dart hooks'', or ''integrate C/C++ interop in Dart/Flutter''.
+  Helps agents avoid manual toolchain orchestration and configures secure hash-validated
+  binary downloads or advanced linker tree-shaking with package:record_use mapping.'
+triggers:
+- dart-setup-ffi-assets
+- dart
+- setup
+- ffi
+- assets
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for dart-setup-ffi-assets
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\dart-setup-ffi-assets\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

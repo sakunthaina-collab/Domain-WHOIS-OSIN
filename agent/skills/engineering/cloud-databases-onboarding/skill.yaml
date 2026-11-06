@@ -1,0 +1,33 @@
+name: cloud-databases-onboarding
+version: 1.0.0
+category: engineering
+status: runnable
+description: Guides users through discovering their database requirements, recommends
+  a Google Cloud database based on a recommendation matrix, and assists in database
+  creation. Use when a user asks 'What database service should I use?', 'Help me pick
+  a database', or when a user wants to create a new database on Google Cloud. Don't
+  use for general Google Cloud maintenance, managing existing databases, or database
+  migrations.
+triggers:
+- cloud-databases-onboarding
+- cloud
+- databases
+- onboarding
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cloud-databases-onboarding
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\cloud-databases-onboarding\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

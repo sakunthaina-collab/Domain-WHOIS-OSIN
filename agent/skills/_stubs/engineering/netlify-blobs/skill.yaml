@@ -1,0 +1,35 @@
+name: netlify-blobs
+version: 1.0.0
+category: engineering
+status: stub
+description: Store and retrieve unstructured objects, files, and cache-like state
+  on Netlify with the @netlify/blobs module. Use when persisting user file uploads
+  (images/documents), caching computed output from functions or Background Functions,
+  serving downloadable assets, storing JSON blobs keyed by ID, or seeding deploy-specific
+  data. Reach for this for key/value or object storage from Functions, Edge Functions,
+  or Build Plugins — not for per-user, transactional, or relational data (use Netlify
+  DB for that). Triggers include "save an uploaded file", "cache API results", "store
+  generated site map", "key/value store for a function", or "file uploads without
+  a database".
+triggers:
+- netlify-blobs
+- netlify
+- blobs
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for netlify-blobs
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\netlify\agent-plugin\skills\netlify-blobs\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

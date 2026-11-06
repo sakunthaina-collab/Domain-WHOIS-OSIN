@@ -1,0 +1,30 @@
+name: compdf-documents-to-pdf
+version: 1.0.0
+category: docs
+status: stub
+description: Convert Word, Excel, PPT, HTML, TXT, CSV, RTF, PNG, and JPG files into
+  PDF with ComPDF. Use when a business document or image needs fixed-layout PDF output
+  for sharing, approvals, printing, or archiving.
+triggers:
+- compdf-documents-to-pdf
+- compdf
+- documents
+- pdf
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for compdf-documents-to-pdf
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\compdf-documents-to-pdf\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

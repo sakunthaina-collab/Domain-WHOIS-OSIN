@@ -1,0 +1,29 @@
+name: is-agentic
+version: 1.0.0
+category: engineering
+status: stub
+description: Score how ready a website, domain, or public MCP endpoint is for AI agents
+  using Is Agentic, and read or act on the resulting report. Use when asked to check
+  a site's agent readiness, get its Is Agentic score, fetch a scored report as JSON,
+  or fix the issues that lower a site's score.
+triggers:
+- is-agentic
+- agentic
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for is-agentic
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\is-agentic\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,30 @@
+name: cheminformatics-physics
+version: 1.0.0
+category: lifesci
+status: runnable
+description: 'Simulates 3D molecular physics, conformer ensembles, and CADD workflows:
+  pH-dependent ligand and receptor protonation, ETKDGv3 3D conformer generation, dihedral/relaxed
+  PES torsion scans, AutoDock Vina/smina docking, conformational ligand strain energy,
+  PROTAC/macrocycle 3D geometry, and OpenMM molecular dynamics.'
+triggers:
+- cheminformatics-physics
+- cheminformatics
+- physics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cheminformatics-physics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\cheminformatics_physics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

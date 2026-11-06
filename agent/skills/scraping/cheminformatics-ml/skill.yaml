@@ -1,0 +1,29 @@
+name: cheminformatics-ml
+version: 1.0.0
+category: scraping
+status: runnable
+description: 'Trains, benchmarks, and evaluates predictive SAR and QSAR/ADMET models
+  for chemical series: small-N regularized regressors, nested cross-validation, Tukey
+  HSD model tiering, scaffold/temporal splitting, matched molecular pairs (MMPA),
+  similarity attribution maps, model persistence, and candidate scoring.'
+triggers:
+- cheminformatics-ml
+- cheminformatics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cheminformatics-ml
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\cheminformatics_ml\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

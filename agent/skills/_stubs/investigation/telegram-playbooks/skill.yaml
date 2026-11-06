@@ -1,0 +1,33 @@
+name: telegram-playbooks
+version: 1.0.0
+category: investigation
+status: stub
+description: Use when the user asks what Manus can do with Telegram or needs workflows
+  for chat summaries and drafts, structured extraction, history exports, channel publishing,
+  scheduled messages, sticker packs, compliant notifications, bots, devices, or Telegram
+  guidance. Routes each workflow by identity, selected client, durable state, runtime
+  availability, and consequence among file and content tools, Telegram Web in My Browser,
+  Telegram Desktop through Computer Use, and a separately verified official Bot API
+  runtime.
+triggers:
+- telegram-playbooks
+- telegram
+- playbooks
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for telegram-playbooks
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\telegram-playbooks\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

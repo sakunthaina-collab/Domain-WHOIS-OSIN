@@ -1,0 +1,32 @@
+name: cloud-monitoring-metric-selection
+version: 1.0.0
+category: lifesci
+status: stub
+description: Retrieve, query, and identify relevant Cloud Monitoring metric descriptors
+  on Google Cloud for a service or resource (such as Compute Engine, Spanner, BigQuery,
+  Cloud Run, Cloud SQL, Pub/Sub, Cloud Storage, etc.). Use when asked to find, list,
+  search, or discover GCP metric types, names, kind/value schemas, or descriptors.
+triggers:
+- cloud-monitoring-metric-selection
+- cloud
+- monitoring
+- metric
+- selection
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cloud-monitoring-metric-selection
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\cloud-monitoring-metric-selection\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

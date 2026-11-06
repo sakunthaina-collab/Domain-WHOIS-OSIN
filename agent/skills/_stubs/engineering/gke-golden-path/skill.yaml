@@ -1,0 +1,31 @@
+name: gke-golden-path
+version: 1.0.0
+category: engineering
+status: stub
+description: Provides GKE golden path configuration defaults, production readiness
+  checklists, and cluster default patterns. Use when designing GKE clusters, verifying
+  GKE production readiness, or checking configurations against GKE defaults. Don't
+  use for setting up workload autoscaling specifically (use gke-workload-scaling instead).
+triggers:
+- gke-golden-path
+- gke
+- golden
+- path
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-golden-path
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-golden-path\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,32 @@
+name: gke-multitenancy
+version: 1.0.0
+category: engineering
+status: stub
+description: Plans and configures multi-tenancy on GKE. Covers namespace isolation,
+  RBAC planning for teams, resource quotas, LimitRanges, network isolation, and cost
+  allocation. Use when designing GKE multi-tenancy, configuring GKE namespaces, setting
+  up resource quotas, or isolating GKE teams. Don't use for single-tenant cluster
+  configuration or general deployment instructions (use gke-basics or gke-app-onboarding
+  instead).
+triggers:
+- gke-multitenancy
+- gke
+- multitenancy
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-multitenancy
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-multitenancy\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

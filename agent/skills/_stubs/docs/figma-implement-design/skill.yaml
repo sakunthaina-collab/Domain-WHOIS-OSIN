@@ -1,0 +1,32 @@
+name: figma-implement-design
+version: 1.0.0
+category: docs
+status: stub
+description: Translates Figma designs into production-ready application code with
+  1:1 visual fidelity. Use when implementing UI code from Figma files, when user mentions
+  "implement design", "generate code", "implement component", provides Figma URLs,
+  or asks to build components matching Figma specs. For Figma canvas writes via `use_figma`,
+  use `figma-use`.
+triggers:
+- figma-implement-design
+- figma
+- implement
+- design
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for figma-implement-design
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\figma-implement-design\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

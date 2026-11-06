@@ -1,0 +1,31 @@
+name: dart-write-documentation
+version: 1.0.0
+category: engineering
+status: stub
+description: Rules and formatting guidelines for writing Dart /// API documentation
+  and doc comments. Use when documenting Dart code, writing doc comments for any Dart
+  declaration (libraries, classes, methods, variables, etc.), or when instructed to
+  follow the Effective Dart documentation guidelines.
+triggers:
+- dart-write-documentation
+- dart
+- write
+- documentation
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for dart-write-documentation
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\dart-write-documentation\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

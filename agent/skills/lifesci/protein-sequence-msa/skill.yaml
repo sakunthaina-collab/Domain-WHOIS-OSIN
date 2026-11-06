@@ -1,0 +1,33 @@
+name: protein-sequence-msa
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Performs multiple sequence alignment of proteins with EBI Clustal Omega.
+  Use when you need to align multiple sequences to assess similarity, domain conservation,
+  or key residue conservation. Supports up to 4000 sequences and a maximum file size
+  of 4 MB. Do not use to search for homologous proteins in a database (use MMseqs2,
+  BLAST), align non-protein sequences (DNA, RNA), perform structural alignment (use
+  Foldseek, PyMOL), or if you only have a single sequence.
+triggers:
+- protein-sequence-msa
+- protein
+- sequence
+- msa
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for protein-sequence-msa
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\protein_sequence_msa\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

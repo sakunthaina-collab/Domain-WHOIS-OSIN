@@ -1,0 +1,28 @@
+name: domains
+version: 1.0.0
+category: engineering
+status: stub
+description: Search, register, connect, transfer, and renew domain names on Vercel
+  using the CLI or Domains Registrar API. Use for domain availability and pricing,
+  custom domains, DNS records, nameservers, ownership verification, and domain orders.
+triggers:
+- domains
+- domains
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for domains
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\domains\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

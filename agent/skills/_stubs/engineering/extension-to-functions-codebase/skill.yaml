@@ -1,0 +1,30 @@
+name: extension-to-functions-codebase
+version: 1.0.0
+category: engineering
+status: stub
+description: Skill for converting an installed Firebase Extension (or extension source)
+  into a standalone Cloud Functions for Firebase codebase or publishable npm package,
+  including V1 to V2 trigger upgrades, lifecycle hooks, and declarative security
+triggers:
+- extension-to-functions-codebase
+- extension
+- functions
+- codebase
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for extension-to-functions-codebase
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\firebase\skills\extension_to_functions_codebase\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

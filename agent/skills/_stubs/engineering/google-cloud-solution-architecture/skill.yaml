@@ -1,0 +1,36 @@
+name: google-cloud-solution-architecture
+version: 1.0.0
+category: engineering
+status: stub
+description: Interactively discovers requirements and designs holistic, multi-product
+  system architectures, solution blueprints, and deployment recommendations for complex
+  workloads on Google Cloud. Use when designing end-to-end cloud solutions, selecting
+  and integrating Google Cloud services, generating architecture diagrams, or conducting
+  requirements discovery for new cloud workloads or migrations. Don't use for single-product
+  tasks (use product-specific skills), initial onboarding or authentication (use google-cloud-recipe-*),
+  Well-Architected Framework reviews or audits (use google-cloud-waf-*), or workloads
+  covered by specialized solution skills.
+triggers:
+- google-cloud-solution-architecture
+- google
+- cloud
+- solution
+- architecture
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-cloud-solution-architecture
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\google-cloud-solution-architecture\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

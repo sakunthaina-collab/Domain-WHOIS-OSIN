@@ -1,0 +1,31 @@
+name: dart-use-ffigen
+version: 1.0.0
+category: engineering
+status: stub
+description: Guide agents to use `package:ffigen` to automatically generate FFI bindings
+  instead of writing them manually. Use this skill when a task involves writing new
+  FFI bindings, extending C/Objective-C/Swift integrations, or replacing hand-crafted
+  `dart:ffi` setups.
+triggers:
+- dart-use-ffigen
+- dart
+- use
+- ffigen
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for dart-use-ffigen
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\dart-use-ffigen\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,31 @@
+name: gemini-agents-api
+version: 1.0.0
+category: engineering
+status: stub
+description: Manages custom Agent resources on Gemini Enterprise Agent Platform. Use
+  when the user wants to programmatically create, configure, list, update, or delete
+  stateful, server-managed Agent resources (including mounting files, skills, and
+  tools) before executing conversations.
+triggers:
+- gemini-agents-api
+- gemini
+- agents
+- api
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gemini-agents-api
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gemini-agents-api\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

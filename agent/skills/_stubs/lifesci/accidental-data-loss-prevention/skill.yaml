@@ -1,0 +1,44 @@
+name: accidental-data-loss-prevention
+version: 1.0.0
+category: lifesci
+status: stub
+description: '**STOP AND VERIFY**: Before running any command or tool that results
+  in irreversible data loss, you MUST obtain explicit user consent.
+
+  When in doubt, ask. It is better to wait for confirmation than to accidentally delete
+  production data or critical project assets.
+
+  Use this for:
+
+  - SQL: DROP TABLE/VIEW/SCHEMA/DATABASE, TRUNCATE, or broad DELETE (missing WHERE
+  or using 1=1).
+
+  - Cloud Storage: gsutil rm or gcloud storage rm targeting production data or critical
+  buckets.
+
+  - Infrastructure: gcloud projects delete, deleting Spanner/BigQuery/Dataproc resources,
+  deleting secrets, or KMS key destruction.'
+triggers:
+- accidental-data-loss-prevention
+- accidental
+- data
+- loss
+- prevention
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for accidental-data-loss-prevention
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\accidental-data-loss-prevention\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

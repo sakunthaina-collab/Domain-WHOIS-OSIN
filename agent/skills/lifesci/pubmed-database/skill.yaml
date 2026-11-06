@@ -1,0 +1,31 @@
+name: pubmed-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Search PubMed for scientific literature, including published clinical
+  trials. Fetch abstracts and full text. Link published research to biological databases
+  (gene, protein, nucleotide, PubChem) to discover associations between papers and
+  specific compounds or genes. Verify medical spelling, match raw citations, and cache
+  result sets for bulk processing. Interfaces NCBI E-utilities and PMC BioC APIs.
+triggers:
+- pubmed-database
+- pubmed
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for pubmed-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\pubmed_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

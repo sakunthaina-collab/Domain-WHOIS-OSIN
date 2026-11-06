@@ -1,0 +1,35 @@
+name: gcp-spark
+version: 1.0.0
+category: engineering
+status: stub
+description: "Develops, optimizes and runs PySpark/Spark code on Managed Spark (Dataproc\n\
+  clusters and Serverless) on Google Cloud.\nUse when:\n- Authoring or running Spark/PySpark\
+  \ notebooks (any kernel), incl. data\n  analysis, reports and visualizations.\n\
+  - Writing Spark ETL pipelines or preparing workloads for production.\n- Training\
+  \ or running inference with ML models on Spark.\n- Optimizing PySpark or Spark SQL\
+  \ for performance, memory, or OOM risks.\n- Managing Spark clusters, jobs, batches,\
+  \ and interactive sessions.\nDon't use when:\n- Writing generic Python that doesn't\
+  \ use Spark.\n- Performing simple SQL queries that can be done directly in BigQuery.\n\
+  - Troubleshooting failed Spark workloads (use @skill:gcp-spark-troubleshooting)."
+triggers:
+- gcp-spark
+- gcp
+- spark
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gcp-spark
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\gcp-spark\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

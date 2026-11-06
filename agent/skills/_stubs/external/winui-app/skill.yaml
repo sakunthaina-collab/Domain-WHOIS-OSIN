@@ -1,0 +1,33 @@
+name: winui-app
+version: 1.0.0
+category: external
+status: stub
+description: Bootstrap, develop, and design modern WinUI 3 desktop applications with
+  C# and the Windows App SDK using official Microsoft guidance, WinUI Gallery patterns,
+  Windows App SDK samples, and CommunityToolkit components. Use when creating a brand
+  new app, preparing a machine for WinUI, reviewing, refactoring, planning, troubleshooting,
+  environment-checking, or setting up WinUI 3 XAML, controls, navigation, windowing,
+  theming, accessibility, responsiveness, performance, deployment, or related Windows
+  app design and development work.
+triggers:
+- winui-app
+- winui
+- app
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for winui-app
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\winui-app\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

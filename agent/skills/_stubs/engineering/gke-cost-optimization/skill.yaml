@@ -1,0 +1,32 @@
+name: gke-cost-optimization
+version: 1.0.0
+category: engineering
+status: stub
+description: Optimizes GKE costs, rightsizes workloads, and configures Spot VMs, CUDs,
+  cost allocation, and resource quotas. Use when optimizing GKE cluster or workload
+  costs, configuring GKE cost allocation or quotas, rightsizing CPU/memory requests,
+  or selecting Spot VMs and machine types. Don't use for general compute class provisioning
+  or GPU Selection (use gke-compute-classes instead).
+triggers:
+- gke-cost-optimization
+- gke
+- cost
+- optimization
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-cost-optimization
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-cost-optimization\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

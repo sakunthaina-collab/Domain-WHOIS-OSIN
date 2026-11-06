@@ -1,0 +1,31 @@
+name: gemini-interactions-api
+version: 1.0.0
+category: engineering
+status: stub
+description: Guides the usage of Gemini Interactions API on Gemini Enterprise Agent
+  Platform. Use when the user wants to use the stateful, server-managed Interactions
+  API for multi-turn conversations, background execution, streaming, structured output,
+  and function calling on the Agent Platform.
+triggers:
+- gemini-interactions-api
+- gemini
+- interactions
+- api
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gemini-interactions-api
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gemini-interactions-api\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

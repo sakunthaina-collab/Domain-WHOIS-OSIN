@@ -1,0 +1,29 @@
+name: ai-sdk
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel AI SDK expert guidance. Use when building AI-powered features
+  — chat interfaces, text generation, structured output, tool calling, agents, MCP
+  integration, streaming, embeddings, reranking, image generation, or working with
+  any LLM provider.
+triggers:
+- ai-sdk
+- sdk
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for ai-sdk
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\ai-sdk\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

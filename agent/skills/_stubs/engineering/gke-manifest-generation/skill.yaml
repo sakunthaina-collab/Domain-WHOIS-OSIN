@@ -1,0 +1,35 @@
+name: gke-manifest-generation
+version: 1.0.0
+category: engineering
+status: stub
+description: Generates and updates secure, production-ready Kubernetes YAML manifests
+  optimized for GKE Autopilot and GKE Standard clusters. Use when creating or modifying
+  GKE deployment manifests, configuring container security contexts, setting CPU/memory
+  resource limits, defining readiness/liveness/startup probes, mounting secrets and
+  volumes, configuring GKE Gateway API routes, targeting Spot VMs, or deploying AI
+  model inference workloads (vLLM, TGI, Gemma). Don't use for live cluster operations,
+  pod troubleshooting (use gke-workload-troubleshooting), or cluster infrastructure
+  provisioning (use gke-cluster-creation).
+triggers:
+- gke-manifest-generation
+- gke
+- manifest
+- generation
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-manifest-generation
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-manifest-generation\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

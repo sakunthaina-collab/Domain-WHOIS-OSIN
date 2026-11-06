@@ -1,0 +1,34 @@
+name: firebase-firestore
+version: 1.0.0
+category: engineering
+status: stub
+description: Sets up, manages, queries, and configures Cloud Firestore databases (Standard/Enterprise
+  edition), including data modeling, security rules, indexes, and SDK integrations
+  (Web, Python, iOS, Android, Flutter). Use when creating/listing Firestore databases,
+  defining data models/indexes, writing SDK queries, or integrating Firestore SDKs.
+  For authoring or modifying Firestore Security Rules (firestore.rules), delegate
+  to the firestore-rules-author subagent if subagent delegation is available, or use
+  firestore-rules-creation otherwise. Don't use for Firebase Hosting, Data Connect,
+  Auth, Storage/GCS, Crashlytics, Functions, or BigQuery.
+triggers:
+- firebase-firestore
+- firebase
+- firestore
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for firebase-firestore
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\firebase\skills\firebase_firestore\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

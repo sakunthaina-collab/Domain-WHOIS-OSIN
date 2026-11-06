@@ -1,0 +1,32 @@
+name: ima-sdk-client-side
+version: 1.0.0
+category: engineering
+status: stub
+description: Supports Interactive Media Ads (IMA) SDK. Use this skill for client-side
+  ad insertion when you are requesting video ads for websites, apps, TVs or other
+  platforms using VAST or VMAP. Do not use for Dynamic Ad Insertion (DAI), SSAI, or
+  SGAI.
+triggers:
+- ima-sdk-client-side
+- ima
+- sdk
+- client
+- side
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for ima-sdk-client-side
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\ads\ima-sdk-client-side\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

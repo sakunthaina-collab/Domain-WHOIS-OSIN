@@ -1,0 +1,34 @@
+name: gemini-omni-flash-api
+version: 1.0.0
+category: engineering
+status: runnable
+description: Use this skill for generative video editing, text-to-video, image-referenced
+  video generation, first-frame-to-video, first-and-last-frame transitions, and video
+  extensions using Gemini Omni 1.1 Flash (gemini-omni-1.1-flash) via the official
+  google-genai SDK. Includes workflows for pre-processing/optimizing high-resolution
+  or long source videos with ffmpeg, stripping audio for full sound regeneration,
+  and handling turn-by-turn video editing and parallel execution.
+triggers:
+- gemini-omni-flash-api
+- gemini
+- omni
+- flash
+- api
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gemini-omni-flash-api
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\gemini-api\skills\gemini-omni-flash-api\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

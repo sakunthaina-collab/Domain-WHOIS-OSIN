@@ -1,0 +1,30 @@
+name: vercel-connect
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel Connect expert guidance for securely obtaining scoped credentials
+  for third-party services on behalf of apps or users. Use when wiring up provider
+  API access, OAuth, API-key services, MCP servers, triggers, framework adapters,
+  eve agent connections, or provider tokens for Passport-authenticated users.
+triggers:
+- vercel-connect
+- vercel
+- connect
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for vercel-connect
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\vercel-connect\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,33 @@
+name: bigquery-data-transfer-service
+version: 1.0.0
+category: engineering
+status: runnable
+description: Discovers and inspects BigQuery Data Transfer Service (DTS) configurations.
+  Use this to identify existing ingestion pipelines and extract datasource or transfer
+  config metadata for data pipelines. Use when a user asks for ingestion scenarios
+  while building or managing data pipelines or when a user asks to "ingest" or "add"
+  data that may already be managed by a DTS transfer.
+triggers:
+- bigquery-data-transfer-service
+- bigquery
+- data
+- transfer
+- service
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for bigquery-data-transfer-service
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\bigquery-data-transfer-service\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,36 @@
+name: google-analytics-data-api-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: Manages Google Analytics reporting data, enables the Analytics Data API
+  via the Cloud CLI, and creates reports using the Google Analytics Data API (v1beta).
+  Use when you need to interact with Google Analytics properties, run customized analytics
+  reports, query metrics (like activeUsers, screenPageViews) and dimensions (like
+  city, date), check metrics and dimensions compatibility, or verify API enablement.
+  Don't use for Google Analytics Admin API operations (e.g., creating properties,
+  managing users) or for front-end tracking installation.
+triggers:
+- google-analytics-data-api-basics
+- google
+- analytics
+- data
+- api
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-analytics-data-api-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\analytics\google-analytics-data-api-basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

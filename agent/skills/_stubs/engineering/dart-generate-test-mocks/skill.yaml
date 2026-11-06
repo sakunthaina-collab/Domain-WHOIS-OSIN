@@ -1,0 +1,31 @@
+name: dart-generate-test-mocks
+version: 1.0.0
+category: engineering
+status: stub
+description: Define and generate mock objects for external dependencies using `package:mockito`
+  and `build_runner`. Use when unit testing classes that depend on complex external
+  services like APIs or databases.
+triggers:
+- dart-generate-test-mocks
+- dart
+- generate
+- test
+- mocks
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for dart-generate-test-mocks
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\dart-generate-test-mocks\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

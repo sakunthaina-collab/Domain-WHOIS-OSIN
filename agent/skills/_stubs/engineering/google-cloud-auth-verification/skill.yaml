@@ -1,0 +1,33 @@
+name: google-cloud-auth-verification
+version: 1.0.0
+category: engineering
+status: stub
+description: Mandatory Step 0 pre-flight execution order and authentication verification
+  for Google Cloud Platform (GCP), Application Default Credentials (ADC), gcloud CLI,
+  Spark, Dataproc, BigQuery, GCS, and notebook runtimes. Use whenever interacting
+  with GCP resources, running Spark/PySpark pipelines, BigQuery queries, GCS paths
+  (gs://), or creating/running notebooks.
+triggers:
+- google-cloud-auth-verification
+- google
+- cloud
+- auth
+- verification
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-cloud-auth-verification
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\google-cloud-auth-verification\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

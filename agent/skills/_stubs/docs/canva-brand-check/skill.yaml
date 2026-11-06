@@ -1,0 +1,32 @@
+name: canva-brand-check
+version: 1.0.0
+category: docs
+status: stub
+description: Check a Canva design against a brand kit and report where it diverges
+  — off-palette colors, non-brand fonts, logo misuse, and off-tone copy. Read-only;
+  makes no changes. Use when the user asks "is this on brand", "check this against
+  our brand kit", "do a brand review", "does this match our brand guidelines", or
+  "brand-check my design".
+triggers:
+- canva-brand-check
+- canva
+- brand
+- check
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for canva-brand-check
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\canva\skills\brand-check\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

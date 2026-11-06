@@ -1,0 +1,32 @@
+name: literature-search-openalex
+version: 1.0.0
+category: docs
+status: runnable
+description: Query the OpenAlex scholarly database for research papers, authors, institutions,
+  topics, sources, publishers, funders, geo-locations, and keywords. Use when searching
+  academic papers, resolving DOIs, downloading open-access PDFs, finding an author's
+  publications, aggregating bibliometric data (citation counts, h-index, impact factor),
+  exploring the research taxonomies, or performing DOI lookups.
+triggers:
+- literature-search-openalex
+- literature
+- search
+- openalex
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for literature-search-openalex
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\literature_search_openalex\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

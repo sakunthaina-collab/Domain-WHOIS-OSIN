@@ -1,0 +1,30 @@
+name: memory-leak-debugging
+version: 1.0.0
+category: engineering
+status: stub
+description: Diagnoses and resolves memory leaks in JavaScript/Node.js applications.
+  Use when a user reports high memory usage, OOM errors, or wants to capture, compare,
+  or inspect heap snapshots with Chrome DevTools MCP memory tools.
+triggers:
+- memory-leak-debugging
+- memory
+- leak
+- debugging
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for memory-leak-debugging
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\chrome-devtools-plugin\skills\memory-leak-debugging\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

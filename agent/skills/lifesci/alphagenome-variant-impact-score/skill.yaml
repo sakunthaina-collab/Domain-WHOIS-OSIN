@@ -1,0 +1,33 @@
+name: alphagenome-variant-impact-score
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Score, annotate, and analyze the functional impact of genetic variants
+  using AlphaGenome Variant Impact (AVI) scores. Query variants in chr:pos:ref>alt
+  format, annotate VCF/tabular callsets, perform saturation mutagenesis window scans
+  (1-based closed chr:start-end), and extract GENCODE v46 GTF gene/exon/junction coordinates
+  all via the AlphaGenome Atlas API.
+triggers:
+- alphagenome-variant-impact-score
+- alphagenome
+- variant
+- impact
+- score
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for alphagenome-variant-impact-score
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\alphagenome_variant_impact_score\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

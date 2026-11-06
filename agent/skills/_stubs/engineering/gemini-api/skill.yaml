@@ -1,0 +1,31 @@
+name: gemini-api
+version: 1.0.0
+category: engineering
+status: stub
+description: Use when the user asks about using Gemini in an enterprise environment
+  or explicitly mentions Vertex AI, Google Cloud, or Agent Platform. Guides the usage
+  of the Gemini API on Agent Platform with the Google Gen AI SDK. Covers SDK usage
+  (Python, JS/TS, Go, Java, C#), capabilities like multimodal inputs, tools, media
+  generation, caching, batch prediction, and Live API.
+triggers:
+- gemini-api
+- gemini
+- api
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gemini-api
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gemini-api\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

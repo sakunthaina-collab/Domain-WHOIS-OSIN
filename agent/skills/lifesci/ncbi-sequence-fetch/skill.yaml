@@ -1,0 +1,32 @@
+name: ncbi-sequence-fetch
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Retrieve protein and nucleotide sequences from NCBI databases using E-utilities.
+  Supports direct accession lookup, CDS translation, gene+organism search, locus lookup,
+  PubMed-linked sequences, patent protein extraction, and organism+length fallback
+  search. Use when you need to fetch biological sequences by accession, gene name,
+  locus tag, PubMed ID, or patent number.
+triggers:
+- ncbi-sequence-fetch
+- ncbi
+- sequence
+- fetch
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for ncbi-sequence-fetch
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\ncbi_sequence_fetch\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,31 @@
+name: flutter-fix-layout-issues
+version: 1.0.0
+category: engineering
+status: stub
+description: Fixes Flutter layout errors (overflows, unbounded constraints) using
+  Dart and Flutter MCP tools. Use when addressing "RenderFlex overflowed", "Vertical
+  viewport was given unbounded height", or similar layout issues.
+triggers:
+- flutter-fix-layout-issues
+- flutter
+- fix
+- layout
+- issues
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for flutter-fix-layout-issues
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\flutter-fix-layout-issues\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

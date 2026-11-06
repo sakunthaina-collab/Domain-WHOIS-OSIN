@@ -1,0 +1,31 @@
+name: cloud-run-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: Manages Cloud Run services, jobs, and worker pools. Use when you need
+  to deploy applications responding to HTTP requests (services), run event-triggered
+  or scheduled tasks (jobs), or handle always-on pull-based background processing
+  (worker pools).
+triggers:
+- cloud-run-basics
+- cloud
+- run
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cloud-run-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\cloud-run-basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

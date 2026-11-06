@@ -1,0 +1,33 @@
+{
+  "case_id": "SMOKE-V12",
+  "created_at": 1793863145.758,
+  "task": "ตรวจสอบเบอร์ +66942638165 และเครือข่ายที่เชื่อมโยง จัดทำสำนวนส่งตำรวจ",
+  "profile": "Investigator Agent",
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "agent_version": "1.0.0"
+  },
+  "models": {
+    "main": "deepseek-chat",
+    "escalate": "deepseek-reasoner",
+    "base_url": "https://api.deepseek.com/v1"
+  },
+  "llm_params": {
+    "temperature": 0.2,
+    "top_k": 12,
+    "seed": 42
+  },
+  "registry": {
+    "total_skills": 457,
+    "runnable_skills": 123,
+    "registry_hash": "77618ba885054c90"
+  },
+  "skill_selection": [
+    "phone-email-osint",
+    "syndicate-roster-tracker",
+    "case-dossier-exporter",
+    "counter-fraud-disruption",
+    "digital-forensics-investigator"
+  ]
+}

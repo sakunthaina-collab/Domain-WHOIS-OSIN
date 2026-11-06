@@ -1,0 +1,30 @@
+name: alloydb-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: Manages clusters, instances, and backups for AlloyDB for PostgreSQL,
+  and integrates with AlloyDB Model Context Protocol (MCP) tools for automated database
+  operations. Use when creating, configuring, or administering AlloyDB databases.
+  Do NOT use for general PostgreSQL instances (e.g. Cloud SQL) or other GCP databases.
+triggers:
+- alloydb-basics
+- alloydb
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for alloydb-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\alloydb-basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

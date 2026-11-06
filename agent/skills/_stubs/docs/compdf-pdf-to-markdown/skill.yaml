@@ -1,0 +1,30 @@
+name: compdf-pdf-to-markdown
+version: 1.0.0
+category: docs
+status: stub
+description: Convert PDF files into Markdown with ComPDF. Use for knowledge-base ingestion,
+  developer documentation, content repurposing, research workflows, or any PDF-to-Markdown
+  request.
+triggers:
+- compdf-pdf-to-markdown
+- compdf
+- pdf
+- markdown
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for compdf-pdf-to-markdown
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\compdf-pdf-to-markdown\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

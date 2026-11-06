@@ -1,0 +1,28 @@
+name: playwright-interactive
+version: 1.0.0
+category: external
+status: stub
+description: Persistent browser and Electron interaction through `js_repl` for fast
+  iterative UI debugging.
+triggers:
+- playwright-interactive
+- playwright
+- interactive
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for playwright-interactive
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\playwright-interactive\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

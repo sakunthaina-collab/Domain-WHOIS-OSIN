@@ -1,0 +1,30 @@
+name: auth
+version: 1.0.0
+category: engineering
+status: stub
+description: Authentication integration guidance — Clerk (native Vercel Marketplace),
+  Better Auth, Descope, and Auth0 setup for Next.js applications, plus Sign in with
+  Vercel, Vercel Passport, and Vercel KMS. Covers server config, route handlers, proxy.ts
+  auth patterns, sign-in/sign-up flows, and Marketplace provisioning. Use when implementing
+  user authentication, sessions, protected routes, or protecting deployments.
+triggers:
+- auth
+- auth
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for auth
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\auth\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,39 @@
+name: gke-ai-troubleshooting-tpu-slice-mig-stuck-updating
+version: 1.0.0
+category: engineering
+status: stub
+description: Diagnose and resolve GKE TPU Dynamic Slice creation and JobSet scheduling
+  failures blocked by underlying Compute Engine managed instance groups (MIGs) stuck
+  in an updating or unstable state (isStable=False). Use when TPU slice creation fails
+  with a SliceCreationFailed status reason, when JobSets remain stuck in pending,
+  or when MIG status reflects isStable=False or versionTarget.isReached=False during
+  TPU slice formation. Don't use for SliceCreationFailed causes unrelated to MIG stability
+  (use gke-ai-troubleshooting-tpu-dynamic-slices-monitoring) or general pod scheduling
+  failures unrelated to TPU slices.
+triggers:
+- gke-ai-troubleshooting-tpu-slice-mig-stuck-updating
+- gke
+- troubleshooting
+- tpu
+- slice
+- mig
+- stuck
+- updating
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-ai-troubleshooting-tpu-slice-mig-stuck-updating
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-ai-troubleshooting-tpu-slice-mig-stuck-updating\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

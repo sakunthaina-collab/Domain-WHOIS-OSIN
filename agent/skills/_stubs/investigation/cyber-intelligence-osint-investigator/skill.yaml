@@ -1,0 +1,35 @@
+name: cyber-intelligence-osint-investigator
+version: 1.0.0
+category: investigation
+status: stub
+description: Conduct lawful, source-verified cyber intelligence and OSINT investigations
+  using public and authorized data sources, with deterministic intent routing, tool
+  capability mapping, multi-source discovery, evidence attribution, credibility scoring,
+  rejection logs, chain-of-custody notes, and professional intelligence reports. Use
+  when investigating organizations, domains, infrastructure, incidents, public personas,
+  threat actors, or online claims and the result must be defensible, traceable, and
+  confidence-rated.
+triggers:
+- cyber-intelligence-osint-investigator
+- cyber
+- intelligence
+- osint
+- investigator
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cyber-intelligence-osint-investigator
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\cyber-intelligence-osint-investigator\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

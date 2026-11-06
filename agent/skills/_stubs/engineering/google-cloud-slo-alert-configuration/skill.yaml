@@ -1,0 +1,33 @@
+name: google-cloud-slo-alert-configuration
+version: 1.0.0
+category: engineering
+status: stub
+description: Configures Cloud Monitoring PromQL-based Service Level Objective (SLO)
+  alerting policies on Google Cloud for resources registered in App Hub or individually
+  specified. Generates Terraform output. Use when the user asks to configure an SLO
+  or Service Level Objective. Don't use for standard alerting policies.
+triggers:
+- google-cloud-slo-alert-configuration
+- google
+- cloud
+- slo
+- alert
+- configuration
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-cloud-slo-alert-configuration
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\google-cloud-slo-alert-configuration\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

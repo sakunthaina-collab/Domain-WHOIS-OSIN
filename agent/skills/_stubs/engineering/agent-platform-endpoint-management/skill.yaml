@@ -1,0 +1,32 @@
+name: agent-platform-endpoint-management
+version: 1.0.0
+category: engineering
+status: stub
+description: Manages Agent Platform serving endpoints. Use when you need to create,
+  list, describe, update, or delete serving endpoints for model deployment on Agent
+  Platform. Also use when troubleshooting endpoint permission, quota, or resource
+  busy errors. Don't use for deploying models to endpoints or for running model evaluations.
+triggers:
+- agent-platform-endpoint-management
+- agent
+- platform
+- endpoint
+- management
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for agent-platform-endpoint-management
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\agent-platform-endpoint-management\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

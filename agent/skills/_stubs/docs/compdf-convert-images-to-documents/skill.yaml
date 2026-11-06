@@ -1,0 +1,31 @@
+name: compdf-convert-images-to-documents
+version: 1.0.0
+category: docs
+status: stub
+description: Convert image files into Word, Excel, PPT, PDF, HTML, RTF, CSV, TXT,
+  or JSON with ComPDF. Use for screenshots, scans, receipts, forms, and photo-based
+  business documents that need editable or structured output.
+triggers:
+- compdf-convert-images-to-documents
+- compdf
+- convert
+- images
+- documents
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for compdf-convert-images-to-documents
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\compdf-convert-images-to-documents\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,29 @@
+name: opentargets-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Query Open Targets Platform for target-disease associations, drug target
+  discovery, tractability/safety data, genetics/omics evidence, known drugs, for therapeutic
+  target identification.
+triggers:
+- opentargets-database
+- opentargets
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for opentargets-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\opentargets_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

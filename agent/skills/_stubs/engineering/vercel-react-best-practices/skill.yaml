@@ -1,0 +1,32 @@
+name: vercel-react-best-practices
+version: 1.0.0
+category: engineering
+status: stub
+description: React and Next.js performance optimization guidelines from Vercel Engineering.
+  This skill should be used when writing, reviewing, or refactoring React/Next.js
+  code to ensure optimal performance patterns. Triggers on tasks involving React components,
+  Next.js pages, data fetching, bundle optimization, or performance improvements.
+triggers:
+- vercel-react-best-practices
+- vercel
+- react
+- best
+- practices
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for vercel-react-best-practices
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\react-best-practices\upstream\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

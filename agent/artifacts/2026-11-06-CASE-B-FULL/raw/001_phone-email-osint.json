@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "source": "C:\\Users\\Administrator\\.gemini\\config\\plugins\\phone-email-osint\\scripts\\osint_inspector.py",
+  "data": {
+    "target": "+66894263815",
+    "type": "phone",
+    "timestamp": "2026-11-06T06:32:47.060105+00:00",
+    "e164_candidate": "+66894263815",
+    "country_info": {
+      "country": "Thailand",
+      "iso": "TH",
+      "trunk_prefix": "0",
+      "calling_code": "+66",
+      "national_number": "894263815"
+    },
+    "detected_carrier": "Requires carrier signaling or Numverify API",
+    "line_type": "mobile",
+    "passive_only": true
+  }
+}

@@ -1,0 +1,30 @@
+name: rdkit-general
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Generates 2D chemical structure depictions (PNG/SVG), interactive HTML
+  compound grids, standalone chemical applications/visualizers, and ChemDraw (.cdxml/.cdx)
+  documents using ACS 1996 publication styling; validates IUPAC/stereochemical nomenclature
+  and provides shared RDKit version compatibility helpers.
+triggers:
+- rdkit-general
+- rdkit
+- general
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for rdkit-general
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\rdkit_general\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

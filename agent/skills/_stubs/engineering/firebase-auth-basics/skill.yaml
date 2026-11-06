@@ -1,0 +1,30 @@
+name: firebase-auth-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: Guide for setting up and using Firebase Authentication. Use this skill
+  when the user's app requires user sign-in, user management, or secure data access
+  using auth rules.
+triggers:
+- firebase-auth-basics
+- firebase
+- auth
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for firebase-auth-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\firebase\skills\firebase_auth_basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

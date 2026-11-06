@@ -1,0 +1,48 @@
+# cordis.patch.yml — patch layer for @deepseek-ai/dsh-web-search-deepseek
+# ---------------------------------------------------------------------------
+# FORMAT: a dsh patch layer is a top-level YAML **ARRAY**. Every item targets a
+# Loader entry by `id`, and the item's `config` REPLACES that entry's whole
+# config (it does not deep-merge), so each row restates every key it owns.
+#
+# WHY THIS PATCH EXISTS
+# The provider appends "/messages" to `baseURL` itself, so `baseURL` must be
+# the Anthropic-compatible PREFIX, never a full Messages URL:
+#
+#   wrong : baseURL: https://langsearch.com/api-keys        -> .../api-keys/messages        -> HTTP 404
+#   right : baseURL: https://api.deepseek.com/anthropic/v1  -> .../anthropic/v1/messages    -> 200
+#
+# RESOLUTION ORDER for baseURL
+#   1. this config.baseURL
+#   2. $DEEPSEEK_SEARCH_BASE_URL
+#   3. package default: https://api.deepseek.com/anthropic/v1
+#
+# The live value can also be changed without touching this file:
+#   Web UI -> Plugins -> Built-in plugin settings -> Web search
+#          -> "Messages API base URL" -> Save
+# ---------------------------------------------------------------------------
+
+- id: web-search-deepseek
+  name: "@deepseek-ai/dsh-web-search-deepseek"
+  config:
+    # Credential reference, resolved per search through ctx.credentials and
+    # falling back to the launching process environment.
+    apiKeyEnv: DEEPSEEK_API_KEY
+
+    # Anthropic-compatible endpoint PREFIX. "/messages" is appended by the provider.
+    baseURL: https://api.deepseek.com/anthropic/v1
+
+    # ── optional tuning ──────────────────────────────────────────────────────
+    # Native server-side web_search uses allowed per Messages request
+    # (package default: 5). This provider spends one full model turn per
+    # search, so lowering maxUses is the cheapest way to cap cost/latency.
+    maxUses: 5
+
+    # Generated-token ceiling for the auxiliary Messages call (default: 4096).
+    # maxTokens: 4096
+
+    # Anthropic wire-version header value (default: 2023-06-01). Usually leave unset.
+    # apiVersion: "2023-06-01"
+
+    # Anthropic-format model name for the auxiliary search call
+    # (package default: deepseek-v4-flash).
+    # model: deepseek-v4-flash

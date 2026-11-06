@@ -1,0 +1,30 @@
+name: compdf-pdf-to-word
+version: 1.0.0
+category: docs
+status: stub
+description: Convert PDF files into editable Word documents with ComPDF. Use for PDF-to-Word
+  requests involving contracts, reports, forms, proposals, review, revision, localization,
+  or business reuse.
+triggers:
+- compdf-pdf-to-word
+- compdf
+- pdf
+- word
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for compdf-pdf-to-word
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\compdf-pdf-to-word\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

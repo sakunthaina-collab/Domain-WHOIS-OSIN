@@ -1,0 +1,35 @@
+name: managing-python-dependencies
+version: 1.0.0
+category: engineering
+status: stub
+description: "Ensures proper Python dependency management, avoiding global `pip install`\
+  \ and\nadhering to project-specific tooling.\n\nUse this skill if any of the following\
+  \ are true:\n  1. Attempting to run `pip install {package_name}`.\n  2. Python packages\
+  \ or dependencies need to be added or modified.\n  3. Initiating a new Python project.\n\
+  \  4. Installing missing packages inside a notebook or Python project.\n  5. Generating\
+  \ Python code that includes `import` statements for third-party libraries.\n  6.\
+  \ Before executing Python scripts via the terminal to ensure the correct virtual\
+  \ environment is active."
+triggers:
+- managing-python-dependencies
+- managing
+- python
+- dependencies
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for managing-python-dependencies
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\managing-python-dependencies\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

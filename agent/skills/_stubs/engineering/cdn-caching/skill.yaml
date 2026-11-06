@@ -1,0 +1,29 @@
+name: cdn-caching
+version: 1.0.0
+category: engineering
+status: stub
+description: Debug Vercel CDN caching — cache hit rate, stale content, revalidation
+  behavior, ISR + PPR, per-request cache reasons (cacheReason) and PPR state (ppr_state),
+  and costs.
+triggers:
+- cdn-caching
+- cdn
+- caching
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cdn-caching
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\cdn-caching\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

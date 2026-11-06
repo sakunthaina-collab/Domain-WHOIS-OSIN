@@ -1,0 +1,30 @@
+name: vercel-functions
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel Functions expert guidance — Node.js/Bun/Python runtimes, Fluid
+  Compute, long-duration (30 min) functions, large functions (5 GB bundles), Docker/OCI
+  container images, plan limits, streaming, WebSockets, and Cron Jobs. Use when configuring,
+  debugging, or optimizing server-side code running on Vercel.
+triggers:
+- vercel-functions
+- vercel
+- functions
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for vercel-functions
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\vercel-functions\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

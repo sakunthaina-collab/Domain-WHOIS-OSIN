@@ -1,0 +1,31 @@
+name: agent-platform-skill-registry
+version: 1.0.0
+category: engineering
+status: runnable
+description: Interact with the Gemini Enterprise Agent Platform Skill Registry to
+  create and search for available skills. Use this skill to enable agents to register
+  functionality or discover new capabilities.
+triggers:
+- agent-platform-skill-registry
+- agent
+- platform
+- skill
+- registry
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for agent-platform-skill-registry
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\agent-platform-skill-registry\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

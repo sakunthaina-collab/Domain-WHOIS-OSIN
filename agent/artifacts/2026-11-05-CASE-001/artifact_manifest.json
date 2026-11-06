@@ -1,0 +1,68 @@
+{
+  "case_dir": "C:\\Users\\Administrator\\.gemini\\antigravity\\worktrees\\adventurous-pasteur\\install_new_skill\\agent\\artifacts\\2026-11-05-CASE-001",
+  "created_at": 1793861812.789,
+  "file_count": 12,
+  "merkle_root": "ffeb9bcfbbda65a07540ff4b7665a68a0242d372f9f5536a9c412155cbda43f5",
+  "files": [
+    {
+      "path": "004_case-dossier-exporter.md",
+      "size_bytes": 641,
+      "sha256": "86f594574750b17076d2b70140ce7ccc71fb0ef5c19b7a47fd6a9fab2196cc5e"
+    },
+    {
+      "path": "00_run_manifest.json",
+      "size_bytes": 958,
+      "sha256": "b37b1198bb39956771e5f04e909ef64f4b6770643efa64ce32a849a06da95caa"
+    },
+    {
+      "path": "checkpoint.json",
+      "size_bytes": 6656,
+      "sha256": "6b3498f0cb91fa3813b101317cb64a7b3ce0b6dd1e6a23ba8882eaf4f2bfbf3c"
+    },
+    {
+      "path": "dossier_bilingual.md",
+      "size_bytes": 641,
+      "sha256": "50fc20f68d4c1f51716c5041acb06d7c1b28668701f6115dcf5b543f9167bc6e"
+    },
+    {
+      "path": "raw/001_phone-email-osint.json",
+      "size_bytes": 601,
+      "sha256": "87455231e577b92b9d704efaf032304f68e6c4672ae068b26765a2af7e10b804"
+    },
+    {
+      "path": "raw/002_syndicate-roster-tracker.json",
+      "size_bytes": 574,
+      "sha256": "842b94b1ee4aad01cb493a81462e3d94bf0dc0f46384408640b6ff2da29c0690"
+    },
+    {
+      "path": "raw/003_digital-forensics-investigator.json",
+      "size_bytes": 626,
+      "sha256": "358f92e68e586c2761cefa17fe07c420fb468d95315e05e75581be1edbeb9d97"
+    },
+    {
+      "path": "raw/004_case-dossier-exporter.json",
+      "size_bytes": 282,
+      "sha256": "57d2ad634271ed963e043f0500f601752e09d6f47847aacf286bacae12b47a93"
+    },
+    {
+      "path": "raw/step1_phone-email-osint.json",
+      "size_bytes": 601,
+      "sha256": "543549a79a055680ae18f7f9cad32f605402e8b7bf438a09652622f3819c0a03"
+    },
+    {
+      "path": "raw/step2_syndicate-roster-tracker.json",
+      "size_bytes": 574,
+      "sha256": "5a08ce60ef5de39360ab8accf393df3440905d8318735c0897102b9cae9b6d9f"
+    },
+    {
+      "path": "raw/step3_digital-forensics-investigator.json",
+      "size_bytes": 626,
+      "sha256": "8502dbf1e1096312f81fb6172895ae32173046e5075f12098bd794f210e949e5"
+    },
+    {
+      "path": "raw/step4_case-dossier-exporter.json",
+      "size_bytes": 274,
+      "sha256": "6adc47ab08f7d3471c563d54dd3645f51541b6ea7ee60ad0bf3427608c6db94f"
+    }
+  ]
+}

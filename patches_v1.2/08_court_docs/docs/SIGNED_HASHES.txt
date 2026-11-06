@@ -1,0 +1,29 @@
+# ==============================================================================
+# TRUSTWORTHY AGENT v1.4.1 — OFFICIAL CRYPTOGRAPHIC TOOL INTEGRITY MANIFEST
+# Generated: 2026-11-05T17:11:00+07:00
+# Standard:  ISO/IEC 27037:2012 & ISO/IEC 27041:2015 (Tool Verification)
+# Algorithm: SHA-256 + RSA-4096 GPG Detached Signature (SIGNED_HASHES.txt.asc)
+# Key FPR:   3892E3F2CEDAE88EDEF85D64892DBC9697F6927A
+# ==============================================================================
+#
+# HOW TO VERIFY (Run from the `agent/` directory):
+#   1. Verify GPG Signature on this manifest:
+#      gpg --verify docs/SIGNED_HASHES.txt.asc docs/SIGNED_HASHES.txt
+#
+#   2. Verify SHA-256 Hashes of Core Verification Modules:
+#      Windows (PowerShell):
+#        Get-FileHash scripts\verify_all.py, scripts\verify_audit.py, core\guardrails.py, core\anchor.py, core\gpg_signer.py, core\artifact_manifest.py, core\run_manifest.py, core\file_lock.py, core\normalize.py -Algorithm SHA256
+#
+#      Linux / macOS:
+#        sha256sum -c docs/SIGNED_HASHES.txt
+# ==============================================================================
+
+4DCF6DC33EC90BDD8E89D1392221238C7C4C1164A9E8DEB88F578277A1B53405  scripts/verify_all.py
+DA1E257FE4F0F70375EC9A41F95B5BADF9288D5ABB880EE158E2C010E8F1470C  scripts/verify_audit.py
+37B5C896044C0D7B19854255E7DBE9243CAF302F7BFC29FF83E323E76E16678A  core/guardrails.py
+6A3B3116FAF7A2E86505FCB39CD79838D08D6B047B574586A8140F0B3CDE8F72  core/anchor.py
+3874380F8E25CCB81063FF6B42F4C23D485FBF5DD0293BD433C64CEED2BBA796  core/gpg_signer.py
+5015BD69EEF747D1D4ED668F2B4BDF5D62B153120212BDE0381792A2BF963695  core/artifact_manifest.py
+1F3778FE6B354B7A986E1A4EE03781F28A05DDFAA0440F9FC6A033310272B8C7  core/run_manifest.py
+F3F3D29EF433E2D1868428E594A2A93470134E048558924DC9EAD836AE46E54E  core/file_lock.py
+2A5242B5F76D85622A1FCD3AAEA75241CFBFD29339CC0B8A8D8459B47959F7EC  core/normalize.py

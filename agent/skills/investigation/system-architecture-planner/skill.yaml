@@ -1,0 +1,30 @@
+name: system-architecture-planner
+version: 1.0.0
+category: investigation
+status: runnable
+description: Enterprise IT software architecture, technical project development plans,
+  risk mitigation matrices, and scaffolding with dual profiles (Standard Enterprise
+  and High-Security/OSINT Local-LLM Airgapped mode).
+triggers:
+- system-architecture-planner
+- system
+- architecture
+- planner
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for system-architecture-planner
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\system-architecture-planner\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

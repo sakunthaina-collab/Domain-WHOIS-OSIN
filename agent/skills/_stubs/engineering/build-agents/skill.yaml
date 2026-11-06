@@ -1,0 +1,29 @@
+name: build-agents
+version: 1.0.0
+category: engineering
+status: stub
+description: Default guidance for building AI agents. Use for generic requests to
+  build, create, scaffold, design, architect, or implement an AI agent, agent app,
+  tool-calling agent, durable agent, multi-agent system, or scheduled agent.
+triggers:
+- build-agents
+- build
+- agents
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for build-agents
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\build-agents\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

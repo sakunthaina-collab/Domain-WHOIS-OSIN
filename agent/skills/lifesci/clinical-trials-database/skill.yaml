@@ -1,0 +1,31 @@
+name: clinical-trials-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Query ClinicalTrials.gov via APIv2. Use when you want to search for trials
+  by condition, drug, location, status, or phase; retrieve trial details by NCT ID;
+  check eligibility/inclusion criteria; count trials across conditions or time periods;
+  identify a sponsor's trial portfolio; find recruiting trials for patient matching.
+triggers:
+- clinical-trials-database
+- clinical
+- trials
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for clinical-trials-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\clinical_trials_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

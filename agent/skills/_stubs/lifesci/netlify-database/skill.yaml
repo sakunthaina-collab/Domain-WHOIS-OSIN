@@ -1,0 +1,33 @@
+name: netlify-database
+version: 1.0.0
+category: lifesci
+status: stub
+description: Zero-config Postgres for Netlify apps via @netlify/database — querying
+  data from Functions/Edge Functions, writing schema migrations, setting up Drizzle
+  ORM, local dev with netlify dev, database branches for deploy previews, and migrating
+  an existing Postgres project onto Netlify. Use when adding a database, building
+  a contact form or CRUD API, writing SQL migrations, wiring up Drizzle, running netlify
+  database commands, testing with a local Postgres, or switching from Neon/Supabase/RDS
+  to Netlify Database.
+triggers:
+- netlify-database
+- netlify
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for netlify-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\netlify\agent-plugin\skills\netlify-database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

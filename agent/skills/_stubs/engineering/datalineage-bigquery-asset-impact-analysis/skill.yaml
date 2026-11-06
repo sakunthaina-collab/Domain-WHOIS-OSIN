@@ -1,0 +1,38 @@
+name: datalineage-bigquery-asset-impact-analysis
+version: 1.0.0
+category: engineering
+status: stub
+description: 'Analyzes the downstream impact (blast radius) using data lineage on
+  Google Cloud when a BigQuery table or view is broken, stale, or modified. Identifies
+  all downstream tables, dashboards, and processes that will be affected. Use when:
+  - Performing a blast radius or impact analysis for a BigQuery table or view. - Assessing
+  the consequences of modifying, deleting, or pausing updates to a BigQuery asset.
+  - Identifying downstream dependencies (tables, dashboards, processes) of a BigQuery
+  asset. Don''t use for: - General BigQuery querying or data analysis (use BigQuery-related
+  tools instead). - Non-BigQuery assets (e.g., Cloud Storage files) unless they are
+  part of the BigQuery lineage. - Creating or modifying lineage links directly.'
+triggers:
+- datalineage-bigquery-asset-impact-analysis
+- datalineage
+- bigquery
+- asset
+- impact
+- analysis
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for datalineage-bigquery-asset-impact-analysis
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\datalineage-bigquery-asset-impact-analysis\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

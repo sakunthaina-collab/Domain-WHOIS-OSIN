@@ -1,0 +1,14 @@
+# ══════════════════════════════════════════════════════════
+# REPLACE existing anchor: block in config.yaml
+# ══════════════════════════════════════════════════════════
+anchor:
+  adapter: git
+  ledger_path: logs/anchor_ledger.json
+  gpg:
+    enabled: true
+    strict: false              # production: true (fail if gpg missing)
+                               # development: false (fall back unsigned)
+    key_id: null               # null -> ANCHOR_GPG_KEY env or default key
+    gpg_home: null             # null -> GNUPGHOME env or ~/.gnupg
+    sign_ledger: true
+    sign_git_tag: true

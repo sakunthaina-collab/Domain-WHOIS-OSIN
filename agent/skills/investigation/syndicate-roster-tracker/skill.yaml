@@ -1,0 +1,36 @@
+name: syndicate-roster-tracker
+version: 1.0.0
+category: investigation
+description: 'ติดตามและตรวจสอบตารางกะงาน (Roster/Shifts) บัญชี Telegram (@bv92111,
+  @huai9211, @df52iii, @tang20010101) และนามแฝงของขบวนการข้ามแดน (เช่น 予安, 箏箏, 小白)
+
+  '
+triggers:
+- เครือข่าย
+- roster
+- shift
+- telegram
+- ขบวนการ
+- 小白
+- 予安
+input_schema:
+  type: object
+  properties:
+    channel:
+      type: string
+      default: '@bv92111'
+    target_alias:
+      type: string
+      description: นามแฝงเป้าหมาย เช่น 予安 หรือ 小白
+  required:
+  - target_alias
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+permissions:
+- network
+risk: medium
+outputs:
+- json
+status: runnable

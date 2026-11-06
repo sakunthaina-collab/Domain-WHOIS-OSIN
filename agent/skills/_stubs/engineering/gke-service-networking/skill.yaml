@@ -1,0 +1,35 @@
+name: gke-service-networking
+version: 1.0.0
+category: engineering
+status: stub
+description: Configures GKE edge networking, traffic routing, load balancing, and
+  private service endpoints. Use when configuring Gateway API manifests, standard
+  Ingress, Cloud Armor WAF security policies, Container-Native Load Balancing (NEGs),
+  Private Service Connect (PSC), or Google-managed SSL certificates on GKE, and to
+  troubleshoot Ingress and load-balancer 502/5xx errors, backend health-check failures,
+  connection draining, and TLS/SSL policy enforcement. Don't use for core cluster
+  IP planning, Dataplane V2 network policies, or node NAT egress (use gke-networking
+  instead).
+triggers:
+- gke-service-networking
+- gke
+- service
+- networking
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-service-networking
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-service-networking\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

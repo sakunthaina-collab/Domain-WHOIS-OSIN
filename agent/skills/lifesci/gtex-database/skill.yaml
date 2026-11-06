@@ -1,0 +1,29 @@
+name: gtex-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Use when you want to retrieve quantitative RNA expression data and variant
+  eQTL information from the GTEx (Genotype-Tissue Expression) Project across 54 non-diseased
+  tissue sites.
+triggers:
+- gtex-database
+- gtex
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gtex-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\gtex_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

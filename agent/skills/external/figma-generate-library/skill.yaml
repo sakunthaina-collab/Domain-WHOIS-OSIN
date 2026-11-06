@@ -1,0 +1,33 @@
+name: figma-generate-library
+version: 1.0.0
+category: external
+status: runnable
+description: Build or update a professional-grade design system in Figma from a codebase.
+  Use when the user wants to create variables/tokens, build component libraries, set
+  up theming (light/dark modes), document foundations, or reconcile gaps between code
+  and Figma. This skill teaches WHAT to build and in WHAT ORDER — it complements the
+  `figma-use` skill which teaches HOW to call the Plugin API. Both skills should be
+  loaded together.
+triggers:
+- figma-generate-library
+- figma
+- generate
+- library
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for figma-generate-library
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\figma-generate-library\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

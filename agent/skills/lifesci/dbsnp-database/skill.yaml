@@ -1,0 +1,30 @@
+name: dbsnp-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Use when you want to look up, map, and search for short genetic variants
+  (SNPs, indels) in NCBI's dbSNP database. Resolves between rsIDs, genomic coordinates
+  in VCF format, and HGVS strings. For an rsID, returns variant type, gene associations,
+  clinical significance, allele frequencies, and genomic coordinates (GRCh38).
+triggers:
+- dbsnp-database
+- dbsnp
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for dbsnp-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\dbsnp_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

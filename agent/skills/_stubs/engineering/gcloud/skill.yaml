@@ -1,0 +1,31 @@
+name: gcloud
+version: 1.0.0
+category: engineering
+status: stub
+description: Provides safety-critical validation, guardrails, and data reduction for
+  gcloud CLI operations across Google Cloud Platform (GCP) services and infrastructure.
+  Use when planning, generating, constructing, proposing, describing, or executing
+  any gcloud CLI commands - including when answering questions about gcloud syntax,
+  or formatting flags. Don't use when writing Google Cloud client library code or
+  raw REST/gRPC API requests.
+triggers:
+- gcloud
+- gcloud
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gcloud
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\google-cloud-developer\skills\gcloud\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

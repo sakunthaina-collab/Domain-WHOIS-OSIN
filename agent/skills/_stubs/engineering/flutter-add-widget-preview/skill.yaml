@@ -1,0 +1,31 @@
+name: flutter-add-widget-preview
+version: 1.0.0
+category: engineering
+status: stub
+description: Adds interactive widget previews to the project using the previews.dart
+  system. Use when creating new UI components or updating existing screens to ensure
+  consistent design and interactive testing.
+triggers:
+- flutter-add-widget-preview
+- flutter
+- add
+- widget
+- preview
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for flutter-add-widget-preview
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\flutter-add-widget-preview\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

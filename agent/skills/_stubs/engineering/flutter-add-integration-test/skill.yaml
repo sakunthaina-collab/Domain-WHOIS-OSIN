@@ -1,0 +1,32 @@
+name: flutter-add-integration-test
+version: 1.0.0
+category: engineering
+status: stub
+description: Configures Flutter Driver for app interaction and converts MCP actions
+  into permanent integration tests. Use when adding integration testing to a project,
+  exploring UI components via MCP, or automating user flows with the integration_test
+  package.
+triggers:
+- flutter-add-integration-test
+- flutter
+- add
+- integration
+- test
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for flutter-add-integration-test
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\flutter-add-integration-test\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

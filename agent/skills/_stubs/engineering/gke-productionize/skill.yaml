@@ -1,0 +1,33 @@
+name: gke-productionize
+version: 1.0.0
+category: engineering
+status: stub
+description: Orchestrates comprehensive production readiness reviews and assessments
+  for GKE clusters and workloads across scalability, security, reliability, observability,
+  backup/DR, and cost optimization. Use when asked to productionize, prepare, assess,
+  audit, or review a GKE cluster or workload before going live to production. Don't
+  use for deep-dive single-domain implementation (use specific domain skills like
+  gke-workload-scaling, gke-platform-security, gke-workload-security, gke-service-networking,
+  gke-reliability instead).
+triggers:
+- gke-productionize
+- gke
+- productionize
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-productionize
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-productionize\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

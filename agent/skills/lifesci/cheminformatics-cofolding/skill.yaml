@@ -1,0 +1,30 @@
+name: cheminformatics-cofolding
+version: 1.0.0
+category: lifesci
+status: runnable
+description: 'Co-folds protein-ligand, protein-DNA/RNA, and covalent inhibitor complexes:
+  prepares AlphaFold 3 JSON, Boltz-2 YAML, and Boltz API (boltz-2.1) inputs, extracts
+  bound ligand poses from mmCIF/PDB, and computes 3D protein-ligand interaction fingerprints
+  (PLIF) and pharmacophore overlaps.'
+triggers:
+- cheminformatics-cofolding
+- cheminformatics
+- cofolding
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cheminformatics-cofolding
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\cheminformatics_cofolding\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

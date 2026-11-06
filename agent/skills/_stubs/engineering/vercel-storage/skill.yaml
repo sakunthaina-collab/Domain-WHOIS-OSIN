@@ -1,0 +1,29 @@
+name: vercel-storage
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel storage expert guidance — Blob, Global Config (formerly Edge Config),
+  and Marketplace storage (Neon Postgres, Upstash Redis). Use when choosing, configuring,
+  or using data storage with Vercel applications.
+triggers:
+- vercel-storage
+- vercel
+- storage
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for vercel-storage
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\vercel-storage\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,31 @@
+name: flutter-build-responsive-layout
+version: 1.0.0
+category: engineering
+status: stub
+description: Use `LayoutBuilder`, `MediaQuery`, or `Expanded/Flexible` to create a
+  layout that adapts to different screen sizes. Use when you need the UI to look good
+  on both mobile and tablet/desktop form factors.
+triggers:
+- flutter-build-responsive-layout
+- flutter
+- build
+- responsive
+- layout
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for flutter-build-responsive-layout
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\flutter-build-responsive-layout\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

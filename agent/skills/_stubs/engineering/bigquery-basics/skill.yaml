@@ -1,0 +1,29 @@
+name: bigquery-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: Manages datasets, tables, and jobs in BigQuery. Use when you need to
+  interact with BigQuery, run SQL queries, manage BigQuery resources (datasets, tables,
+  views), or perform basic data ingestion and analysis.
+triggers:
+- bigquery-basics
+- bigquery
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for bigquery-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\bigquery-basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

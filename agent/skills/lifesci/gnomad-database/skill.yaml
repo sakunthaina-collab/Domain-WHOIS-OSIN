@@ -1,0 +1,32 @@
+name: gnomad-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Query the Genome Aggregation Database (gnomAD). Use when determining
+  the rarity or allele frequency of specific genetic variants, retrieving gene constraint
+  metrics (pLI, LOEUF) to assess loss-of-function intolerance, finding variants in
+  a genomic region or gene, or querying structural variants. Don't use for analyzing
+  individual patient genomes, tracking somatic mutations in cancer (use COSMIC), or
+  requesting raw sequencing reads (use ENA).
+triggers:
+- gnomad-database
+- gnomad
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gnomad-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\gnomad_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

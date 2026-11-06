@@ -1,0 +1,30 @@
+name: dart-resolve-package-conflicts
+version: 1.0.0
+category: engineering
+status: stub
+description: Workflow for fixing package version conflicts. Use this when `pub get`
+  fails due to incompatible package versions.
+triggers:
+- dart-resolve-package-conflicts
+- dart
+- resolve
+- package
+- conflicts
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for dart-resolve-package-conflicts
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\flutter\skills\dart-resolve-package-conflicts\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

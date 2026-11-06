@@ -1,0 +1,35 @@
+name: assured-workloads-basics
+version: 1.0.0
+category: engineering
+status: runnable
+description: Provisions, inspects, updates, and deletes Google Cloud Assured Workloads
+  V1 compliant folders, CMEK settings, Sovereign Controls by Partners, and service
+  usage restrictions. Use when creating, listing, describing, updating, or deleting
+  an Assured Workloads workload for any compliance regime or data boundary (FedRAMP,
+  DoD IL2/IL4/IL5, ITAR, CJIS, Healthcare, Sovereign Controls by Partners, or Regional
+  Data Boundaries). Don't use for brownfield assessments or custom frameworks (use
+  assuredworkloads-environment-assessor or assuredworkloads-frameworks-*), or non-compliant
+  folders.
+triggers:
+- assured-workloads-basics
+- assured
+- workloads
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for assured-workloads-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\assured-workloads-basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

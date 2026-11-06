@@ -1,0 +1,37 @@
+name: chrome-extensions
+version: 1.0.0
+category: engineering
+status: stub
+description: 'Build and publish Chrome Extensions using Manifest V3 best practices.
+  Use this skill whenever the user asks to create, modify, debug, or understand Chrome
+  browser extensions, add-ons, or anything involving the Chrome Extensions API. Trigger
+  on mentions of: ''Chrome extension'', ''browser extension'', ''manifest.json'',
+  ''content script'', ''service worker'' (in browser context), ''popup'' (in browser
+  extension context), ''side panel'', ''chrome.* API'', ''declarativeNetRequest'',
+  ''omnibox'', ''context menu'' (in extension context), ''userScripts'', ''user script'',
+  ''script manager'', or any request to build functionality that integrates with the
+  Chrome browser UI. Also trigger for publishing to the Chrome Web Store: ''publish
+  extension'', preparing an extension for publishing, responding to a review rejection,
+  writing permission justifications, or drafting a privacy policy.'
+triggers:
+- chrome-extensions
+- chrome
+- extensions
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for chrome-extensions
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\modern-web-guidance-plugin\skills\chrome-extensions\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

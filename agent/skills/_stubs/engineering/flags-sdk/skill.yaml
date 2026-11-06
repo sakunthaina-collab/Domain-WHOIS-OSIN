@@ -1,0 +1,34 @@
+name: flags-sdk
+version: 1.0.0
+category: engineering
+status: stub
+description: Implement feature flags in Next.js or SvelteKit code with the Flags SDK
+  (`flags` npm package). Use when installing or configuring the SDK, declaring flags
+  with `flag()`, wiring a provider adapter (`@flags-sdk/vercel`, Statsig, LaunchDarkly,
+  PostHog, GrowthBook, Global Config, OpenFeature, and others), using `identify`,
+  `dedupe`, or `evaluate`, keeping pages static with precompute, setting up Flags
+  Explorer, or encrypting flag values. For planning a flag, Vercel Flags rollouts
+  and experiments, the `vercel flags` CLI, or other frameworks, use the `vercel-flags`
+  skill.
+triggers:
+- flags-sdk
+- flags
+- sdk
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for flags-sdk
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\flags-sdk\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

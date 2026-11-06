@@ -1,0 +1,28 @@
+name: migrate-to-codex
+version: 1.0.0
+category: external
+status: runnable
+description: Migrate supported instruction files, skills, agents, and MCP config into
+  Codex project and global files.
+triggers:
+- migrate-to-codex
+- migrate
+- codex
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for migrate-to-codex
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\migrate-to-codex\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

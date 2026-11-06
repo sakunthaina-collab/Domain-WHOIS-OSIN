@@ -1,0 +1,33 @@
+name: secops-hunt
+version: 1.0.0
+category: engineering
+status: stub
+description: Expert guidance for proactive threat hunting in Google SecOps. Use when
+  proactively hunting for threats, retroactively analyzing indicators of compromise
+  (IoCs), performing prevalence searches across enterprise events, hunting for MITRE
+  ATT&CK techniques, or detecting behavioral and statistical outliers using UDM queries.
+  Don't use for incoming alert triage (use secops-triage), active incident response
+  and timeline deep-dives on a known breach (use secops-investigate), or detection
+  rule authoring (use secops-detection-engineering).
+triggers:
+- secops-hunt
+- secops
+- hunt
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for secops-hunt
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\secops-hunt\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

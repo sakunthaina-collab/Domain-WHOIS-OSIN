@@ -1,0 +1,29 @@
+name: pubchem-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Query PubChem, search by name/CID/SMILES, retrieve properties, similarity/substructure
+  searches, bioactivity, for cheminformatics. Use when a user asks about a specific
+  chemical, drug, or molecule.
+triggers:
+- pubchem-database
+- pubchem
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for pubchem-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\pubchem_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

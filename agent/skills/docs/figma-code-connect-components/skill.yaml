@@ -1,0 +1,33 @@
+name: figma-code-connect-components
+version: 1.0.0
+category: docs
+status: runnable
+description: Connects Figma design components to code components using Code Connect
+  mapping tools. Use when user says "code connect", "connect this component to code",
+  "map this component", "link component to code", "create code connect mapping", or
+  wants to establish mappings between Figma designs and code implementations. For
+  canvas writes via `use_figma`, use `figma-use`.
+triggers:
+- figma-code-connect-components
+- figma
+- code
+- connect
+- components
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for figma-code-connect-components
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\figma-code-connect-components\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

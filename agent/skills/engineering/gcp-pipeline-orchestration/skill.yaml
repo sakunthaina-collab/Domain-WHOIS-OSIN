@@ -1,0 +1,32 @@
+name: gcp-pipeline-orchestration
+version: 1.0.0
+category: engineering
+status: runnable
+description: This skill helps the agent generate or update orchestration pipeline
+  definitions for Google Cloud Composer to initialize orchestration pipeline or update
+  the orchestration definition for orchestration of various data pipelines, like dbt
+  pipelines, notebooks, Spark jobs, Dataform, Python scripts or inline BigQuery SQL
+  queries. This skill also helps deploy and trigger orchestration pipelines.
+triggers:
+- gcp-pipeline-orchestration
+- gcp
+- pipeline
+- orchestration
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gcp-pipeline-orchestration
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\gcp-pipeline-orchestration\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

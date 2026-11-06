@@ -1,0 +1,33 @@
+name: gcp-managed-airflow-recommendations
+version: 1.0.0
+category: engineering
+status: runnable
+description: Provides recommendations and best practices for creating, configuring,
+  tuning and optimizing Managed Service for Apache Airflow (MSAA, Cloud Composer)
+  environments. Use when the user asks for guidance, recommendations, or best practices
+  on configuring Cloud Composer, scaling Airflow environments, preventing workload
+  restarts, or analyzing system health.
+triggers:
+- gcp-managed-airflow-recommendations
+- gcp
+- managed
+- airflow
+- recommendations
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gcp-managed-airflow-recommendations
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\gcp-managed-airflow-recommendations\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

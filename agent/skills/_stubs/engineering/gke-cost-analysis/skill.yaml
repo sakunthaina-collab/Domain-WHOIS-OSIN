@@ -1,0 +1,35 @@
+name: gke-cost-analysis
+version: 1.0.0
+category: engineering
+status: stub
+description: Answer natural language questions and perform analysis on GKE cluster
+  and workload costs using BigQuery billing exports, cost allocation data, and live
+  cluster monitoring metrics. Use when querying GKE costs across projects, namespaces,
+  or workloads, analyzing billing reports in BigQuery (`bq`), checking cluster cost
+  budgets (`gcloud billing`), or diagnosing cost drivers like pod requests vs. actual
+  utilization (`kubectl top`). Don't use for applying cost optimization changes, creating
+  rightsizing manifests (VPA/MPA), or selecting ComputeClasses (use gke-cost-optimization
+  instead).
+triggers:
+- gke-cost-analysis
+- gke
+- cost
+- analysis
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-cost-analysis
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-cost-analysis\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

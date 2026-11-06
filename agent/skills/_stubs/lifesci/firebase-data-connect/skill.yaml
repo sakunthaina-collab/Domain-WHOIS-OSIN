@@ -1,0 +1,32 @@
+name: firebase-data-connect
+version: 1.0.0
+category: lifesci
+status: stub
+description: Builds and deploys Firebase SQL Connect (aka Firebase Data Connect) backends
+  with PostgreSQL securely. Use when designing schemas with tables and relations,
+  writing authorized queries and mutations, configuring real-time data updates, or
+  generating type-safe SDKs. Use when you need a relational database with Firebase,
+  or when the user mentions SQL Connect or Data Connect.
+triggers:
+- firebase-data-connect
+- firebase
+- data
+- connect
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for firebase-data-connect
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\firebase\skills\firebase_data_connect_basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

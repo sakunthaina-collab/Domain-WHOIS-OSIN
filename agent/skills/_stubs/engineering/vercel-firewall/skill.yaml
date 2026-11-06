@@ -1,0 +1,30 @@
+name: vercel-firewall
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel Firewall expert guidance — automatic DDoS mitigation, the Vercel
+  WAF (custom rules, IP blocking, managed rulesets, rate limiting), Attack Mode, system
+  bypass, bot management, and the `vercel firewall` CLI. Use when configuring platform-level
+  security, responding to attacks, or staging firewall rules.
+triggers:
+- vercel-firewall
+- vercel
+- firewall
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for vercel-firewall
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\vercel-firewall\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,32 @@
+name: developer-device-platform-basics
+version: 1.0.0
+category: engineering
+status: runnable
+description: Provides guidance and instructions on managing remote devices on Developer
+  Device Platform (DDP). Use when reserving remote Android devices, establishing connection
+  tunnels, checking session status, or extending/cancelling leases. Don't use for
+  iOS or local device/hardware inquiries.
+triggers:
+- developer-device-platform-basics
+- developer
+- device
+- platform
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for developer-device-platform-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\developer-device-platform-basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

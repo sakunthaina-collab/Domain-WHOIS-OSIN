@@ -1,0 +1,35 @@
+name: application-design-center-design-deploy
+version: 1.0.0
+category: engineering
+status: runnable
+description: 'Processes GCP infrastructure design and deployment workflows within
+  Application Design Center (ADC). Use when: - Designing GCP infrastructure with Terraform.
+  - Validating local HCL. - Performing best-practice plan scans. - Importing templates
+  to Application Design Center (ADC). - Deploying templates. - Troubleshooting deployment
+  failures. Boundaries: - Only use for GCP-specific cloud infrastructure. - Only use
+  for Terraform coding within the ADC context.'
+triggers:
+- application-design-center-design-deploy
+- application
+- design
+- center
+- design
+- deploy
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for application-design-center-design-deploy
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\application-design-center-design-deploy\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

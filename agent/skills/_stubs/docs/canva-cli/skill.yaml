@@ -1,0 +1,27 @@
+name: canva-cli
+version: 1.0.0
+category: docs
+status: stub
+description: Use the Canva CLI to use Canva's REST APIs.
+triggers:
+- canva-cli
+- canva
+- cli
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for canva-cli
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\canva\inactive-skills\canva-cli\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

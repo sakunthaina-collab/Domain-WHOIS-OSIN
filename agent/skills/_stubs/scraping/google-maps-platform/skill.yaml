@@ -1,0 +1,37 @@
+name: google-maps-platform
+version: 1.0.0
+category: scraping
+status: stub
+description: A collection of skills for architecting and implementing production-ready
+  code using Google Maps Platform APIs and SDKs for any map, place, address, geocoding,
+  routing/ETA (including eco-friendly routing), nearby search, 3D / Street View /
+  static map, marker clustering, custom styling, drawing, geofencing, heatmap, or
+  environmental (air-quality / pollen / solar / weather) feature — across Web, Android,
+  iOS, and Web Services APIs. For prototyping, use the public Maps Demo Key — no billing
+  setup and no Cloud project required, covering a growing set of the most popular
+  Google Maps Platform APIs. For production, the skill prompts you to create and restrict
+  your own key. All non-trivial code is grounded in freshly retrieved docs via the
+  Google Maps Platform Code Assist service (no reliance on training-data memory).
+triggers:
+- google-maps-platform
+- google
+- maps
+- platform
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-maps-platform
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\google_maps_platform\skills\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

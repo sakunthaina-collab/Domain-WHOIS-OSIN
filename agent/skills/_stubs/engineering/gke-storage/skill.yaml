@@ -1,0 +1,32 @@
+name: gke-storage
+version: 1.0.0
+category: engineering
+status: stub
+description: Manages GKE storage, including PVCs, PersistentVolumes, and Filestore.
+  Use when configuring GKE storage or creating PVCs. For GCS FUSE mounts, use google-cloud-storage-fuse.
+  For diagnosing storage failures (volume attach/mount errors, disk performance/node
+  storage pressure, or Cloud Storage FUSE OOM), use gke-storage-troubleshooting. Don't
+  use for database administration or replication strategies outside volume provisioning
+  context.
+triggers:
+- gke-storage
+- gke
+- storage
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gke-storage
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\gke-storage\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,30 @@
+name: developing-genkit-python
+version: 1.0.0
+category: engineering
+status: stub
+description: Develop AI-powered applications using Genkit in Python. Use when the
+  user asks about Genkit, AI agents, flows, or tools in Python, or when encountering
+  Genkit errors, import issues, or API problems.
+triggers:
+- developing-genkit-python
+- developing
+- genkit
+- python
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for developing-genkit-python
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\developing-genkit-python\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

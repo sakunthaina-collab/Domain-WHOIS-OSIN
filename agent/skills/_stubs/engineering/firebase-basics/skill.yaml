@@ -1,0 +1,32 @@
+name: firebase-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: Provides foundational Firebase CLI setup, CLI installation, version checks
+  (`firebase-tools@latest --version`), CLI login (including --no-localhost), project
+  creation, project selection (`firebase use`), and app config file downloads (`google-services.json`,
+  `GoogleService-Info.plist`). Use ONLY for CLI login, project creation/switching,
+  or downloading app config files. Don't use for Firebase Hosting deploy, Firestore,
+  Auth, App Hosting, Data Connect, Crashlytics, or Remote Config.
+triggers:
+- firebase-basics
+- firebase
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for firebase-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\firebase\skills\firebase_basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,36 @@
+name: n8n-mcp-tools-expert
+version: 1.0.0
+category: engineering
+status: stub
+description: Expert guide for using n8n-mcp MCP tools effectively. Use when searching
+  for nodes, validating configurations, accessing templates, managing workflows, organizing
+  workflows into folders, managing credentials, auditing instance security, or using
+  any n8n-mcp tool. Provides tool selection guidance, parameter formats, and common
+  patterns. IMPORTANT — Always consult this skill before calling any n8n-mcp tool
+  — it prevents common mistakes like wrong nodeType formats, incorrect parameter structures,
+  and inefficient tool usage. If the user mentions n8n, workflows, nodes, or automation
+  and you have n8n MCP tools available, use this skill first.
+triggers:
+- n8n-mcp-tools-expert
+- n8n
+- mcp
+- tools
+- expert
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for n8n-mcp-tools-expert
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\n8n-mcp-tools-expert\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

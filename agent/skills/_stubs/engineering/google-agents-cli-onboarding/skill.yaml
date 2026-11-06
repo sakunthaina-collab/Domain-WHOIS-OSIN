@@ -1,0 +1,33 @@
+name: google-agents-cli-onboarding
+version: 1.0.0
+category: engineering
+status: stub
+description: Onboarding entrypoint for agents-cli in Agent Platform. It should be
+  used when the user wants to "create a new agent", "develop an agent", "build an
+  agent using ADK", "run the agent locally", "debug agent code", "test an agent",
+  "evaluate an agent", "deploy an agent", "publish an agent", "monitor an agent",
+  or needs the ADK (Agent Development Kit) development lifecycle.
+triggers:
+- google-agents-cli-onboarding
+- google
+- agents
+- cli
+- onboarding
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-agents-cli-onboarding
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\google-agents-cli-onboarding\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

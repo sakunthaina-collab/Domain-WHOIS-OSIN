@@ -1,0 +1,35 @@
+name: cloud-monitoring-alert-configuration
+version: 1.0.0
+category: engineering
+status: runnable
+description: Configures Cloud Monitoring alerting policies using Terraform and PromQL
+  across Cloud Run, Google Kubernetes Engine (GKE), Compute Engine, AI Hypercomputer
+  reservations, Vertex AI Agent Engine, and generic Google Cloud resources. Use when
+  creating, reviewing, migrating, or deduplicating Terraform alerting policies for
+  latency, traffic, error rates, saturation, host or reservation maintenance, GPU
+  XID insights, or AI agent telemetry. Don't use for standalone PromQL query authoring
+  without alerting, log querying, or billing cost audits.
+triggers:
+- cloud-monitoring-alert-configuration
+- cloud
+- monitoring
+- alert
+- configuration
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cloud-monitoring-alert-configuration
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\cloud-monitoring-alert-configuration\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

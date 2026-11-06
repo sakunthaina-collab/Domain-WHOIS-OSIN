@@ -1,0 +1,28 @@
+name: playwright
+version: 1.0.0
+category: external
+status: runnable
+description: Use when the task requires automating a real browser from the terminal
+  (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging)
+  via `playwright-cli` or the bundled wrapper script.
+triggers:
+- playwright
+- playwright
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for playwright
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\playwright\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,29 @@
+name: pdf
+version: 1.0.0
+category: docs
+status: stub
+description: Use when tasks involve reading, creating, or reviewing PDF files where
+  rendering and layout matter; prefer visual checks by rendering pages (Poppler) and
+  use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and
+  extraction.
+triggers:
+- pdf
+- pdf
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for pdf
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\pdf\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

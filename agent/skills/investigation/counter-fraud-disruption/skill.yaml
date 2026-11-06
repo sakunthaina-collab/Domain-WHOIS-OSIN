@@ -1,0 +1,29 @@
+name: counter-fraud-disruption
+version: 1.0.0
+category: investigation
+description: 'วิเคราะห์โครงสร้างพื้นฐานเครือข่ายอาชญากรรมเพื่อส่งมอบรายงานระงับโดเมน/บัญชีต่อผู้ให้บริการและเจ้าหน้าที่รัฐ
+  (ต้องได้รับการยืนยันจากผู้ใช้ก่อนรันเสมอ)
+
+  '
+triggers:
+- disruption
+- takedown
+- ตัดวงจร
+- ระงับ
+input_schema:
+  type: object
+  properties:
+    case_id:
+      type: string
+  required:
+  - case_id
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+permissions:
+- network
+risk: high
+outputs:
+- json
+status: runnable

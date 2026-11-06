@@ -1,0 +1,29 @@
+name: compdf-ocr
+version: 1.0.0
+category: docs
+status: stub
+description: Recognize and extract text from scanned PDFs and images with ComPDF OCR
+  workflows. Use for OCR, searchable PDF generation, text recognition, table recognition,
+  and scanned-document extraction requests.
+triggers:
+- compdf-ocr
+- compdf
+- ocr
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for compdf-ocr
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\compdf-ocr\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

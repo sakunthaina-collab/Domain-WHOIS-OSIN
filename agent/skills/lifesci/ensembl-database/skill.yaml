@@ -1,0 +1,30 @@
+name: ensembl-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Query the Ensembl database to resolve gene, transcript, and protein IDs,
+  fetch genomic or protein sequences, retrieve gene structures (exons), and get variant
+  consequence and effect predictions (VEP). Use this skill as a primary ID translator,
+  genomic sequence database and variant effect prediction tool.
+triggers:
+- ensembl-database
+- ensembl
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for ensembl-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\ensembl_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,33 @@
+name: google-cloud-recipe-onboarding
+version: 1.0.0
+category: engineering
+status: stub
+description: Guides a developer's first steps on Google Cloud, covering account creation,
+  billing setup, project management, and deploying a first resource. Use when a new
+  developer wants to initialize their first Google Cloud project, configure billing,
+  and verify deployment. Don't use for enterprise organization setup (use Google Cloud
+  Setup guided flow for that instead). Don't use for complex multi-project architectures.
+triggers:
+- google-cloud-recipe-onboarding
+- google
+- cloud
+- recipe
+- onboarding
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-cloud-recipe-onboarding
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\google-cloud-developer\skills\google-cloud-recipe-onboarding\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

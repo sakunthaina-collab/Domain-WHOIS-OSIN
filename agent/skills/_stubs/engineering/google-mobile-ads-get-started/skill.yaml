@@ -1,0 +1,33 @@
+name: google-mobile-ads-get-started
+version: 1.0.0
+category: engineering
+status: stub
+description: Provides instructions for integrating the Google Mobile Ads (GMA) SDK.
+  Use this skill when the user wants to get started with, install, integrate, set
+  up, or configure the SDK for AdMob or Ad Manager, GMA Next-Gen SDK or mobile ads
+  framework in an Android, iOS, or Unity application.
+triggers:
+- google-mobile-ads-get-started
+- google
+- mobile
+- ads
+- get
+- started
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-mobile-ads-get-started
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\ads\google-mobile-ads-get-started\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

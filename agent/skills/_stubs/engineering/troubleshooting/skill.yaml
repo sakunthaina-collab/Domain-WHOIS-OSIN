@@ -1,0 +1,28 @@
+name: troubleshooting
+version: 1.0.0
+category: engineering
+status: stub
+description: Uses Chrome DevTools MCP and documentation to troubleshoot connection
+  and target issues. Trigger this skill when list_pages, new_page, or navigate_page
+  fail, or when the server initialization fails.
+triggers:
+- troubleshooting
+- troubleshooting
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for troubleshooting
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\chrome-devtools-plugin\skills\troubleshooting\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

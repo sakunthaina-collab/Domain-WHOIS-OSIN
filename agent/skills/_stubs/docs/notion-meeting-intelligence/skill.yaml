@@ -1,0 +1,29 @@
+name: notion-meeting-intelligence
+version: 1.0.0
+category: docs
+status: stub
+description: Prepare meeting materials with Notion context and Codex research; use
+  when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees.
+triggers:
+- notion-meeting-intelligence
+- notion
+- meeting
+- intelligence
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for notion-meeting-intelligence
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\notion-meeting-intelligence\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

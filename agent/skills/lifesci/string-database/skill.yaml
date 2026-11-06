@@ -1,0 +1,30 @@
+name: string-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Query the STRING database for protein-protein interactions (PPIs), functional
+  enrichment, and homology. Use when the user asks about interactions between specific
+  proteins, interaction evidence, confidence scores, protein interaction partners,
+  or pathway enrichments.
+triggers:
+- string-database
+- string
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for string-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\string_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

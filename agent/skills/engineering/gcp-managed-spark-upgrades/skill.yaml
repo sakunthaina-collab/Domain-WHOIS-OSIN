@@ -1,0 +1,36 @@
+name: gcp-managed-spark-upgrades
+version: 1.0.0
+category: engineering
+status: runnable
+description: "Upgrades GCP Spark/Dataproc jobs to newer versions by analyzing, remediating,\
+  \ and testing job on target image version. \nUse when:\n- Upgrading Spark/Dataproc\
+  \ versions (major, minor, or sub-minor).\nExample prompt:\n\"Upgrade Dataproc job\
+  \ [job_id] in project [project_id], region [region] to target image version [target_version].\
+  \ Temporary staging: [gcs_staging_path], Target GCS bucket: [gcs_target_path]\"\n\
+  Don't use when:\n- Writing new Spark code.\n- Migrating non-Spark workloads (e.g.,\
+  \ Hive/Flink to Spark).\nLimitation: This skill does not support data/result validation\
+  \ currently."
+triggers:
+- gcp-managed-spark-upgrades
+- gcp
+- managed
+- spark
+- upgrades
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gcp-managed-spark-upgrades
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\gcp-managed-spark-upgrades\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

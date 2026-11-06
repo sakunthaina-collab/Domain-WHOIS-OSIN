@@ -1,0 +1,36 @@
+name: netlify-access-control
+version: 1.0.0
+category: engineering
+status: stub
+description: 'Picks the right Netlify site-protection layer and disambiguates the
+  three unrelated "auth" concepts users conflate — app-user login (Netlify Identity),
+  site-load gating (Password Protection / project visibility), and dashboard SAML
+  SSO. Use it when asked to password-protect a site or Deploy Preview, make a project
+  private/public, restrict a site to your team, require SSO to view a site, set up
+  company-wide or internal-app SSO, invite users to a private project, or know which
+  team member made a request to a private site. Also use it for SSO-session symptoms
+  on protected sites: "logged out mid-session", 401s after about an hour, or token
+  expiry/refresh questions. Not for wiring auth code — route app-login setup to netlify-identity.'
+triggers:
+- netlify-access-control
+- netlify
+- access
+- control
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for netlify-access-control
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\netlify\agent-plugin\skills\netlify-access-control\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

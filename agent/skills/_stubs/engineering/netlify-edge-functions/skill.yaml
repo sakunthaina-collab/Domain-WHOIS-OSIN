@@ -1,0 +1,36 @@
+name: netlify-edge-functions
+version: 1.0.0
+category: engineering
+status: stub
+description: Write, route, cache, and debug Netlify Edge Functions, the Deno-based
+  TypeScript or JavaScript handlers in netlify/edge-functions that run at the network
+  edge in front of static files and serverless functions. Activate this skill whenever
+  someone wants to add auth middleware or a login gate, redirect or rewrite visitors
+  by country or cookie, localize or personalize a page with geolocation, run A/B testing,
+  transform or inject HTML into a response, stream server-side rendering at the edge,
+  or cache an edge response. Also use it when an edge function silently does nothing,
+  runs in the wrong order, ignores its Cache-Control headers, or cannot read an environment
+  variable.
+triggers:
+- netlify-edge-functions
+- netlify
+- edge
+- functions
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for netlify-edge-functions
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\netlify\agent-plugin\skills\netlify-edge-functions\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

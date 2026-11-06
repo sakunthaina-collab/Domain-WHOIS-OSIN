@@ -1,0 +1,32 @@
+name: figma-create-new-file
+version: 1.0.0
+category: external
+status: stub
+description: Create a new blank Figma file. Use when the user wants to create a new
+  Figma design or FigJam file, or when you need a new file before calling use_figma.
+  Handles plan resolution via whoami if needed. Usage — /figma-create-new-file [editorType]
+  [fileName] (e.g. /figma-create-new-file figjam My Whiteboard)
+triggers:
+- figma-create-new-file
+- figma
+- create
+- new
+- file
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for figma-create-new-file
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\figma-create-new-file\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

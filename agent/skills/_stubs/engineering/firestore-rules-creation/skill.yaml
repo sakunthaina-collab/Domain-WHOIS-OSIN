@@ -1,0 +1,33 @@
+name: firestore-rules-creation
+version: 1.0.0
+category: engineering
+status: stub
+description: 'Designs, authors, refactors, and hardens production-grade Cloud Firestore
+  Security Rules (firestore.rules). IMPORTANT: If subagent delegation AND the firestore-rules-author
+  subagent are available in your environment, delegate authoring firestore.rules to
+  the firestore-rules-author subagent. If subagent delegation is unavailable (e.g.
+  not enabled in the IDE), firestore-rules-author is not installed, or you are running
+  inside firestore-rules-author, follow this skill directly.'
+triggers:
+- firestore-rules-creation
+- firestore
+- rules
+- creation
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for firestore-rules-creation
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\firebase\skills\firestore_rules_creation\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

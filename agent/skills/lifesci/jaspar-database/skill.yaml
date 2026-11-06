@@ -1,0 +1,30 @@
+name: jaspar-database
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Query the JASPAR database for Transcription Factor (TF) binding profiles.
+  Use when retrieving Position Frequency Matrices (PFMs) or Position Weight Matrices
+  (PWMs) for specific TFs, resolving gene symbols to JASPAR Matrix IDs, or getting
+  TF metadata. Supports multiple output formats (MEME, TRANSFAC, PFM, JASPAR, YAML).
+triggers:
+- jaspar-database
+- jaspar
+- database
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for jaspar-database
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\jaspar_database\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

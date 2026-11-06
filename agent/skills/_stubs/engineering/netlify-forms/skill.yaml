@@ -1,0 +1,34 @@
+name: netlify-forms
+version: 1.0.0
+category: engineering
+status: stub
+description: Serverless form handling on Netlify-hosted sites — detects HTML forms
+  at deploy time, stores submissions, filters spam, and sends notifications. Use when
+  adding a contact form, lead-capture form, file-upload form, or newsletter signup
+  to a Netlify site; wiring AJAX form submission; setting up a custom thank-you page;
+  adding a honeypot or reCAPTCHA to a form; getting forms working in Next.js, Nuxt,
+  SvelteKit, Astro, or Gatsby; reading form submissions via the Netlify API; setting
+  up submission notifications or ChatGPT automations on form submission events; or
+  debugging missing submissions and forms that silently fail to register.
+triggers:
+- netlify-forms
+- netlify
+- forms
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for netlify-forms
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\netlify\agent-plugin\skills\netlify-forms\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

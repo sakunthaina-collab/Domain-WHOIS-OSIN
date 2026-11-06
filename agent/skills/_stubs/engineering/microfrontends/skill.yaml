@@ -1,0 +1,33 @@
+name: microfrontends
+version: 1.0.0
+category: engineering
+status: stub
+description: Guide for building, configuring, and deploying microfrontends on Vercel.
+  Use this skill when the user mentions microfrontends, multi-zones, splitting an
+  app across teams, independent deployments, cross-app routing, incremental migration,
+  composing multiple frontends under one domain, microfrontends.json, @vercel/microfrontends,
+  the microfrontends local proxy, or path-based routing between Vercel projects. Also
+  use when the user asks about shared layouts across projects, navigation between
+  microfrontends, fallback environments, asset prefixes, or feature flag controlled
+  routing.
+triggers:
+- microfrontends
+- microfrontends
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for microfrontends
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\microfrontends\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

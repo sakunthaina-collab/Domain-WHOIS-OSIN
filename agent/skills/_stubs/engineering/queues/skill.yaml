@@ -1,0 +1,29 @@
+name: queues
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel Queues guidance — durable topics with at-least-once delivery,
+  independent consumer groups, retries, delays, and idempotency keys via @vercel/queue
+  (JS) or vercel-queue (Python). Use when deferring background work, buffering traffic,
+  fanning out events, or choosing between Queues and Workflows.
+triggers:
+- queues
+- queues
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for queues
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\queues\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,33 @@
+name: cloud-logging-configuration-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: 'Configure single-project Cloud Logging on Google Cloud: regional log
+  buckets, log sinks, log views, restricting or hiding sensitive logs in the default
+  view (_Default) filter, IAM permissions for views (Logs View Accessor, IAM conditions),
+  logs-based metrics, log exclusions, and sampling. Don''t use for cross-project logging
+  or multi-project setups.'
+triggers:
+- cloud-logging-configuration-basics
+- cloud
+- logging
+- configuration
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for cloud-logging-configuration-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\cloud-logging-configuration-basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

@@ -1,0 +1,36 @@
+name: google-cloud-solution-agentic-ai-data-science-workflow
+version: 1.0.0
+category: lifesci
+status: stub
+description: Designs a tailored multi-product agentic data science architecture on
+  Google Cloud that incorporates opinionated best practices. Use when architecting
+  multi-product solutions for agent-based data analytics or ML workloads. Don't use
+  for simple queries, non-agentic pipelines, general cloud reviews, or writing agent
+  code.
+triggers:
+- google-cloud-solution-agentic-ai-data-science-workflow
+- google
+- cloud
+- solution
+- agentic
+- data
+- science
+- workflow
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-cloud-solution-agentic-ai-data-science-workflow
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\google-cloud-solution-agentic-ai-data-science-workflow\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

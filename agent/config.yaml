@@ -1,0 +1,26 @@
+llm:
+  base_url: https://api.deepseek.com/v1
+  models:
+    main: deepseek-chat
+    escalate: deepseek-reasoner
+    alias_main: deepseek-v4.1-flash
+    alias_escalate: deepseek-v4-pro
+  api_key_env: DEEPSEEK_API_KEY
+
+paths:
+  skills: ./skills
+  profiles: ./profiles
+  artifacts: ./artifacts
+  logs: ./logs
+  sandbox: ./sandbox
+
+anchor:
+  adapter: git
+  ledger_path: logs/anchor_ledger.json
+  gpg:
+    enabled: true
+    strict: false              # production: true (fail if gpg missing)
+    key_id: null               # null -> ANCHOR_GPG_KEY env or default key
+    gpg_home: null             # null -> GNUPGHOME env or ~/.gnupg
+    sign_ledger: true
+    sign_git_tag: true

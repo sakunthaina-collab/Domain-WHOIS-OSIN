@@ -1,0 +1,30 @@
+name: spanner-basics
+version: 1.0.0
+category: lifesci
+status: stub
+description: Assists in provisioning instances and databases, designing performant
+  schemas, and querying data in Cloud Spanner on Google Cloud. Use when designing
+  primary keys, writing SQL queries or client library code, or diagnosing performance
+  issues.
+triggers:
+- spanner-basics
+- spanner
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for spanner-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\spanner-basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

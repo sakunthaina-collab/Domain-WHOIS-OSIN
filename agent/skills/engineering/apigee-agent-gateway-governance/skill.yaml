@@ -1,0 +1,41 @@
+name: apigee-agent-gateway-governance
+version: 1.0.0
+category: engineering
+status: runnable
+description: 'Stands up an Apigee API proxy that a Google Cloud Agent Gateway calls
+  as an ext-proc (Service Extension) callout on an agent''s LLM traffic, to meter
+  token usage per model, extract caller identity, and apply Model Armor prompt screening
+  or a semantic cache. Use when wiring Apigee in as an AI gateway behind an Agent
+  Gateway, when an agent''s model egress needs governing, or when a callout proxy
+  returns no verdict and you need to find out why. The distinguishing question is
+  whether Apigee forwards the traffic or only inspects it: this skill is inspect-only,
+  and builds the proxy itself. Don''t use it when Apigee is meant to receive a request
+  and route it onward to a backend — including hosting an MCP server behind Apigee
+  — which needs a proxy with a target instead. Don''t use for governing the agent''s
+  calls to tools or MCP servers. Don''t use for choosing or switching which model
+  a request goes to. Don''t use for creating the Agent Gateway itself, nor for Apigee
+  hybrid.'
+triggers:
+- apigee-agent-gateway-governance
+- apigee
+- agent
+- gateway
+- governance
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for apigee-agent-gateway-governance
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\cloud\apigee-agent-gateway-governance\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

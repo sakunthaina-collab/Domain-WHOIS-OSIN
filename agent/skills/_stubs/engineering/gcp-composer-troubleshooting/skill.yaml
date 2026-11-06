@@ -1,0 +1,31 @@
+name: gcp-composer-troubleshooting
+version: 1.0.0
+category: engineering
+status: stub
+description: Provides expert guidance for troubleshooting Cloud Composer (Apache Airflow)
+  and Orchestration pipelines. Use this skill when the user asks to generate Root
+  Cause Analysis (RCA), troubleshoot or fix a failed pipeline, DAG in Composer environment
+  and generate RCA report.
+triggers:
+- gcp-composer-troubleshooting
+- gcp
+- composer
+- troubleshooting
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for gcp-composer-troubleshooting
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\gcp-composer-troubleshooting\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

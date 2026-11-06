@@ -1,0 +1,32 @@
+name: embl-ebi-ols
+version: 1.0.0
+category: lifesci
+status: runnable
+description: Query and search the EMBL-EBI Ontology Lookup Service (OLS) for biomedical
+  ontology terms, definitions, and hierarchies across 250+ ontologies (e.g., GO, DOID,
+  HP). Use when the user asks to search for terms, retrieve details, navigate hierarchies
+  (parents, children, ancestors), look up properties and individuals, get autocomplete
+  suggestions, or access ontology metadata and statistics.
+triggers:
+- embl-ebi-ols
+- embl
+- ebi
+- ols
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for embl-ebi-ols
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\science\skills\embl_ebi_ols\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

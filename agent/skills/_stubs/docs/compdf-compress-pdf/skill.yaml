@@ -1,0 +1,30 @@
+name: compdf-compress-pdf
+version: 1.0.0
+category: docs
+status: stub
+description: Compress PDF files with ComPDF while balancing file size and readable
+  visual quality. Use for PDF optimization, resolution control, compression strategies,
+  and removal of non-essential document content.
+triggers:
+- compdf-compress-pdf
+- compdf
+- compress
+- pdf
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for compdf-compress-pdf
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\skills\compdf-compress-pdf\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

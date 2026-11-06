@@ -1,0 +1,33 @@
+name: canva-resize-for-social-media
+version: 1.0.0
+category: docs
+status: stub
+description: Resize a Canva design into multiple social media formats (Facebook post,
+  Facebook story, Instagram post, Instagram story, LinkedIn post). Use this skill
+  when users want to resize Canva designs specifically for multiple social media platforms
+  in one operation, rather than resizing to a single format manually.
+triggers:
+- canva-resize-for-social-media
+- canva
+- resize
+- for
+- social
+- media
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for canva-resize-for-social-media
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\canva\skills\resize-for-social-media\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

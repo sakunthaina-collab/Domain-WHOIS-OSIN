@@ -1,0 +1,32 @@
+name: google-mobile-ads-banner
+version: 1.0.0
+category: engineering
+status: stub
+description: Provides instructions to implement, integrate, or configure Google Mobile
+  Ads (GMA) banner ads in Android, iOS, or Unity mobile applications. Use when the
+  task involves setting up banner ads in a mobile application. Don't use for other
+  ad formats like interstitial or rewarded ads.
+triggers:
+- google-mobile-ads-banner
+- google
+- mobile
+- ads
+- banner
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-mobile-ads-banner
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\google-skills\skills\ads\google-mobile-ads-banner\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

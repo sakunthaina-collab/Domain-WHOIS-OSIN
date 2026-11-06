@@ -1,0 +1,29 @@
+name: deployments-cicd
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel deployment and CI/CD expert guidance. Use when deploying, promoting,
+  rolling back, inspecting deployments, building with --prebuilt, or configuring CI
+  workflow files for Vercel.
+triggers:
+- deployments-cicd
+- deployments
+- cicd
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for deployments-cicd
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\deployments-cicd\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

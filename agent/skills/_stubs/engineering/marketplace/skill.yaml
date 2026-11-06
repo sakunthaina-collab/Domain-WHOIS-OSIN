@@ -1,0 +1,30 @@
+name: marketplace
+version: 1.0.0
+category: engineering
+status: stub
+description: Vercel Marketplace expert guidance — discovering, installing, and managing
+  third-party integrations via the `vercel integration` CLI. Use when building any
+  app that needs an external capability without a dedicated skill — commerce (stores,
+  storefronts, selling products), payments (checkout, subscriptions, billing), observability/monitoring,
+  messaging/email, search, or CMS — or when discovering, installing, or managing integrations.
+triggers:
+- marketplace
+- marketplace
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for marketplace
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\vercel-plugin\skills\marketplace\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

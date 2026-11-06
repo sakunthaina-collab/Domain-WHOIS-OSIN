@@ -1,0 +1,39 @@
+name: google-cloud-storage-basics
+version: 1.0.0
+category: engineering
+status: stub
+description: Stores, retrieves, and manages data as objects in Cloud Storage (Google
+  Cloud Storage, or GCS) buckets. Use when you need to interact with Cloud Storage
+  — set up a Storage MCP server (remote or local Toolbox), create or configure buckets,
+  upload, download, stream, or transfer data, organize objects with folders, generate
+  signed URLs, control access (IAM, ACLs, public access prevention), set storage classes
+  (Standard, Nearline, Coldline, Archive), manage lifecycle and cost, protect data
+  (versioning, CMEK, retention, Bucket Lock, holds, soft delete), host static websites,
+  trigger Pub/Sub notifications, mount buckets (gcsfuse), or optimize performance.
+  Covers gcloud storage / gsutil, JSON/XML APIs, client libraries, Terraform, and
+  Cloud Storage MCP servers. Don't use for non-Storage MCP servers, block storage
+  (Persistent Disk), BigQuery, or databases (Cloud SQL, Spanner, Bigtable, Firestore).
+triggers:
+- google-cloud-storage-basics
+- google
+- cloud
+- storage
+- basics
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for google-cloud-storage-basics
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\config\plugins\data-agent-kit-plugin\skills\google-cloud-storage-basics\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json

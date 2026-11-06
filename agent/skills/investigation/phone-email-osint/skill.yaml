@@ -1,0 +1,41 @@
+name: phone-email-osint
+version: 1.0.0
+category: investigation
+status: runnable
+description: >
+  ตรวจสอบเบอร์โทร/อีเมล และรอยเท้าดิจิทัลแบบ passive (ไม่ให้เป้าหมายรู้ตัว)
+  ใช้เมื่อต้องระบุตัวตนผู้ให้บริการ เครือข่ายโรมมิ่ง หรือบัญชีที่เชื่อมโยง
+  (Phone/email OSINT lookup, 追踪电话号码和关联账户)
+triggers:
+  - "ตรวจสอบเบอร์"
+  - "เช็คเบอร์"
+  - "phone lookup"
+  - "อีเมล"
+  - "OSINT"
+  - "roaming"
+  - "追踪电话号码"
+  - "电话号码"
+  - "关联账户"
+
+input_schema:
+  type: object
+  properties:
+    target:
+      type: string
+      description: "เบอร์ (+66...) หรืออีเมล"
+    target_type:
+      type: string
+      enum: ["phone", "email"]
+    passive_only:
+      type: boolean
+      default: true
+  required: ["target", "target_type"]
+
+runtime:
+  type: python
+  entry: run.py
+  timeout: 120
+
+permissions: [network]
+risk: high
+outputs: [json, markdown]

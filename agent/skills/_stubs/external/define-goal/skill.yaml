@@ -1,0 +1,31 @@
+name: define-goal
+version: 1.0.0
+category: external
+status: stub
+description: Help the user define a concrete, measurable goal before starting work,
+  especially when they ask to use the goal tool, create a goal, set an objective,
+  clarify success criteria, or turn a fuzzy intention into a quantitative outcome.
+  Use this skill for goal creation and goal refinement only; it does not manage durable
+  snapshots, decision logs, or long-running execution artifacts.
+triggers:
+- define-goal
+- define
+- goal
+input_schema:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: Task instruction for define-goal
+  required:
+  - instruction
+runtime:
+  type: python
+  entry: SKILL.md
+  timeout: 120
+  source_skill_md: C:\Users\Administrator\.gemini\antigravity\worktrees\adventurous-pasteur\install_new_skill\skills\skills\.curated\define-goal\SKILL.md
+permissions:
+- filesystem:read
+risk: low
+outputs:
+- json
