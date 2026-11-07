@@ -7,20 +7,19 @@
 เปิด `index.html` ด้วย browser ได้โดยตรง หรือรัน static server:
 
 ```bash
-python -m http.server 8000 --directory agent/ui
+python3 -m http.server 8000 --directory /home/ubuntu/security-overview-dashboard
 ```
 
 จากนั้นเปิด `http://localhost:8000`
 
 ## Backend defensive API
 
-โปรเจกต์มี backend FastAPI อยู่ในโฟลเดอร์ `agent/ui/backend/` สำหรับรับ telemetry, สร้าง incident, คำนวณ risk signal แบบอธิบายได้, สร้าง evidence SHA-256, ตรวจสอบ audit hash chain และบังคับ Human Approval ก่อน containment โดยค่าเริ่มต้นยังไม่เชื่อมต่อระบบภายนอกและทุก containment เป็น demo record เท่านั้น
+โปรเจกต์มี backend FastAPI อยู่ในโฟลเดอร์ `backend/` สำหรับรับ telemetry, สร้าง incident, คำนวณ risk signal แบบอธิบายได้, สร้าง evidence SHA-256, ตรวจสอบ audit hash chain และบังคับ Human Approval ก่อน containment โดยค่าเริ่มต้นยังไม่เชื่อมต่อระบบภายนอกและทุก containment เป็น demo record เท่านั้น
 
 ติดตั้ง dependency และรัน API:
 
 ```bash
-python -m pip install -r agent/ui/backend/requirements.txt
-cd agent/ui
+python3 -m pip install -r backend/requirements.txt
 uvicorn backend.main:app --reload --host 127.0.0.1 --port 8001
 ```
 
@@ -50,8 +49,35 @@ curl -X POST http://127.0.0.1:8001/api/v1/telemetry/events \
 รันชุดทดสอบ:
 
 ```bash
-PYTHONPATH=agent/ui/backend python -m unittest discover -s agent/ui/backend -p 'test_*.py' -v
+PYTHONPATH=backend python3 -m unittest discover -s backend -p 'test_*.py' -v
 ```
+
+### Real-time Webhook
+
+`POST /api/v1/webhooks/telemetry` รับ JSON telemetry จาก producer ที่ได้รับอนุญาต โดยตรวจ `X-Webhook-Timestamp`, `X-Webhook-Signature` และ `X-Event-Id` ด้วย HMAC-SHA256, จำกัดอายุ webhook และป้องกัน replay event ก่อนสร้าง incident
+
+ลายเซ็นคำนวณจาก:
+
+```
+HMAC_SHA256(WEBHOOK_SECRET, timestamp + "." + raw_body)
+```
+
+ตั้งค่า secret ด้วย environment variable `WEBHOOK_SECRET` เท่านั้น ห้ามใส่ secret จริงใน source code หรือ commit
+
+### SIEM / Telemetry Adapter
+
+`POST /api/v1/siem/events` รับ normalized event contract ที่มี `vendor`, `event_id`, `event_type`, `source`, `asset_id`, `severity`, `observed_at` และ `attributes` แล้วแปลงเข้าสู่ risk/evidence/audit pipeline เดียวกัน โดยไม่มีการส่งคำสั่งกลับไปยัง SIEM หรือระบบเป้าหมาย
+
+### Forensic Reports
+
+ดาวน์โหลดรายงานจาก incident ได้ที่:
+
+```
+GET /api/v1/incidents/{incident_id}/report.md
+GET /api/v1/incidents/{incident_id}/report.pdf
+```
+
+รายงานมี risk signal breakdown, evidence SHA-256, audit chain status, timeline, attribution status, human approval note, Developer และ MIT License โดย Markdown และ PDF สร้างจาก incident data ชุดเดียวกัน
 
 ## สิ่งที่มีในต้นแบบ
 

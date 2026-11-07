@@ -3,16 +3,19 @@
 Developer: NAKARIN SAKULTHAI
 License: MIT License
 """
+import json
+import time
 import unittest
 
 from fastapi.testclient import TestClient
 
-from main import app, store
+from main import app, store, webhook_guard
 
 
 class BackendSecurityTests(unittest.TestCase):
     def setUp(self) -> None:
         store.incidents.clear()
+        webhook_guard.reset_for_tests()
         self.client = TestClient(app)
 
     def test_health_is_defensive_only(self) -> None:
@@ -65,6 +68,27 @@ class BackendSecurityTests(unittest.TestCase):
             json={"action": "attack_back", "reason": "This must be rejected", "requested_by": "tester"},
         )
         self.assertEqual(response.status_code, 400)
+
+    def test_signed_webhook_accepts_valid_event_and_rejects_replay(self) -> None:
+        body = json.dumps({"event_type": "login_anomaly", "source": "auth-gateway", "asset_id": "agent-01"}, separators=(",", ":")).encode()
+        timestamp = str(int(time.time()))
+        signature = webhook_guard.signature(timestamp, body)
+        headers = {"Content-Type": "application/json", "X-Webhook-Timestamp": timestamp, "X-Webhook-Signature": f"sha256={signature}", "X-Event-Id": "evt-001"}
+        accepted = self.client.post("/api/v1/webhooks/telemetry", content=body, headers=headers)
+        self.assertEqual(accepted.status_code, 201)
+        replayed = self.client.post("/api/v1/webhooks/telemetry", content=body, headers=headers)
+        self.assertEqual(replayed.status_code, 401)
+
+    def test_siem_adapter_and_reports(self) -> None:
+        created = self.client.post("/api/v1/siem/events", json={"event_type": "api_chain", "source": "sentinel-alert", "asset_id": "agent-02", "vendor": "demo-siem", "event_id": "siem-42", "severity": "high"})
+        self.assertEqual(created.status_code, 201)
+        incident_id = created.json()["incident_id"]
+        markdown = self.client.get(f"/api/v1/incidents/{incident_id}/report.md")
+        self.assertEqual(markdown.status_code, 200)
+        self.assertIn("Defensive Incident Forensic Report", markdown.text)
+        pdf = self.client.get(f"/api/v1/incidents/{incident_id}/report.pdf")
+        self.assertEqual(pdf.status_code, 200)
+        self.assertTrue(pdf.content.startswith(b"%PDF"))
 
 
 if __name__ == "__main__":

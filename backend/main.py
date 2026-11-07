@@ -10,20 +10,29 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import secrets
+import time
 from datetime import datetime, timezone
 from enum import Enum
 from threading import Lock
 from typing import Any, Literal
 
-from fastapi import FastAPI, HTTPException, Request, status
+from fastapi import FastAPI, HTTPException, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, ConfigDict, Field, field_validator
+
+try:
+    from .reporting import render_markdown, render_pdf, report_sha256
+    from .webhooks import WebhookGuard
+except ImportError:  # pragma: no cover - supports PYTHONPATH=backend test mode
+    from reporting import render_markdown, render_pdf, report_sha256
+    from webhooks import WebhookGuard
 
 
 app = FastAPI(
     title="Trustworthy Agent Defensive API",
-    version="0.2.0",
+    version="0.3.0",
     description="Telemetry, explainable risk scoring, evidence integrity, and human-approved demo containment.",
 )
 app.add_middleware(
@@ -31,7 +40,7 @@ app.add_middleware(
     allow_origins=["http://localhost:8000", "http://127.0.0.1:8000"],
     allow_credentials=False,
     allow_methods=["GET", "POST"],
-    allow_headers=["Content-Type", "X-Actor"],
+    allow_headers=["Content-Type", "X-Actor", "X-Webhook-Timestamp", "X-Webhook-Signature", "X-Event-Id"],
 )
 
 MAX_TEXT = 500
@@ -45,6 +54,9 @@ ALLOWED_EVENT_TYPES = {
 }
 OFFENSIVE_ACTIONS = {"exploit", "attack_back", "brute_force", "credential_dump", "port_scan"}
 CONTAINMENT_ACTIONS = {"revoke_token", "quarantine_case", "freeze_transaction", "manual_control"}
+WEBHOOK_SECRET = os.getenv("WEBHOOK_SECRET", "development-webhook-secret")
+WEBHOOK_TOLERANCE_SECONDS = int(os.getenv("WEBHOOK_TOLERANCE_SECONDS", "300"))
+webhook_guard = WebhookGuard(WEBHOOK_SECRET, WEBHOOK_TOLERANCE_SECONDS)
 
 
 def utc_now() -> datetime:
@@ -91,6 +103,35 @@ class TelemetryEvent(BaseModel):
     @field_validator("attributes")
     @classmethod
     def validate_attributes(cls, value: dict[str, str | int | float | bool]) -> dict[str, str | int | float | bool]:
+        for key, item in value.items():
+            clean_text(key, "attribute key")
+            if isinstance(item, str):
+                clean_text(item, f"attribute {key}")
+        return value
+
+
+class SIEMEvent(BaseModel):
+    """Normalized defensive event contract for SIEM adapters."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    event_type: EventType
+    source: str = Field(min_length=1, max_length=MAX_TEXT)
+    asset_id: str = Field(min_length=1, max_length=MAX_TEXT)
+    severity: Literal["low", "medium", "high", "critical"] = "medium"
+    observed_at: datetime | None = None
+    vendor: str = Field(min_length=1, max_length=MAX_TEXT)
+    event_id: str = Field(min_length=1, max_length=MAX_TEXT)
+    attributes: dict[str, str | int | float | bool] = Field(default_factory=dict, max_length=30)
+
+    @field_validator("source", "asset_id", "vendor", "event_id")
+    @classmethod
+    def validate_siem_text(cls, value: str, info: Any) -> str:
+        return clean_text(value, info.field_name)
+
+    @field_validator("attributes")
+    @classmethod
+    def validate_siem_attributes(cls, value: dict[str, str | int | float | bool]) -> dict[str, str | int | float | bool]:
         for key, item in value.items():
             clean_text(key, "attribute key")
             if isinstance(item, str):
@@ -283,6 +324,50 @@ def ingest_event(event: TelemetryEvent, request: Request) -> Incident:
     return incident
 
 
+@app.post("/api/v1/webhooks/telemetry", response_model=Incident, status_code=status.HTTP_201_CREATED)
+async def signed_telemetry_webhook(request: Request) -> Incident:
+    """Receive a signed event from an authorized telemetry producer."""
+    raw_body = await request.body()
+    timestamp = request.headers.get("X-Webhook-Timestamp", "")
+    supplied_signature = request.headers.get("X-Webhook-Signature", "")
+    event_id = request.headers.get("X-Event-Id", "")
+    if not event_id:
+        raise HTTPException(status_code=400, detail="X-Event-Id is required")
+    verified, reason = webhook_guard.verify(timestamp, raw_body, supplied_signature, event_id)
+    if not verified:
+        raise HTTPException(status_code=401, detail=f"webhook rejected: {reason}")
+    try:
+        payload = json.loads(raw_body.decode("utf-8"))
+        event = TelemetryEvent.model_validate(payload)
+    except (UnicodeDecodeError, json.JSONDecodeError, ValueError) as exc:
+        raise HTTPException(status_code=422, detail="invalid telemetry payload") from exc
+    actor = request.headers.get("X-Actor", "signed-webhook")
+    incident = create_incident(event, actor)
+    with store.lock:
+        store.incidents[incident.incident_id] = incident
+    store.add_audit(incident, "signed_webhook_verified", actor, {"event_id": event_id})
+    return incident
+
+
+@app.post("/api/v1/siem/events", response_model=Incident, status_code=status.HTTP_201_CREATED)
+def ingest_siem_event(event: SIEMEvent) -> Incident:
+    """Normalize a SIEM event into the common defensive telemetry contract."""
+    normalized = TelemetryEvent(
+        event_type=event.event_type,
+        source=f"{event.vendor}:{event.source}",
+        asset_id=event.asset_id,
+        occurred_at=event.observed_at,
+        severity=event.severity,
+        attributes={**event.attributes, "siem_event_id": event.event_id, "siem_vendor": event.vendor},
+    )
+    actor = f"siem:{event.vendor}"
+    incident = create_incident(normalized, actor)
+    with store.lock:
+        store.incidents[incident.incident_id] = incident
+    store.add_audit(incident, "siem_event_normalized", actor, {"event_id": event.event_id})
+    return incident
+
+
 @app.get("/api/v1/incidents", response_model=list[Incident])
 def list_incidents() -> list[Incident]:
     with store.lock:
@@ -307,6 +392,30 @@ def integrity(incident_id: str) -> dict[str, Any]:
         "evidence_records": len(incident.evidence),
         "evidence_hashes_present": all(len(item.raw_response_sha256) == 64 for item in incident.evidence),
     }
+
+
+@app.get("/api/v1/incidents/{incident_id}/report.md")
+def markdown_report(incident_id: str) -> Response:
+    incident = get_incident(incident_id)
+    markdown = render_markdown(incident, store.verify_chain(incident))
+    digest = report_sha256(markdown)
+    return Response(
+        content=markdown + f"\nReport SHA-256: `{digest}`\n",
+        media_type="text/markdown",
+        headers={"Content-Disposition": f'attachment; filename="{incident_id}.md"', "X-Report-SHA256": digest},
+    )
+
+
+@app.get("/api/v1/incidents/{incident_id}/report.pdf")
+def pdf_report(incident_id: str) -> Response:
+    incident = get_incident(incident_id)
+    pdf = render_pdf(incident, store.verify_chain(incident))
+    digest = hashlib.sha256(pdf).hexdigest()
+    return Response(
+        content=pdf,
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{incident_id}.pdf"', "X-Report-SHA256": digest},
+    )
 
 
 @app.post("/api/v1/incidents/{incident_id}/containment/request")
