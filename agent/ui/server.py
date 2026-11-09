@@ -26,6 +26,11 @@ AGENT_DIR = UI_DIR.parent
 if str(AGENT_DIR) not in sys.path:
     sys.path.insert(0, str(AGENT_DIR))
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
+
 
 def _load_skill_runner(skill_folder: str):
     skill_path = AGENT_DIR / "skills" / "investigation" / skill_folder / "run.py"
